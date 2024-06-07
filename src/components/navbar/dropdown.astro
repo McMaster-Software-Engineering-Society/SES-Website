@@ -1,6 +1,6 @@
 ---
 import { Dropdown as DropdownContainer, DropdownItems } from "astro-navbar";
-const { title, lastItem, children } = Astro.props;
+const { title, lastItem, items } = Astro.props;
 ---
 
 <li class="relative">
@@ -32,7 +32,7 @@ const { title, lastItem, children } = Astro.props;
         <div
           class="px-3 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col">
           {
-            children.map((item) => (
+            items.map((item) => (
               <>
                 <a
                   href={item.path}

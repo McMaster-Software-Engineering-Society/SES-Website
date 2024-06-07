@@ -6,7 +6,7 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 export type MenuItem = {
   title: string;
   path?: string;
-  children?: {
+  dropdownItems?: {
     title: string;
     path: string;
     children?: {
@@ -28,7 +28,7 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Contact",
-    children: [
+    dropdownItems: [
       { title: "Academic concerns", path: "/academic-concerns" },
       { title: "Submit a suggestion", path: "/suggestions" },
     ]
@@ -39,7 +39,7 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Resources",
-    children: [
+    dropdownItems: [
       { title: "Courses", path: "/courses", children: [
         {
           title: "Student advice",
@@ -78,15 +78,15 @@ const menuItems: MenuItem[] = [
           {
             menuItems.map((item, index) => (
               <>
-                {item.children && (
+                {item.dropdownItems && (
                   <Dropdown
                     title={item.title}
-                    children={item.children}
+                    items={item.dropdownItems}
                     lastItem={index === menuItems.length - 1}
                   />
                 )}
 
-                {!item.children && (
+                {!item.dropdownItems && (
                   <li>
                     <a
                       href={item.path}
