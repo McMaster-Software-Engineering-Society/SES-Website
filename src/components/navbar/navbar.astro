@@ -3,12 +3,16 @@ import Container from "@components/container.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-type MenuItem = {
+export type MenuItem = {
   title: string;
-  path: string;
+  path?: string;
   children?: {
     title: string;
     path: string;
+    children?: {
+      title: string;
+      path: string;
+    }[];
   }[];
   badge?: boolean; // Displays a 'New' badge next to the menu item
 };
@@ -24,7 +28,10 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Contact",
-    path: "/contact",
+    children: [
+      { title: "Academic concerns", path: "/academic-concerns" },
+      { title: "Submit a suggestion", path: "/suggestions" },
+    ]
   },
   {
     title: "Events",
@@ -32,9 +39,21 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Resources",
-    path: "/resources",
     children: [
-      { title: "Courses", path: "/courses" },
+      { title: "Courses", path: "/courses", children: [
+        {
+          title: "Student advice",
+          path: "/courses/advice"
+        },
+        {
+          title: "Technical electives",
+          path: "/courses/technical-electives"
+        },
+        {
+          title: "Past outlines",
+          path: "/courses/course-outlines"
+        }
+      ] },
       { title: "Internships", path: "/internships" },
     ],
   },
