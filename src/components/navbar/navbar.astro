@@ -1,40 +1,42 @@
 ---
 import Container from "@components/container.astro";
-import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-const menuitems = [
+type MenuItem = {
+  title: string;
+  path: string;
+  children?: {
+    title: string;
+    path: string;
+  }[];
+  badge?: boolean; // Displays a 'New' badge next to the menu item
+};
+
+const menuItems: MenuItem[] = [
   {
-    title: "Features",
-    path: "#",
-    children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
-    ],
-  },
-  {
-    title: "Pricing",
-    path: "/pricing",
+    title: "Home",
+    path: "/",
   },
   {
     title: "About",
     path: "/about",
   },
   {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
     title: "Contact",
     path: "/contact",
   },
   {
-    title: "Pro Version",
-    badge: true,
-    path: "/",
+    title: "Events",
+    path: "/events",
+  },
+  {
+    title: "Resources",
+    path: "/resources",
+    children: [
+      { title: "Courses", path: "/courses" },
+      { title: "Internships", path: "/internships" },
+    ],
   },
 ];
 ---
@@ -55,13 +57,13 @@ const menuitems = [
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
         <ul class="flex flex-col lg:flex-row lg:gap-3">
           {
-            menuitems.map((item, index) => (
+            menuItems.map((item, index) => (
               <>
                 {item.children && (
                   <Dropdown
                     title={item.title}
                     children={item.children}
-                    lastItem={index === menuitems.length - 1}
+                    lastItem={index === menuItems.length - 1}
                   />
                 )}
 
