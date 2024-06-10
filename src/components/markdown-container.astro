@@ -1,0 +1,7 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class:list={["max-w-screen-md mx-auto", className]}>
+  <slot />
+</div>
