@@ -31,7 +31,7 @@ const menuItems: MenuItem[] = [
     dropdownItems: [
       { title: "Academic concerns", path: "/academic-concerns" },
       { title: "Submit a suggestion", path: "/suggestions" },
-    ]
+    ],
   },
   {
     title: "Events",
@@ -40,20 +40,24 @@ const menuItems: MenuItem[] = [
   {
     title: "Resources",
     dropdownItems: [
-      { title: "Courses", path: "/courses", children: [
-        {
-          title: "Student advice",
-          path: "/courses/advice"
-        },
-        {
-          title: "Technical electives",
-          path: "/courses/technical-electives"
-        },
-        {
-          title: "Past outlines",
-          path: "/courses/course-outlines"
-        }
-      ] },
+      {
+        title: "Courses",
+        path: "/courses",
+        children: [
+          {
+            title: "Student advice",
+            path: "/courses/advice",
+          },
+          {
+            title: "Technical electives",
+            path: "/courses/technical-electives",
+          },
+          {
+            title: "Past outlines",
+            path: "/courses/course-outlines",
+          },
+        ],
+      },
       { title: "Internships", path: "/internships" },
     ],
   },

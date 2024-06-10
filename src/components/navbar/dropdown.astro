@@ -39,21 +39,17 @@ const { title, lastItem, items } = Astro.props;
                   class="py-1 text-gray-600 hover:text-gray-900">
                   {item.title}
                 </a>
-                {
-                  item.children && (
-                    <div class="flex flex-col">
-                      {
-                        item.children.map((child) => (
-                          <a
-                            href={child.path}
-                            class="py-1 text-gray-600 hover:text-gray-900 ml-3">
-                            {child.title}
-                          </a>
-                        ))
-                      }
-                    </div>
-                  )
-                }
+                {item.children && (
+                  <div class="flex flex-col">
+                    {item.children.map((child) => (
+                      <a
+                        href={child.path}
+                        class="py-1 text-gray-600 hover:text-gray-900 ml-3">
+                        {child.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </>
             ))
           }
