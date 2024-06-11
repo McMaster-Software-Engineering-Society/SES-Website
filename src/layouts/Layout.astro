@@ -4,6 +4,7 @@ import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
+import { pwaInfo } from "virtual:pwa-info";
 
 export interface Props {
   title: string;
@@ -27,7 +28,15 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png">
+    <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="theme-color" content="#ffffff">
     <meta name="generator" content={Astro.generator} />
+    <title>{makeTitle}</title>
+    <meta name="description" content="Official website for McMaster Software Engineering Society." />
+    <script src="/src/pwa.ts"></script>
+    { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
