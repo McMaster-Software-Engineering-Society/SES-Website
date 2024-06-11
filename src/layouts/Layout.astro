@@ -4,6 +4,7 @@ import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
+import { pwaInfo } from "virtual:pwa-info";
 
 export interface Props {
   title: string;
@@ -14,7 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
   "/opengraph.jpg",
-  Astro.site,
+  Astro.site
 ).toString();
 
 const { title, variant = "default" } = Astro.props;
@@ -41,6 +42,10 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
     <meta name="msapplication-TileColor" content="#b91d47" />
     <meta name="theme-color" content="#0f0e17" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- PWA -->
+    <script src="/src/pwa.ts"></script>
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
