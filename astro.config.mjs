@@ -9,5 +9,5 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://ses.eng.mcmaster.ca/",
-  integrations: [tailwind(), mdx(), sitemap(), icon(), react()]
+  integrations: [tailwind(), mdx(), sitemap(), icon(), react()],
 });
