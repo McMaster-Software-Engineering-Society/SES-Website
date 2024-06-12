@@ -9,9 +9,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write .",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix src && pnpm format",
+    "lint:strict": "eslint --max-warnings=0 src",
+    "typecheck": "tsc --noEmit --incremental false"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.0.1",
