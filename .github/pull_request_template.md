@@ -1,4 +1,4 @@
-## GitHub Issue #
+## GitHub Issue
 
 <!-- Please mention the GitHub Issue number that this pull request is related to -->
 
@@ -7,7 +7,6 @@ Issue #\<issue number here>
 ## Description
 
 <!-- Please provide a brief description of the changes made in this pull request -->
-
 
 ## Screenshots (if applicable)
 

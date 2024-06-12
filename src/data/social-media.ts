@@ -1,6 +1,6 @@
-import { IconType } from '@react-icons/all-files/lib/index.mjs';
-import { FaInstagram } from '@react-icons/all-files/fa/FaInstagram';
-import { FaFacebook } from '@react-icons/all-files/fa/FaFacebook';
+import { IconType } from "@react-icons/all-files/lib/index.mjs";
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 
 export const socialMedia: {
   platform: string;
@@ -8,13 +8,13 @@ export const socialMedia: {
   url: string;
 }[] = [
   {
-    platform: 'Instagram',
+    platform: "Instagram",
     icon: FaInstagram,
-    url: 'https://www.instagram.com/mcmaster_ses/',
+    url: "https://www.instagram.com/mcmaster_ses/",
   },
   {
-    platform: 'Facebook',
+    platform: "Facebook",
     icon: FaFacebook,
-    url: 'https://www.facebook.com/McMasterSEC/',
-    },
-]
+    url: "https://www.facebook.com/McMasterSEC/",
+  },
+];
