@@ -1,0 +1,127 @@
+---
+type CategorizedPDFs = Record<
+  number,
+  Record<string, { path: string; name: string }[]>
+>;
+
+const fetchPDFs = (
+  pdfPaths: Record<string, () => Promise<unknown>>
+): CategorizedPDFs => {
+  const categorized: CategorizedPDFs = {};
+
+  Object.keys(pdfPaths).forEach((pdfPath) => {
+    const fileName = pdfPath.split("/").pop();
+
+    if (!fileName) {
+      console.error(`Unable to extract file name from ${pdfPath}`);
+      return;
+    }
+
+    // Extract metadata from file name
+    const metaData = fileName.split("-");
+
+    let level: number;
+    let courseCode: string;
+    let season: string;
+    let year: number;
+
+    if (metaData.length !== 3) {
+      console.error(`Invalid file name format ${fileName}`);
+      return;
+    }
+
+    level = parseInt(metaData[0].charAt(metaData[0].length - 4));
+    courseCode = metaData[0];
+    season = metaData[1].toLowerCase();
+    year = parseInt(metaData[2]);
+
+    // Check if all metadata is present
+    if (!level || !courseCode || !season || !year) {
+      console.error(`Unable to extract course metadata from ${fileName}`);
+
+      // print out all the metadata
+      console.log("level:", level);
+      console.log("courseCode:", courseCode);
+      console.log("season:", season);
+      console.log("year:", year);
+
+      return;
+    }
+
+    // Check if level is valid
+    if (isNaN(level) || level < 1 || level > 5) {
+      console.error(`Invalid course level ${level} in ${fileName}`);
+      return;
+    }
+
+    // Check if term is valid
+    if (!["fall", "winter", "spring", "summer"].includes(season)) {
+      console.error(`Invalid season ${season} in ${fileName}`);
+      return;
+    }
+
+    // Check if year is valid
+    if (isNaN(year) || year < 1000 || year > 9999) {
+      console.error(`Invalid year ${year} in ${fileName}`);
+      return;
+    }
+
+    if (!categorized[level]) {
+      categorized[level] = {};
+    }
+
+    if (!categorized[level][season]) {
+      categorized[level][season] = [];
+    }
+
+    categorized[level][season].push({
+      path: pdfPath.replace("/public", ""),
+      name: fileName,
+    });
+  });
+
+  return categorized;
+};
+
+// Import all PDFs in the course-outlines directory
+const pdfs = import.meta.glob("../../../public/course-outlines/*.pdf");
+
+// Categorize the PDFs by course level, season, and year
+const categorizedPDFs = fetchPDFs(pdfs);
+
+// NOTE: PDF file names should be in the format of:
+// COURSE_CODE-Term-Year.pdf
+// Example: SFWRENG_2C03-fall-2024.pdf
+---
+
+<!-- print out list of pdfs in categorized pdfs, with the name of the PDF filename, as well as a button that opens up the pdf in a new tab -->{
+  categorizedPDFs &&
+    Object.keys(categorizedPDFs).map((level) => {
+      return (
+        <div>
+          <h2>Level {level}</h2>
+          {Object.keys(categorizedPDFs[level]).map((season) => {
+            return (
+              <div>
+                <h3>{season.charAt(0).toUpperCase() + season.slice(1)}</h3>
+                <ul>
+                  {categorizedPDFs[level][season].map((pdf) => {
+                    return (
+                      <li>
+                        <a
+                          href={pdf.path}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          {pdf.name}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      );
+    })
+}
