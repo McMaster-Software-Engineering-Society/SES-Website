@@ -1,16 +1,95 @@
 ---
+import OutlinePreview from "@components/courses/past-outlines/outline-preview";
 import PageLayout from "@layouts/PageLayout.astro";
-import { fetchPDFs } from "@utils/all";
-
-// Import all PDFs in the course-outlines directory
-const pdfs = import.meta.glob("../../../public/course-outlines/*.pdf");
+import { fetchOutlines } from "@utils/all";
 
 // Categorize the PDFs by course level, season, and year
-const categorizedPDFs = fetchPDFs(pdfs);
+const categorizedPDFs = fetchOutlines();
 
 // NOTE: PDF file names should be in the format of:
 // COURSE_CODE-Term-Year.pdf
 // Example: SFWRENG_2C03-fall-2024.pdf
+
+const courses = [
+  {
+    name: "SFWRENG 2XC3",
+    description:
+      "Software Engineering Practice and Experience: Development Basics",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 3XB3",
+    description: "Software Engineering Practice and Experience: Tools",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 2XC3",
+    description:
+      "Software Engineering Practice and Experience: Development Basics",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 3XB3",
+    description: "Software Engineering Practice and Experience: Tools",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 2XC3",
+    description:
+      "Software Engineering Practice and Experience: Development Basics",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 3XB3",
+    description: "Software Engineering Practice and Experience: Tools",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+  {
+    name: "SFWRENG 4G06",
+    description: "Software Engineering Practice and Experience: Capstone",
+    term: "Fall 2023",
+  },
+];
 ---
 
 <!-- {
@@ -46,9 +125,6 @@ const categorizedPDFs = fetchPDFs(pdfs);
 } -->
 <PageLayout title="Past Course Outlines">
   <div class="flex flex-row">
-    <div id="file-list" class="flex flex-col">
-      <span>File #1</span>
-      <span>File #2</span>
-    </div>
+    <OutlinePreview courses={courses} client:visible />
   </div>
 </PageLayout>

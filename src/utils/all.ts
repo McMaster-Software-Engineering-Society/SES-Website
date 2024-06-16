@@ -13,9 +13,17 @@ export const getFormattedDate = (
 type CategorizedPDFs = Record<
   number,
   Record<string, { path: string; name: string }[]>
->;
+  >;
 
-export const fetchPDFs = (
+const fetchOutlinePNGs = (
+  pdfName: string,
+  path: string,
+) => {
+  const pngPath = pdfName.replace(".pdf", ".png");
+  return pngPath;
+}
+
+export const fetchOutlinePDFs = (
   pdfPaths: Record<string, () => Promise<unknown>>,
 ): CategorizedPDFs => {
   const categorized: CategorizedPDFs = {};
@@ -92,3 +100,11 @@ export const fetchPDFs = (
 
   return categorized;
 };
+
+// TODO: Add return type
+export const fetchOutlines = () => {
+  // Import all PDFs in the course-outlines directory
+  const pdfs = import.meta.glob("../../public/past-outlines/*.pdf");
+  // console.log("PDFs:", pdfs);
+  const cateogrized = fetchOutlinePDFs(pdfs);
+}
