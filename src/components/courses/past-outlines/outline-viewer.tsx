@@ -9,6 +9,7 @@ type PastOutlinesProps = {
 };
 
 // TODO: On selecting a course from the list, have the list automatically scroll to make the selected course second from the top
+// TODO: Add mobile layout
 
 const levelMap: { [key: string]: number } = {
   "level-2": 2,
@@ -16,7 +17,9 @@ const levelMap: { [key: string]: number } = {
   "level-4": 4,
 };
 
-export default function OutlineViewer({ courses }: Readonly<PastOutlinesProps>) {
+export default function OutlineViewer({
+  courses,
+}: Readonly<PastOutlinesProps>) {
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
   const [selectedTerm, setSelectedTerm] = useState<string>("all");
   const [searchFilter, setSearchFilter] = useState<string>("");
