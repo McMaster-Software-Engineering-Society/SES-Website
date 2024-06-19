@@ -19,6 +19,7 @@ const levelMap: { [key: string]: number } = {
 export default function PastOutlines({ courses }: Readonly<PastOutlinesProps>) {
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
   const [selectedTerm, setSelectedTerm] = useState<string>("all");
+  const [searchFilter, setSearchFilter] = useState<string>("");
 
   const [selectedCourse, setSelectedCourse] = useState<number>(0);
   const [filteredCourses, setFilteredCourses] = useState<Course[]>(courses);
@@ -30,10 +31,14 @@ export default function PastOutlines({ courses }: Readonly<PastOutlinesProps>) {
           (selectedLevel === "all" ||
             course.level === levelMap[selectedLevel]) &&
           (selectedTerm === "all" ||
-            course.term.split(" ")[0].toLowerCase() === selectedTerm),
+            course.term.split(" ")[0].toLowerCase() === selectedTerm) &&
+          (searchFilter === "" ||
+            course.courseCode
+              .toLowerCase()
+              .includes(searchFilter.toLowerCase())),
       ),
     );
-  }, [selectedLevel, selectedTerm]);
+  }, [selectedLevel, selectedTerm, searchFilter]);
 
   return (
     <div className="flex flex-row justify-between w-full">
@@ -43,6 +48,8 @@ export default function PastOutlines({ courses }: Readonly<PastOutlinesProps>) {
           setSelectedLevel={setSelectedLevel}
           selectedTerm={selectedTerm}
           setSelectedTerm={setSelectedTerm}
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter}
         />
         <CourseList
           courses={filteredCourses}

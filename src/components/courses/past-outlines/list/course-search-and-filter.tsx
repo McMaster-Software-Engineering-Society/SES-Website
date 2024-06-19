@@ -1,4 +1,8 @@
-import { Button } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
+import { HiOutlineFilter } from "@react-icons/all-files/hi/HiOutlineFilter";
+import { HiSearch } from "@react-icons/all-files/hi/HiSearch";
+import clsx from "clsx";
+import { useState } from "react";
 import LevelSelect from "./level-select";
 
 type CourseSearchAndFilterProps = {
@@ -6,6 +10,8 @@ type CourseSearchAndFilterProps = {
   setSelectedLevel: (level: string) => void;
   selectedTerm: string;
   setSelectedTerm: (term: string) => void;
+  searchFilter: string;
+  setSearchFilter: (searchFilter: string) => void;
 };
 
 export default function CourseSearchAndFilter({
@@ -13,21 +19,51 @@ export default function CourseSearchAndFilter({
   setSelectedLevel,
   selectedTerm,
   setSelectedTerm,
+  searchFilter,
+  setSearchFilter,
 }: Readonly<CourseSearchAndFilterProps>) {
+  const [useSearch, setUseSearch] = useState<boolean>(false);
+
+  const handleSearch = () => {
+    setUseSearch(!useSearch);
+  };
+
   return (
     <div id="filters-and-search" className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between gap-x-2">
-        <LevelSelect
-          selected={selectedLevel}
-          setSelected={setSelectedLevel}
-          items={[
-            { key: "all", label: "All" },
-            { key: "level-2", label: "Level 2" },
-            { key: "level-3", label: "Level 3" },
-            { key: "level-4", label: "Level 4" },
-          ]}
-        />
-        <Button isIconOnly className="w-full bg-[#F4F4F5]" />
+        <div className="w-full">
+          {!useSearch ? (
+            <LevelSelect
+              selected={selectedLevel}
+              setSelected={setSelectedLevel}
+              items={[
+                { key: "all", label: "All" },
+                { key: "level-2", label: "Level 2" },
+                { key: "level-3", label: "Level 3" },
+                { key: "level-4", label: "Level 4" },
+              ]}
+            />
+          ) : (
+            <Input
+              placeholder="Type to search..."
+              className="w-full"
+              autoFocus
+              value={searchFilter}
+              onValueChange={(value) => {
+                setSearchFilter(value);
+              }}
+            />
+          )}
+        </div>
+        <Button
+          isIconOnly
+          className={clsx([
+            "bg-[#F4F4F5] text-xl",
+            !useSearch ? "w-full" : "w-16",
+          ])}
+          onClick={handleSearch}>
+          {useSearch ? <HiOutlineFilter /> : <HiSearch />}
+        </Button>
       </div>
       <LevelSelect
         selected={selectedTerm}
