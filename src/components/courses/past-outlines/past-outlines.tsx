@@ -1,8 +1,8 @@
 import type { Course } from "@utils/past-outlines";
 import { useState } from "react";
-import CourseList from "./course-list";
-import CourseSearchAndFilter from "./course-search-and-filter";
-import CourseOutlinePreview from "./course-outline-preview";
+import CourseList from "./list/course-list";
+import CourseSearchAndFilter from "./list/course-search-and-filter";
+import CourseOutlinePreview from "./preview/course-outline-preview";
 
 type PastOutlinesProps = {
   courses: Course[];
