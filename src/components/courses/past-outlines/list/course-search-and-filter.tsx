@@ -28,6 +28,7 @@ export default function CourseSearchAndFilter({
     setUseSearch(!useSearch);
   };
 
+  // Reset the selected level and term when the search filter is toggled
   useEffect(() => {
     if (useSearch) {
       setSelectedLevel("all");

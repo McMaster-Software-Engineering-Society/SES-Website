@@ -27,6 +27,7 @@ export default function OutlineViewer({
   const [selectedCourse, setSelectedCourse] = useState<number>(0);
   const [filteredCourses, setFilteredCourses] = useState<Course[]>(courses);
 
+  // Update the filtered courses whenever the selected level, term, or search filter changes
   useEffect(() => {
     setFilteredCourses(
       courses.filter(
