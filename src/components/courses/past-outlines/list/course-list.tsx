@@ -9,6 +9,8 @@ type CourseListProps = {
   setSelectedCourse: (index: number) => void;
 };
 
+// TODO: Add link to form to submit past outlines
+
 export default function CourseList({
   courses,
   selectedCourse,

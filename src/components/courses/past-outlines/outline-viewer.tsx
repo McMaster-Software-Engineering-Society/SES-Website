@@ -16,7 +16,7 @@ const levelMap: { [key: string]: number } = {
   "level-4": 4,
 };
 
-export default function PastOutlines({ courses }: Readonly<PastOutlinesProps>) {
+export default function OutlineViewer({ courses }: Readonly<PastOutlinesProps>) {
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
   const [selectedTerm, setSelectedTerm] = useState<string>("all");
   const [searchFilter, setSearchFilter] = useState<string>("");

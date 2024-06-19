@@ -1,5 +1,5 @@
 ---
-import PastOutlines from "@components/courses/past-outlines/past-outlines";
+import OutlineViewer from "@components/courses/past-outlines/outline-viewerr";
 import PageLayout from "@layouts/PageLayout.astro";
 import { fetchOutlines, type Course } from "@utils/past-outlines";
 
@@ -11,7 +11,6 @@ const courses: Course[] = fetchOutlines();
 // Example: SFWRENG_2C03-fall-2024.pdf
 ---
 
-<!-- TODO: Add link to form to submit past outlines -->
 <PageLayout title="Past Course Outlines">
-  <PastOutlines courses={courses} client:visible />
+  <OutlineViewer courses={courses} client:visible />
 </PageLayout>
