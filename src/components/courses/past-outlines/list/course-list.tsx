@@ -1,6 +1,7 @@
 import { Card, CardBody, Divider, ScrollShadow } from "@nextui-org/react";
 import CourseListItem from "./course-list-item";
 import type { Course } from "@utils/past-outlines";
+import clsx from "clsx";
 
 type CourseListProps = {
   courses: Course[];
@@ -12,7 +13,7 @@ export default function CourseList({
   courses,
   selectedCourse,
   setSelectedCourse,
-}: CourseListProps) {
+}: Readonly<CourseListProps>) {
   return (
     <Card className="mt-4">
       <CardBody>
@@ -26,7 +27,14 @@ export default function CourseList({
                   setSelectedCourse(index);
                 }}
                 selected={selectedCourse === index}
-                className="p-2"
+                className={clsx([
+                  "py-2 px-3",
+                  courses.length === 1 && "rounded-md",
+                  courses.length > 1 && index === 0 && "rounded-t-md",
+                  courses.length > 1 &&
+                    index === courses.length - 1 &&
+                    "rounded-b-md",
+                ])}
               />
               {index !== courses.length - 1 && <Divider />}
             </div>
