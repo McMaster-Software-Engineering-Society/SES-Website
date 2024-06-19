@@ -31,7 +31,7 @@ export default function CourseList({
             courses.map((course, index) => (
               <div key={`${course.courseCode}-${index}`}>
                 <CourseListItem
-                  name={course.courseCode}
+                  courseCode={course.courseCode}
                   term={course.term}
                   handleClick={() => {
                     setSelectedCourse(index);

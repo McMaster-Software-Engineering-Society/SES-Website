@@ -2,20 +2,17 @@ import { HiArrowRight } from "@react-icons/all-files/hi/HiArrowRight";
 import clsx from "clsx";
 
 type CourseListItemProps = {
-  name: string;
+  courseCode: string;
   term: string;
   handleClick: () => void;
   selected?: boolean;
   className?: string;
 };
 
-// TODO: Add tooltips to course description
-// TODO: Rename from "name" to "courseCode"
-// TODO: Rename from "description" to "courseName"
 // TODO: Add link to Academic calendar?
 
 export default function CourseListItem({
-  name,
+  courseCode: name,
   term,
   handleClick,
   selected = false,
