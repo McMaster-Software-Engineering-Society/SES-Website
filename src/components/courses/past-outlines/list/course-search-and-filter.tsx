@@ -2,7 +2,7 @@ import { Button, Input } from "@nextui-org/react";
 import { HiOutlineFilter } from "@react-icons/all-files/hi/HiOutlineFilter";
 import { HiSearch } from "@react-icons/all-files/hi/HiSearch";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LevelSelect from "./level-select";
 
 type CourseSearchAndFilterProps = {
@@ -27,6 +27,15 @@ export default function CourseSearchAndFilter({
   const handleSearch = () => {
     setUseSearch(!useSearch);
   };
+
+  useEffect(() => {
+    if (useSearch) {
+      setSelectedLevel("all");
+      setSelectedTerm("all");
+    } else {
+      setSearchFilter("");
+    }
+  }, [useSearch]);
 
   return (
     <div id="filters-and-search" className="flex flex-col gap-y-2">
