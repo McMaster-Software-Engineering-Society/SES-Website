@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button, Tooltip } from "@nextui-org/react";
 import type { Course } from "@utils/past-outlines";
 import { HiOutlineExternalLink } from "@react-icons/all-files/hi/HiOutlineExternalLink";
 import clsx from "clsx";
@@ -42,14 +42,19 @@ export default function CourseOutlinePreview({
             ))}
           </div>
           <div className="absolute top-4 right-8 group-hover:opacity-100 opacity-0 transition duration-150">
-            <Button
-              isIconOnly
-              variant="shadow"
-              color="primary"
-              onClick={() => window.open(courses[selectedCourse].pdfPath)}
-              className="text-xl">
-              <HiOutlineExternalLink />
-            </Button>
+            <Tooltip
+              content="Open outline in new tab"
+              placement="top-end"
+              closeDelay={0}>
+              <Button
+                isIconOnly
+                variant="shadow"
+                color="primary"
+                onClick={() => window.open(courses[selectedCourse].pdfPath)}
+                className="text-xl">
+                <HiOutlineExternalLink />
+              </Button>
+            </Tooltip>
           </div>
         </div>
       )}
