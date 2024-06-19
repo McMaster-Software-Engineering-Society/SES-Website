@@ -19,7 +19,7 @@ export default function CourseOutlinePreview({
         "hidden flex-col ml-8 lg:flex w-full justify-center items-center text-center",
         courses[selectedCourse].pngPaths.length !== 0 && "border-1",
       ])}>
-      {courses[selectedCourse].pngPaths.length === 0 && (
+      {courses[selectedCourse].pngPaths.length === 0 ? (
         <div>
           <h2 className="text-xl font-bold">Preview is unavailable</h2>
           <Button
@@ -30,16 +30,29 @@ export default function CourseOutlinePreview({
             Open outline
           </Button>
         </div>
+      ) : (
+        <div className="relative group">
+          <div className="overflow-y-scroll max-h-[78vh]">
+            {courses[selectedCourse].pngPaths.map((pngPath, index) => (
+              <img
+                key={`${pngPath}-${index}`}
+                alt={`${courses[selectedCourse].courseCode} ${courses[selectedCourse].term} outline page #${index + 1}`}
+                src={pngPath}
+              />
+            ))}
+          </div>
+          <div className="absolute top-4 right-8 group-hover:opacity-100 opacity-0 transition duration-150">
+            <Button
+              isIconOnly
+              variant="shadow"
+              color="primary"
+              onClick={() => window.open(courses[selectedCourse].pdfPath)}
+              className="text-xl">
+              <HiOutlineExternalLink />
+            </Button>
+          </div>
+        </div>
       )}
-      <div className="overflow-y-scroll max-h-[78vh] ">
-        {courses[selectedCourse].pngPaths.map((pngPath, index) => (
-          <img
-            key={`${pngPath}-${index}`}
-            alt={`${courses[selectedCourse].courseCode} ${courses[selectedCourse].term} outline page #${index + 1}`}
-            src={pngPath}
-          />
-        ))}
-      </div>
     </div>
   );
 }
