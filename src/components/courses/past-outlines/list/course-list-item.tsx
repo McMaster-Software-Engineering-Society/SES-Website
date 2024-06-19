@@ -24,18 +24,20 @@ export default function CourseListItem({
   return (
     <div
       onClick={handleClick}
+      role="button"
+      tabIndex={0}
       className={clsx([
         "course-list-item group flex flex-row items-center justify-between cursor-pointer hover:bg-slate-100 active:bg-slate-200 transition",
         selected && "bg-slate-100",
+        "py-2 px-3",
+        "rounded-b-md",
         className,
       ])}>
       <div className="flex flex-col">
         <div className="flex flex-row items-center justify-between">
           <span className="font-bold">{name}</span>
         </div>
-        <span className="text-sm text-slate-400">
-          {term}
-        </span>
+        <span className="text-sm text-slate-400">{term}</span>
       </div>
       <div className="group-hover:translate-x-1 transition mr-2">
         <HiArrowRight />

@@ -20,7 +20,9 @@ export default function CourseList({
         <ScrollShadow className="flex flex-col overflow-y-scroll max-h-[65vh] no-scrollbar">
           {courses.length === 0 ? (
             <div>
-              <span className="text-sm">Sorry, no past outlines were found.</span>
+              <span className="text-sm">
+                Sorry, no past outlines were found.
+              </span>
               <Link className="text-sm italic" href="#">
                 Consider sending us yours!
               </Link>
@@ -36,7 +38,6 @@ export default function CourseList({
                   }}
                   selected={selectedCourse === index}
                   className={clsx([
-                    "py-2 px-3",
                     courses.length === 1 && "rounded-md",
                     courses.length > 1 && index === 0 && "rounded-t-md",
                     courses.length > 1 &&
