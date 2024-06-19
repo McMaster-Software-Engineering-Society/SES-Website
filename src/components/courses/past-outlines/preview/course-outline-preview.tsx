@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react";
 import type { Course } from "@utils/past-outlines";
 import { HiOutlineExternalLink } from "@react-icons/all-files/hi/HiOutlineExternalLink";
+import clsx from "clsx";
 
 type CourseOutlinePreviewProps = {
   selectedCourse: number;
@@ -10,11 +11,14 @@ type CourseOutlinePreviewProps = {
 export default function CourseOutlinePreview({
   selectedCourse,
   courses,
-}: CourseOutlinePreviewProps) {
+}: Readonly<CourseOutlinePreviewProps>) {
   return (
     <div
       id="course-outline-preview"
-      className="hidden flex-col ml-8 border-1 lg:flex w-full justify-center items-center text-center">
+      className={clsx([
+        "hidden flex-col ml-8 lg:flex w-full justify-center items-center text-center",
+        courses[selectedCourse].pngPaths.length !== 0 && "border-1",
+      ])}>
       {courses[selectedCourse].pngPaths.length === 0 && (
         <div>
           <h2 className="text-xl font-bold">Preview is unavailable</h2>
