@@ -3,6 +3,7 @@ import { useState } from "react";
 import CourseListItem from "./course-list-item";
 import CourseSearchAndFilter from "./course-search-and-filter";
 import type { Course } from "@utils/past-outlines";
+import CourseList from "./course-list";
 
 type OutlinePreviewProps = {
   courses: Course[];
@@ -26,26 +27,11 @@ export default function OutlinePreview({
           selectedTerm={selectedTerm}
           setSelectedTerm={setSelectedTerm}
         />
-        <Card className="mt-4">
-          <CardBody>
-            <ScrollShadow className="flex flex-col overflow-y-scroll max-h-[65vh] no-scrollbar">
-              {courses.map((course, index) => (
-                <div key={`${course.courseCode}-${index}`}>
-                  <CourseListItem
-                    name={course.courseCode}
-                    term={course.term}
-                    handleClick={() => {
-                      setSelectedCourse(index);
-                    }}
-                    selected={selectedCourse === index}
-                    className="p-2"
-                  />
-                  {index !== courses.length - 1 && <Divider />}
-                </div>
-              ))}
-            </ScrollShadow>
-          </CardBody>
-        </Card>
+        <CourseList
+          courses={courses}
+          selectedCourse={selectedCourse}
+          setSelectedCourse={setSelectedCourse}
+        />
       </div>
       <div id="course-outline-preview" className="flex flex-col ml-8 border-1">
         <div className="overflow-y-scroll max-h-[78vh] ">
