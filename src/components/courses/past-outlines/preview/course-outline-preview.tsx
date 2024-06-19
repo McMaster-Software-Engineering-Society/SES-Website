@@ -43,7 +43,7 @@ export default function CourseOutlinePreview({
           </div>
           <div className="absolute top-4 right-8 group-hover:opacity-100 opacity-0 transition duration-150">
             <Tooltip
-              content="Open outline in new tab"
+              content="Open outline in browser"
               placement="top-end"
               closeDelay={0}>
               <Button
