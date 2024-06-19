@@ -33,7 +33,7 @@ export default function CourseSearchAndFilter({
         selected={selectedTerm}
         setSelected={setSelectedTerm}
         items={[
-          { key: "All", label: "All" },
+          { key: "all", label: "All" },
           { key: "fall", label: "Fall" },
           { key: "winter", label: "Winter" },
           { key: "spring", label: "Spring" },

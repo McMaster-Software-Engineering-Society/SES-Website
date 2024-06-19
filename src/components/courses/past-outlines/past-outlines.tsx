@@ -1,5 +1,5 @@
 import type { Course } from "@utils/past-outlines";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CourseList from "./list/course-list";
 import CourseSearchAndFilter from "./list/course-search-and-filter";
 import CourseOutlinePreview from "./preview/course-outline-preview";
@@ -10,10 +10,30 @@ type PastOutlinesProps = {
 
 // TODO: On selecting a course from the list, have the list automatically scroll to make the selected course second from the top
 
+const levelMap: { [key: string]: number } = {
+  "level-2": 2,
+  "level-3": 3,
+  "level-4": 4,
+};
+
 export default function PastOutlines({ courses }: Readonly<PastOutlinesProps>) {
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
-  const [selectedTerm, setSelectedTerm] = useState<string>("any");
+  const [selectedTerm, setSelectedTerm] = useState<string>("all");
+
   const [selectedCourse, setSelectedCourse] = useState<number>(0);
+  const [filteredCourses, setFilteredCourses] = useState<Course[]>(courses);
+
+  useEffect(() => {
+    setFilteredCourses(
+      courses.filter(
+        (course) =>
+          (selectedLevel === "all" ||
+            course.level === levelMap[selectedLevel]) &&
+          (selectedTerm === "all" ||
+            course.term.split(" ")[0].toLowerCase() === selectedTerm),
+      ),
+    );
+  }, [selectedLevel, selectedTerm]);
 
   return (
     <div className="flex flex-row justify-between w-full">
@@ -25,7 +45,7 @@ export default function PastOutlines({ courses }: Readonly<PastOutlinesProps>) {
           setSelectedTerm={setSelectedTerm}
         />
         <CourseList
-          courses={courses}
+          courses={filteredCourses}
           selectedCourse={selectedCourse}
           setSelectedCourse={setSelectedCourse}
         />
