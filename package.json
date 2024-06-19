@@ -47,6 +47,7 @@
     "@react-icons/all-files": "https://github.com/react-icons/react-icons/releases/download/v5.2.1/react-icons-all-files-5.2.1.tgz",
     "@typescript-eslint/parser": "^7.12.0",
     "astro-eslint-parser": "^1.0.2",
+    "clsx": "^2.1.1",
     "eslint": "^9.4.0",
     "eslint-plugin-astro": "^1.2.0",
     "globals": "^15.4.0",

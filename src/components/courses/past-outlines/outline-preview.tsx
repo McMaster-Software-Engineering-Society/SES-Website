@@ -1,20 +1,18 @@
-import {
-  Button,
-  Card,
-  CardBody,
-  Divider,
-  ScrollShadow,
-} from "@nextui-org/react";
+import { Card, CardBody, Divider, ScrollShadow } from "@nextui-org/react";
 import { useState } from "react";
 import CourseListItem from "./course-list-item";
-import LevelSelect from "./level-select";
+import CourseSearchAndFilter from "./course-search-and-filter";
+
+export type Course = {
+  courseCode: string;
+  name: string;
+  term: string;
+  level: number;
+  selected?: boolean;
+};
 
 type OutlinePreviewProps = {
-  courses: {
-    name: string;
-    description: string;
-    term: string;
-  }[];
+  courses: Course[];
 };
 
 export default function OutlinePreview({
@@ -24,50 +22,48 @@ export default function OutlinePreview({
   const [selectedTerm, setSelectedTerm] = useState<string>("any");
 
   return (
-    <div className="flex flex-row">
-      <div className="flex flex-col max-w-min">
-        <div id="filters-and-search" className="flex flex-col gap-y-2">
-          <div className="flex flex-row justify-between gap-x-2">
-            <LevelSelect
-              selected={selectedLevel}
-              setSelected={setSelectedLevel}
-              items={[
-                { key: "all", label: "All" },
-                { key: "level-2", label: "Level 2" },
-                { key: "level-3", label: "Level 3" },
-                { key: "level-4", label: "Level 4" },
-              ]}
-            />
-            <Button isIconOnly className="w-full bg-[#F4F4F5]" />
-          </div>
-          <LevelSelect
-            selected={selectedTerm}
-            setSelected={setSelectedTerm}
-            items={[
-              { key: "All", label: "All" },
-              { key: "fall", label: "Fall" },
-              { key: "winter", label: "Winter" },
-              { key: "spring", label: "Spring" },
-              { key: "summer", label: "Summer" },
-            ]}
-          />
-        </div>
+    <div className="flex flex-row justify-between w-full">
+      <div id="past-course-outline-list" className="flex flex-col max-w-min">
+        <CourseSearchAndFilter
+          selectedLevel={selectedLevel}
+          setSelectedLevel={setSelectedLevel}
+          selectedTerm={selectedTerm}
+          setSelectedTerm={setSelectedTerm}
+        />
         <Card className="mt-4">
           <CardBody>
-            <ScrollShadow className="flex flex-col gap-y-3 overflow-y-scroll max-h-[65vh]">
+            <ScrollShadow className="flex flex-col overflow-y-scroll max-h-[65vh] no-scrollbar">
               {courses.map((course, index) => (
-                <>
+                <div key={`${course.courseCode}-${index}`}>
                   <CourseListItem
-                    name={course.name}
-                    description={course.description}
+                    name={course.courseCode}
+                    description={course.name}
                     term={course.term}
+                    selected={course.selected}
+                    className="p-2"
                   />
                   {index !== courses.length - 1 && <Divider />}
-                </>
+                </div>
               ))}
             </ScrollShadow>
           </CardBody>
         </Card>
+      </div>
+      <div id="course-outline-preview" className="flex flex-col ml-8 border-1">
+        <div className="overflow-y-scroll max-h-[78vh] ">
+          <img
+            alt={"Course outline page #1"}
+            src="/past-outlines/SFWRENG_3XB3-Fall-2022-1.png"
+          />
+          <img
+            alt={"Course outline page #1"}
+            src="/past-outlines/SFWRENG_3XB3-Fall-2022-2.png"
+          />
+          <img
+            alt={"Course outline page #1"}
+            src="/past-outlines/SFWRENG_3XB3-Fall-2022-3.png"
+          />
+        </div>
       </div>
     </div>
   );
