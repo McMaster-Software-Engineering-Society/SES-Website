@@ -2,24 +2,21 @@ import { Card, CardBody, Divider, ScrollShadow } from "@nextui-org/react";
 import { useState } from "react";
 import CourseListItem from "./course-list-item";
 import CourseSearchAndFilter from "./course-search-and-filter";
-
-export type Course = {
-  courseCode: string;
-  name: string;
-  term: string;
-  level: number;
-  selected?: boolean;
-};
+import type { Course } from "@utils/past-outlines";
 
 type OutlinePreviewProps = {
   courses: Course[];
 };
+
+// TODO: On selecting a course from the list, have the list automatically scroll to make the selected course second from the top
 
 export default function OutlinePreview({
   courses,
 }: Readonly<OutlinePreviewProps>) {
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
   const [selectedTerm, setSelectedTerm] = useState<string>("any");
+
+  const [selectedCourse, setSelectedCourse] = useState<number>(0);
 
   return (
     <div className="flex flex-row justify-between w-full">
@@ -37,9 +34,12 @@ export default function OutlinePreview({
                 <div key={`${course.courseCode}-${index}`}>
                   <CourseListItem
                     name={course.courseCode}
-                    description={course.name}
+                    description={"unknown"}
                     term={course.term}
-                    selected={course.selected}
+                    handleClick={() => {
+                      setSelectedCourse(index);
+                    }}
+                    selected={selectedCourse === index}
                     className="p-2"
                   />
                   {index !== courses.length - 1 && <Divider />}

@@ -5,6 +5,7 @@ type CourseListItemProps = {
   name: string;
   description: string;
   term: string;
+  handleClick: () => void;
   selected?: boolean;
   className?: string;
 };
@@ -18,11 +19,13 @@ export default function CourseListItem({
   name,
   description,
   term,
+  handleClick,
   selected = false,
   className,
 }: Readonly<CourseListItemProps>) {
   return (
     <div
+      onClick={handleClick}
       className={clsx([
         "course-list-item group flex flex-row items-center justify-between cursor-pointer hover:bg-slate-100 active:bg-slate-200 transition",
         selected && "bg-slate-100",

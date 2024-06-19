@@ -1,113 +1,14 @@
 ---
-import OutlinePreview, {
-  type Course,
-} from "@components/courses/past-outlines/outline-preview";
+import OutlinePreview from "@components/courses/past-outlines/outline-preview";
 import PageLayout from "@layouts/PageLayout.astro";
-import { fetchOutlines } from "@utils/all";
+import { fetchOutlines, type Course } from "@utils/past-outlines";
 
 // Categorize the PDFs by course level, season, and year
-const categorizedPDFs = fetchOutlines();
+const courses: Course[] = fetchOutlines();
 
 // NOTE: PDF file names should be in the format of:
 // COURSE_CODE-Term-Year.pdf
 // Example: SFWRENG_2C03-fall-2024.pdf
-
-const courses: Course[] = [
-  {
-    courseCode: "SFWRENG 2XC3",
-    name:
-      "Software Engineering Practice and Experience: Development Basics",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 3XB3",
-    name: "Software Engineering Practice and Experience: Tools",
-    term: "Fall 2023",
-    selected: true,
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 2XC3",
-    name:
-      "Software Engineering Practice and Experience: Development Basics",
-    term: "Fall 2023",
-    level: 2
-  },
-  {
-    courseCode: "SFWRENG 3XB3",
-    name: "Software Engineering Practice and Experience: Tools",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 4
-  },
-  {
-    courseCode: "SFWRENG 2XC3",
-    name:
-      "Software Engineering Practice and Experience: Development Basics",
-    term: "Fall 2023",
-    level: 2
-  },
-  {
-    courseCode: "SFWRENG 3XB3",
-    name: "Software Engineering Practice and Experience: Tools",
-    term: "Fall 2023",
-    level: 3
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 4
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 4
-  },
-  {
-    courseCode: "SFWRENG 4G06",
-    name: "Software Engineering Practice and Experience: Capstone",
-    term: "Fall 2023",
-    level: 3
-  },
-];
 ---
 
 <!-- TODO: Add link to form to submit past outlines -->
