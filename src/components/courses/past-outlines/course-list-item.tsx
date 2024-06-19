@@ -3,7 +3,6 @@ import clsx from "clsx";
 
 type CourseListItemProps = {
   name: string;
-  description: string;
   term: string;
   handleClick: () => void;
   selected?: boolean;
@@ -17,7 +16,6 @@ type CourseListItemProps = {
 
 export default function CourseListItem({
   name,
-  description,
   term,
   handleClick,
   selected = false,
@@ -34,10 +32,9 @@ export default function CourseListItem({
       <div className="flex flex-col">
         <div className="flex flex-row items-center justify-between">
           <span className="font-bold">{name}</span>
-          <span className="text-slate-400 text-sm">{term}</span>
         </div>
-        <span className="text-sm text-ellipsis text-nowrap truncate max-w-64">
-          {description}
+        <span className="text-sm text-slate-400">
+          {term}
         </span>
       </div>
       <div className="group-hover:translate-x-1 transition mr-2">

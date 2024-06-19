@@ -15,7 +15,6 @@ export default function OutlinePreview({
 }: Readonly<OutlinePreviewProps>) {
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
   const [selectedTerm, setSelectedTerm] = useState<string>("any");
-
   const [selectedCourse, setSelectedCourse] = useState<number>(0);
 
   return (
@@ -34,7 +33,6 @@ export default function OutlinePreview({
                 <div key={`${course.courseCode}-${index}`}>
                   <CourseListItem
                     name={course.courseCode}
-                    description={"unknown"}
                     term={course.term}
                     handleClick={() => {
                       setSelectedCourse(index);
@@ -51,18 +49,13 @@ export default function OutlinePreview({
       </div>
       <div id="course-outline-preview" className="flex flex-col ml-8 border-1">
         <div className="overflow-y-scroll max-h-[78vh] ">
-          <img
-            alt={"Course outline page #1"}
-            src="/past-outlines/SFWRENG_3XB3-Fall-2022-1.png"
-          />
-          <img
-            alt={"Course outline page #1"}
-            src="/past-outlines/SFWRENG_3XB3-Fall-2022-2.png"
-          />
-          <img
-            alt={"Course outline page #1"}
-            src="/past-outlines/SFWRENG_3XB3-Fall-2022-3.png"
-          />
+          {courses[selectedCourse].pngPaths.map((pngPath, index) => (
+            <img
+              key={`${pngPath}-${index}`}
+              alt={`${courses[selectedCourse].courseCode} ${courses[selectedCourse].term} outline page #${index + 1}`}
+              src={pngPath}
+            />
+          ))}
         </div>
       </div>
     </div>
