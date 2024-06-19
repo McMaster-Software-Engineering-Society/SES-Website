@@ -1,19 +1,16 @@
-import { Card, CardBody, Divider, ScrollShadow } from "@nextui-org/react";
-import { useState } from "react";
-import CourseListItem from "./course-list-item";
-import CourseSearchAndFilter from "./course-search-and-filter";
 import type { Course } from "@utils/past-outlines";
+import { useState } from "react";
 import CourseList from "./course-list";
+import CourseSearchAndFilter from "./course-search-and-filter";
+import CourseOutlinePreview from "./course-outline-preview";
 
-type OutlinePreviewProps = {
+type PastOutlinesProps = {
   courses: Course[];
 };
 
 // TODO: On selecting a course from the list, have the list automatically scroll to make the selected course second from the top
 
-export default function OutlinePreview({
-  courses,
-}: Readonly<OutlinePreviewProps>) {
+export default function PastOutlines({ courses }: Readonly<PastOutlinesProps>) {
   const [selectedLevel, setSelectedLevel] = useState<string>("all");
   const [selectedTerm, setSelectedTerm] = useState<string>("any");
   const [selectedCourse, setSelectedCourse] = useState<number>(0);
@@ -33,17 +30,7 @@ export default function OutlinePreview({
           setSelectedCourse={setSelectedCourse}
         />
       </div>
-      <div id="course-outline-preview" className="flex flex-col ml-8 border-1">
-        <div className="overflow-y-scroll max-h-[78vh] ">
-          {courses[selectedCourse].pngPaths.map((pngPath, index) => (
-            <img
-              key={`${pngPath}-${index}`}
-              alt={`${courses[selectedCourse].courseCode} ${courses[selectedCourse].term} outline page #${index + 1}`}
-              src={pngPath}
-            />
-          ))}
-        </div>
-      </div>
+      <CourseOutlinePreview selectedCourse={selectedCourse} courses={courses} />
     </div>
   );
 }
