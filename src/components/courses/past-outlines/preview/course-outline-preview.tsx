@@ -1,4 +1,6 @@
+import { Button } from "@nextui-org/react";
 import type { Course } from "@utils/past-outlines";
+import { HiOutlineExternalLink } from "@react-icons/all-files/hi/HiOutlineExternalLink";
 
 type CourseOutlinePreviewProps = {
   selectedCourse: number;
@@ -10,7 +12,21 @@ export default function CourseOutlinePreview({
   courses,
 }: CourseOutlinePreviewProps) {
   return (
-    <div id="course-outline-preview" className="flex flex-col ml-8 border-1">
+    <div
+      id="course-outline-preview"
+      className="hidden flex-col ml-8 border-1 lg:flex w-full justify-center items-center text-center">
+      {courses[selectedCourse].pngPaths.length === 0 && (
+        <div>
+          <h2 className="text-xl font-bold">Preview is unavailable</h2>
+          <Button
+            className="mt-2"
+            variant="bordered"
+            endContent={<HiOutlineExternalLink />}
+            onClick={() => window.open(courses[selectedCourse].pdfPath)}>
+            Open outline
+          </Button>
+        </div>
+      )}
       <div className="overflow-y-scroll max-h-[78vh] ">
         {courses[selectedCourse].pngPaths.map((pngPath, index) => (
           <img
