@@ -45,7 +45,7 @@ export default function OutlineViewer({
   }, [selectedLevel, selectedTerm, searchFilter]);
 
   return (
-    <div className="flex flex-row justify-between w-full">
+    <div className="flex flex-row lg:justify-between w-full justify-center">
       <div id="past-course-outline-list" className="flex flex-col max-w-min">
         <CourseSearchAndFilter
           selectedLevel={selectedLevel}

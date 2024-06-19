@@ -38,6 +38,7 @@ export default function CourseList({
                   handleClick={() => {
                     setSelectedCourse(index);
                   }}
+                  pdfPath={course.pdfPath}
                   selected={selectedCourse === index}
                   className={clsx([
                     courses.length === 1 && "rounded-md",
