@@ -48,7 +48,7 @@ export default function CourseListItem({
           target="_blank"
           variant="flat"
           onClick={() => {
-            window.open(pdfPath);
+            window.open(pdfPath, "_blank");
           }}>
           <HiOutlineExternalLink />
         </Button>

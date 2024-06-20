@@ -55,7 +55,9 @@ export default function CourseOutlinePreview({
                 isIconOnly
                 variant="shadow"
                 color="primary"
-                onClick={() => window.open(courses[selectedCourse].pdfPath)}
+                onClick={() =>
+                  window.open(courses[selectedCourse].pdfPath, "_blank")
+                }
                 className="text-xl">
                 <HiOutlineExternalLink />
               </Button>
