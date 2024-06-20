@@ -1,6 +1,7 @@
 import { Button, Tooltip } from "@nextui-org/react";
 import type { Course } from "@utils/past-outlines";
 import { HiOutlineExternalLink } from "@react-icons/all-files/hi/HiOutlineExternalLink";
+import { isMobile } from "react-device-detect";
 import clsx from "clsx";
 
 type CourseOutlinePreviewProps = {
@@ -41,7 +42,11 @@ export default function CourseOutlinePreview({
               />
             ))}
           </div>
-          <div className="absolute top-4 right-8 group-hover:opacity-100 opacity-0 transition duration-150">
+          <div
+            className={clsx([
+              "absolute top-4 right-8 transition duration-150",
+              !isMobile && "group-hover:opacity-100 opacity-0",
+            ])}>
             <Tooltip
               content="Open in browser"
               placement="top-end"
@@ -61,3 +66,4 @@ export default function CourseOutlinePreview({
     </div>
   );
 }
+
