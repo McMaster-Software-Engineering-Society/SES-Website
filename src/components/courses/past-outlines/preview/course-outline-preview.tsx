@@ -9,6 +9,8 @@ type CourseOutlinePreviewProps = {
   courses: Course[];
 };
 
+// TODO: Add loading skeleton to prevent jittering when switching between outlines
+
 export default function CourseOutlinePreview({
   selectedCourse,
   courses,
