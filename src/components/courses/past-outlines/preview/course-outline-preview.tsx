@@ -68,4 +68,3 @@ export default function CourseOutlinePreview({
     </div>
   );
 }
-
