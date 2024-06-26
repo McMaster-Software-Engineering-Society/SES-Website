@@ -1,15 +1,30 @@
 ---
 import { getCollection } from "astro:content";
 import AddToCalendarButton from "./add-to-calendar-button";
+import { Button } from "@nextui-org/react";
 
 const events = await getCollection("events");
-events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
+
+// filter the events by past and future events
+const pastEvents = events.filter(
+  (event) => new Date(event.data.dateTime).valueOf() < new Date().valueOf()
+);
+const upcomingEvents = events.filter(
+  (event) => new Date(event.data.dateTime).valueOf() >= new Date().valueOf()
+);
+
+pastEvents.sort(
+  (a, b) => b.data.dateTime.valueOf() - a.data.dateTime.valueOf()
+);
+upcomingEvents.sort(
+  (a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf()
+);
 ---
 
-<div id="events-list" class="flex flex-col gap-y-4">
-  <h1 class="text-2xl font-bold">Upcoming events</h1>
+<div id="events-list" class="flex flex-col gap-y-5">
+  <h1 class="text-2xl font-bold">Past events</h1>
   {
-    events.map((event) => (
+    pastEvents.map((event) => (
       <div class="event flex flex-row gap-x-8 items-center">
         <div class="event-date-and-time flex flex-col min-w-28 min-h-28 rounded-lg bg-slate-800 items-center justify-center">
           <h4 class="text-xs uppercase">
@@ -53,7 +68,7 @@ events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
           </div>
           <span class="line-clamp-2 text-wrap mt-2">{event.body}</span>
         </div>
-        <div class="event-add-to-calendar">
+        <div class="event-actions flex flex-row gap-x-2">
           <AddToCalendarButton
             client:visible
             event={{
@@ -65,6 +80,7 @@ events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
               location: "Bergen, Norway",
             }}
           />
+          <Button variant="flat">Details</Button>
         </div>
       </div>
     ))

@@ -50,7 +50,7 @@ export default function AddToCalendarButton({
     <Dropdown>
       <DropdownTrigger>
         <Button variant="bordered" startContent={<FaPlus />}>
-          Add to Calendar
+          Calendar
         </Button>
       </DropdownTrigger>
       <DropdownMenu className="text-white">

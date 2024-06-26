@@ -7,11 +7,12 @@ const eventCollection = defineCollection({
     title: z.string(),
     dateTime: z.string().transform((str) => new Date(str)),
     location: z.string(),
+    googleMapsLink: z.string().optional(),
     image: z.object({
       src: z.string(),
       alt: z.string(),
-    }),
-    link: z.string(),
+    }).optional(),
+    link: z.string().optional(),
   }),
 });
 
