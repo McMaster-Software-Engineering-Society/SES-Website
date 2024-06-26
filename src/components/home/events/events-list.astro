@@ -20,7 +20,7 @@ events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
               new Date(event.data.dateTime).toDateString()
                 ? "Today"
                 : new Date(
-                      new Date().getTime() + 24 * 60 * 60 * 1000
+                      new Date().getTime() + 24 * 60 * 60 * 1000,
                     ).toDateString() ===
                     new Date(event.data.dateTime).toLocaleDateString("en-US", {
                       month: "short",
