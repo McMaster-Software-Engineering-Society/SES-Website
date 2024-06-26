@@ -7,11 +7,12 @@ events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
 ---
 
 <div id="events-list" class="flex flex-col gap-y-4">
+  <h1 class="text-2xl font-bold">Upcoming events</h1>
   {
     events.map((event) => (
       <div class="event flex flex-row gap-x-8 items-center">
         <div class="event-date-and-time flex flex-col min-w-28 min-h-28 rounded-lg bg-slate-800 items-center justify-center">
-          <h3 class="text-xs uppercase">
+          <h4 class="text-xs uppercase">
             {
               // If today is the same as the event date, display "Today"
               // If tomorrow is the same as the event date, display "Tomorrow"
@@ -20,7 +21,7 @@ events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
               new Date(event.data.dateTime).toDateString()
                 ? "Today"
                 : new Date(
-                      new Date().getTime() + 24 * 60 * 60 * 1000,
+                      new Date().getTime() + 24 * 60 * 60 * 1000
                     ).toDateString() ===
                     new Date(event.data.dateTime).toLocaleDateString("en-US", {
                       month: "short",
@@ -32,18 +33,25 @@ events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
                       day: "numeric",
                     })
             }
-          </h3>
-          <h2 class="text-xl">
+          </h4>
+          <h3 class="text-xl">
             {new Date(event.data.dateTime).toLocaleTimeString("en-US", {
               hour: "numeric",
               minute: "numeric",
               hour12: true,
             })}
-          </h2>
+          </h3>
         </div>
         <div class="event-info flex flex-col">
-          <h1 class="text-xl font-bold">{event.data.title}</h1>
-          <span class="truncate line-clamp-2 text-wrap">{event.body}</span>
+          <div class="flex flex-row gap-2 items-end">
+            <h2 class="event-info-title text-xl font-bold line-clamp-1">
+              {event.data.title}
+            </h2>
+            <span class="event-info-location text-xs font-semibold italic mb-1 text-nowrap">
+              {event.data.location}
+            </span>
+          </div>
+          <span class="line-clamp-2 text-wrap mt-2">{event.body}</span>
         </div>
         <div class="event-add-to-calendar">
           <AddToCalendarButton
