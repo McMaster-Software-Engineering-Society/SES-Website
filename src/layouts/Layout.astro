@@ -7,6 +7,7 @@ import "@fontsource-variable/bricolage-grotesque";
 
 export interface Props {
   title: string;
+  isHome?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -16,7 +17,7 @@ const resolvedImageWithDomain = new URL(
   Astro.site
 ).toString();
 
-const { title } = Astro.props;
+const { title, isHome = false } = Astro.props;
 
 const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
 ---
@@ -52,10 +53,10 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
       }}
     />
   </head>
-  <body>
+  <body class="bg-[#0f0e17]">
     <Navbar />
     <slot />
-    <Footer />
+    <Footer isHome={isHome} />
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */

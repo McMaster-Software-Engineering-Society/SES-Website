@@ -1,0 +1,21 @@
+---
+import Container from "@components/container.astro";
+import Layout from "./Layout.astro";
+import Parallax from "@components/parallax.astro";
+
+export interface Props {
+  title: string;
+  class?: string;
+}
+
+const { title, class: className } = Astro.props;
+---
+
+<Layout title={title} isHome>
+  <Parallax />
+  <div class="relative z-[98] bg-[#0f0e17]">
+    <Container class={className}>
+      <slot />
+    </Container>
+  </div>
+</Layout>

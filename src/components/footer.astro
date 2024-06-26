@@ -1,8 +1,11 @@
 ---
-
+export interface Props {
+  isHome?: boolean;
+}
+const { isHome = false } = Astro.props;
 ---
 
-<footer class="my-20 z-[98] relative">
+<footer class:list={["py-20", isHome && "bg-[#0f0e17] z-[98] relative"]}>
   <p class="text-center text-sm text-slate-500">
     Copyright © {new Date().getFullYear()} Software Engineering Society.
   </p>
