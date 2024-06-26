@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import AddToCalendarButton from "./add-to-calendar-button";
-import { Button } from "@nextui-org/react";
+import EventItem from "./event-item.astro";
 
 const events = await getCollection("events");
 
@@ -21,68 +20,25 @@ upcomingEvents.sort(
 );
 ---
 
-<div id="events-list" class="flex flex-col gap-y-5">
-  <h1 class="text-2xl font-bold">Past events</h1>
+<div id="events-list" class="flex flex-col">
   {
-    pastEvents.map((event) => (
-      <div class="event flex flex-row gap-x-8 items-center">
-        <div class="event-date-and-time flex flex-col min-w-28 min-h-28 rounded-lg bg-slate-800 items-center justify-center">
-          <h4 class="text-xs uppercase">
-            {
-              // If today is the same as the event date, display "Today"
-              // If tomorrow is the same as the event date, display "Tomorrow"
-              // Otherwise, display the event date
-              new Date().toDateString() ===
-              new Date(event.data.dateTime).toDateString()
-                ? "Today"
-                : new Date(
-                      new Date().getTime() + 24 * 60 * 60 * 1000
-                    ).toDateString() ===
-                    new Date(event.data.dateTime).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                    })
-                  ? "Tomorrow"
-                  : new Date(event.data.dateTime).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                    })
-            }
-          </h4>
-          <h3 class="text-xl">
-            {new Date(event.data.dateTime).toLocaleTimeString("en-US", {
-              hour: "numeric",
-              minute: "numeric",
-              hour12: true,
-            })}
-          </h3>
-        </div>
-        <div class="event-info flex flex-col">
-          <div class="flex flex-row gap-2 items-end">
-            <h2 class="event-info-title text-xl font-bold line-clamp-1">
-              {event.data.title}
-            </h2>
-            <span class="event-info-location text-xs font-semibold italic mb-1 text-nowrap">
-              {event.data.location}
-            </span>
-          </div>
-          <span class="line-clamp-2 text-wrap mt-2">{event.body}</span>
-        </div>
-        <div class="event-actions flex flex-row gap-x-2">
-          <AddToCalendarButton
-            client:visible
-            event={{
-              title: "Bergen Internation Film Festival",
-              start: "2024-07-10T09:00:00-04:00",
-              end: "2024-07-10T17:00:00-04:00",
-              details:
-                "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur odit, sapiente pariatur eveniet perspiciatis fuga sequi soluta tenetur rem asperiores? Blanditiis nihil, commodi ratione repudiandae et ad aut quae ipsam?",
-              location: "Bergen, Norway",
-            }}
-          />
-          <Button variant="flat">Details</Button>
-        </div>
+    upcomingEvents.length > 0 && (
+      <div class="flex flex-col gap-y-5">
+        <h1 class="text-2xl font-bold">Upcoming events</h1>
+        {upcomingEvents.map((event) => (
+          <EventItem event={event} />
+        ))}
       </div>
-    ))
+    )
+  }
+  {
+    pastEvents.length > 0 && (
+      <div class="flex flex-col gap-y-5">
+        <h1 class="text-2xl font-bold">Past events</h1>
+        {pastEvents.map((event) => (
+          <EventItem event={event} />
+        ))}
+      </div>
+    )
   }
 </div>
