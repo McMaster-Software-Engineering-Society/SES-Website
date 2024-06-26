@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+import AddToCalendarButton from "./add-to-calendar-button";
+
+const events = await getCollection("events");
+events.sort((a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf());
+---
+
+<div id="events-list" class="flex flex-col gap-y-4">
+  {
+    events.map((event) => (
+      <div class="event flex flex-row gap-x-8 items-center">
+        <div class="event-date-and-time flex flex-col min-w-28 min-h-28 rounded-lg bg-slate-800 items-center justify-center">
+          <h3 class="text-xs uppercase">
+            {
+              // If today is the same as the event date, display "Today"
+              // If tomorrow is the same as the event date, display "Tomorrow"
+              // Otherwise, display the event date
+              new Date().toDateString() ===
+              new Date(event.data.dateTime).toDateString()
+                ? "Today"
+                : new Date(
+                      new Date().getTime() + 24 * 60 * 60 * 1000
+                    ).toDateString() ===
+                    new Date(event.data.dateTime).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                    })
+                  ? "Tomorrow"
+                  : new Date(event.data.dateTime).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                    })
+            }
+          </h3>
+          <h2 class="text-xl">
+            {new Date(event.data.dateTime).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: true,
+            })}
+          </h2>
+        </div>
+        <div class="event-info flex flex-col">
+          <h1 class="text-xl font-bold">{event.data.title}</h1>
+          <span class="truncate line-clamp-2 text-wrap">{event.body}</span>
+        </div>
+        <div class="event-add-to-calendar">
+          <AddToCalendarButton
+            client:visible
+            event={{
+              title: "Bergen Internation Film Festival",
+              start: "2024-07-10T09:00:00-04:00",
+              end: "2024-07-10T17:00:00-04:00",
+              details:
+                "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur odit, sapiente pariatur eveniet perspiciatis fuga sequi soluta tenetur rem asperiores? Blanditiis nihil, commodi ratione repudiandae et ad aut quae ipsam?",
+              location: "Bergen, Norway",
+            }}
+          />
+        </div>
+      </div>
+    ))
+  }
+</div>

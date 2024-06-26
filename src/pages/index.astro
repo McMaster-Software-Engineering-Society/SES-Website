@@ -1,15 +1,13 @@
 ---
+import EventsList from "@components/home/events/events-list.astro";
+import SocialMedia from "@components/home/social-media.astro";
 import HomeLayout from "@layouts/HomeLayout.astro";
+
+
 ---
 
-<HomeLayout title="">
-  <div
-    class="min-h-screen flex flex-row text-slate-700 py-64 text-3xl items-center">
-    <div class="flex flex-col items-center gap-y-64 w-full">
-      <h1>(Social media here)</h1>
-      <h1>(SES info here)</h1>
-      <h1>(Upcoming events)</h1>
-    </div>
-    <h1 class="max-w-xs">(Instagram posts)</h1>
-  </div>
+<HomeLayout title="Home">
+  <div id="quick-links"></div>
+  <SocialMedia />
+  <EventsList />
 </HomeLayout>
