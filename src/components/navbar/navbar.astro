@@ -1,7 +1,7 @@
 ---
 import Container from "@components/container.astro";
+import { Astronav, MenuIcon, MenuItems } from "astro-navbar";
 import Dropdown from "./dropdown.astro";
-import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 export type MenuItem = {
   title: string;
@@ -69,12 +69,12 @@ const menuItems: MenuItem[] = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
+          ><span class="text-slate-500">McMaster</span><span
+            class="font-bold text-slate-400">SES</span
           >
         </a>
         <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+          <MenuIcon class="w-4 h-4 text-slate-400" />
         </div>
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
@@ -94,7 +94,7 @@ const menuItems: MenuItem[] = [
                   <li>
                     <a
                       href={item.path}
-                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
+                      class="flex lg:px-3 py-2 items-center text-slate-400 hover:text-slate-500">
                       <span> {item.title}</span>
                       {item.badge && (
                         <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">

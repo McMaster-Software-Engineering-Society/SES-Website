@@ -1,7 +1,14 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
+import EventsList from "@components/home/events/events-list.astro";
+import SocialMedia from "@components/home/social-media.astro";
+import InstagramEmbed from "@components/home/instagram-embed.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
 ---
 
-<PageLayout title="">
-  <!-- Content goes here -->
-</PageLayout>
+<HomeLayout title="Home">
+  <div class="flex flex-col gap-y-24">
+    <SocialMedia />
+    <EventsList />
+    <InstagramEmbed />
+  </div>
+</HomeLayout>

@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import EventItem from "./event-item.astro";
+
+const events = await getCollection("events");
+
+// filter the events by past and future events
+const pastEvents = events.filter(
+  (event) => new Date(event.data.dateTime).valueOf() < new Date().valueOf(),
+);
+const upcomingEvents = events.filter(
+  (event) => new Date(event.data.dateTime).valueOf() >= new Date().valueOf(),
+);
+
+pastEvents.sort(
+  (a, b) => b.data.dateTime.valueOf() - a.data.dateTime.valueOf(),
+);
+upcomingEvents.sort(
+  (a, b) => a.data.dateTime.valueOf() - b.data.dateTime.valueOf(),
+);
+---
+
+<div id="events-list" class="flex flex-col">
+  {
+    upcomingEvents.length > 0 && (
+      <div class="flex flex-col gap-y-5">
+        <h1 class="text-2xl font-bold">Upcoming events</h1>
+        {upcomingEvents.map((event) => (
+          <EventItem event={event} />
+        ))}
+      </div>
+    )
+  }
+  {
+    pastEvents.length > 0 && (
+      <div class="flex flex-col gap-y-5">
+        <h1 class="text-2xl font-bold">Past events</h1>
+        {pastEvents.map((event) => (
+          <EventItem event={event} />
+        ))}
+      </div>
+    )
+  }
+</div>

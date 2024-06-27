@@ -1,0 +1,18 @@
+---
+const embedPosts = await Astro.glob("../../content/posts/*.astro");
+
+// Change the number of posts to display
+const numDisplayPosts = 3;
+---
+
+<div
+  id="instagram-posts"
+  class="flex flex-col lg:flex-row gap-4 lg:max-w-none items-center lg:items-start lg:justify-around">
+  {
+    embedPosts.slice(0, numDisplayPosts).map((post) => (
+      <div class="max-w-xs">
+        <post.default />
+      </div>
+    ))
+  }
+</div>
