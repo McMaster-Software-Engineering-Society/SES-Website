@@ -46,10 +46,16 @@
     background-image: url("/parallax/parallax8.png");
   } */
 
-  #keyart-static {
-    background-image: url("/parallax/parallax-static.png");
+  #keyart-static-lg {
+    background-image: url("/parallax/parallax-static-lg.png");
   }
-
+  #keyart-static-md {
+    background-image: url("/parallax/parallax-static-md.png");
+  }
+  #keyart-static-sm {
+    background-image: url("/parallax/parallax-static-sm.png");
+  }
+  
   .keyart_layer.parallax {
     position: fixed;
   }
@@ -74,8 +80,14 @@
   <div class="keyart_layer parallax" id="keyart-7" data-speed="100"></div>
   <!-- <div class="keyart_layer parallax" id="keyart-8" data-speed="100"></div> -->
 </div>
-<div class="keyart block 2xl:hidden" id="hero-static">
-  <div class="keyart_layer" id="keyart-static"></div>
+<div class="keyart hidden lg:block 2xl:hidden" id="hero-static">
+  <div class="keyart_layer" id="keyart-static-lg"></div>
+</div>
+<div class="keyart hidden sm:block lg:hidden" id="hero-static">
+  <div class="keyart_layer" id="keyart-static-md"></div>
+</div>
+<div class="keyart block sm:hidden" id="hero-static">
+  <div class="keyart_layer" id="keyart-static-sm"></div>
 </div>
 
 <script>
