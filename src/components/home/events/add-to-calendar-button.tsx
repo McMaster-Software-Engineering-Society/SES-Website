@@ -41,15 +41,17 @@ type AddToCalendarButtonProps = {
     details: string;
     location: string;
   };
+  size?: "sm" | "md";
 };
 
 export default function AddToCalendarButton({
   event,
+  size = "md",
 }: Readonly<AddToCalendarButtonProps>) {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="bordered" startContent={<FaPlus />}>
+        <Button variant="bordered" startContent={<FaPlus />} size={size}>
           Calendar
         </Button>
       </DropdownTrigger>
@@ -70,3 +72,4 @@ export default function AddToCalendarButton({
     </Dropdown>
   );
 }
+
