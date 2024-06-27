@@ -1,8 +1,4 @@
 <style>
-  #parallax {
-    display: block;
-  }
-
   .keyart {
     position: relative;
     z-index: 10;
@@ -50,6 +46,10 @@
     background-image: url("/parallax/parallax8.png");
   } */
 
+  #keyart-static {
+    background-image: url("/parallax/parallax-static.png");
+  }
+
   .keyart_layer.parallax {
     position: fixed;
   }
@@ -63,18 +63,19 @@
   }
 </style>
 
-<div>
-  <div class="keyart" id="parallax">
-    <div class="keyart_layer parallax" id="keyart-0" data-speed="1.56"></div>
-    <div class="keyart_layer parallax" id="keyart-1" data-speed="6.25"></div>
-    <div class="keyart_layer parallax" id="keyart-2" data-speed="14.06"></div>
-    <div class="keyart_layer parallax" id="keyart-3" data-speed="25"></div>
-    <div class="keyart_layer parallax" id="keyart-4" data-speed="39.06"></div>
-    <div class="keyart_layer parallax" id="keyart-5" data-speed="56.25"></div>
-    <div class="keyart_layer parallax" id="keyart-6" data-speed="76.56"></div>
-    <div class="keyart_layer parallax" id="keyart-7" data-speed="100"></div>
-    <!-- <div class="keyart_layer parallax" id="keyart-8" data-speed="100"></div> -->
-  </div>
+<div class="keyart hidden 2xl:block" id="hero-parallax">
+  <div class="keyart_layer parallax" id="keyart-0" data-speed="1.56"></div>
+  <div class="keyart_layer parallax" id="keyart-1" data-speed="6.25"></div>
+  <div class="keyart_layer parallax" id="keyart-2" data-speed="14.06"></div>
+  <div class="keyart_layer parallax" id="keyart-3" data-speed="25"></div>
+  <div class="keyart_layer parallax" id="keyart-4" data-speed="39.06"></div>
+  <div class="keyart_layer parallax" id="keyart-5" data-speed="56.25"></div>
+  <div class="keyart_layer parallax" id="keyart-6" data-speed="76.56"></div>
+  <div class="keyart_layer parallax" id="keyart-7" data-speed="100"></div>
+  <!-- <div class="keyart_layer parallax" id="keyart-8" data-speed="100"></div> -->
+</div>
+<div class="keyart block 2xl:hidden" id="hero-static">
+  <div class="keyart_layer" id="keyart-static"></div>
 </div>
 
 <script>
