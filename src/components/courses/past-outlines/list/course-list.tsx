@@ -25,7 +25,7 @@ export default function CourseList({
               <span className="text-sm">
                 Sorry, no past outlines were found.
               </span>
-              <Link className="text-sm italic" href="#">
+              <Link className="text-sm italic underline" href="#">
                 Consider sending us yours!
               </Link>
             </div>
