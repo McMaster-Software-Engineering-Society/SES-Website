@@ -6,18 +6,19 @@ const events = await getCollection("events");
 
 // filter the events by past and future events
 const pastEvents = events.filter(
-  (event) => new Date(event.data.startDateTime).valueOf() < new Date().valueOf()
+  (event) =>
+    new Date(event.data.startDateTime).valueOf() < new Date().valueOf(),
 );
 const upcomingEvents = events.filter(
   (event) =>
-    new Date(event.data.startDateTime).valueOf() >= new Date().valueOf()
+    new Date(event.data.startDateTime).valueOf() >= new Date().valueOf(),
 );
 
 pastEvents.sort(
-  (a, b) => b.data.startDateTime.valueOf() - a.data.startDateTime.valueOf()
+  (a, b) => b.data.startDateTime.valueOf() - a.data.startDateTime.valueOf(),
 );
 upcomingEvents.sort(
-  (a, b) => a.data.startDateTime.valueOf() - b.data.startDateTime.valueOf()
+  (a, b) => a.data.startDateTime.valueOf() - b.data.startDateTime.valueOf(),
 );
 ---
 

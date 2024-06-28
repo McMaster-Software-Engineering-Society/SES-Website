@@ -32,7 +32,7 @@ const eventTime = new Date(event.data.startDateTime).toLocaleTimeString(
     hour: "numeric",
     minute: "numeric",
     hour12: true,
-  }
+  },
 );
 
 // TODO: Only show date for past events, not time (?)
@@ -74,10 +74,10 @@ const calendarEventData = {
           class="event-info-location text-xs font-semibold italic line-clamp-1">
           {event.data.location}
         </span>
-        { !isEventPast &&
-          (
+        {
+          !isEventPast && (
             <span class="event-info-date-and-time-sm text-xs italic block md:hidden">
-              {eventDate}{' '}-{' '}{eventTime}
+              {eventDate} - {eventTime}
             </span>
           )
         }

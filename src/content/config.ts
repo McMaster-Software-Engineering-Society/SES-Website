@@ -6,7 +6,10 @@ const eventCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     startDateTime: z.string().transform((str) => new Date(str)),
-    endDateTime: z.string().transform((str) => new Date(str)).optional(),
+    endDateTime: z
+      .string()
+      .transform((str) => new Date(str))
+      .optional(),
     location: z.string(),
     googleMapsLink: z.string().optional(),
     image: z
