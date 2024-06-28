@@ -10,9 +10,6 @@ type CourseOutlinePreviewProps = {
 };
 
 // TODO: Add loading skeleton to prevent jittering when switching between outlines
-// TODO: Fix view pdf tooltip text color
-// TODO: Fix item hover color
-// TODO: Fix search/filter toggle button color
 
 export default function CourseOutlinePreview({
   selectedCourse,
@@ -53,7 +50,7 @@ export default function CourseOutlinePreview({
               !isMobile && "group-hover:opacity-100 opacity-0",
             ])}>
             <Tooltip
-              content="Open in browser"
+              content={<span className="text-white">Open in browser</span>}
               placement="top-end"
               closeDelay={0}>
               <Button
