@@ -74,11 +74,13 @@ const calendarEventData = {
           class="event-info-location text-xs font-semibold italic line-clamp-1">
           {event.data.location}
         </span>
-        <span
-          class="event-info-date-and-time-sm text-xs italic block md:hidden">
-          {eventDate} -
-          {eventTime}
-        </span>
+        { !isEventPast &&
+          (
+            <span class="event-info-date-and-time-sm text-xs italic block md:hidden">
+              {eventDate}{' '}-{' '}{eventTime}
+            </span>
+          )
+        }
       </div>
     </div>
     <span class="line-clamp-4 md:line-clamp-2 text-wrap mt-2">{event.body}</span
