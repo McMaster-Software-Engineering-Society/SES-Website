@@ -2,6 +2,7 @@
 const { class: className } = Astro.props;
 ---
 
-<div class:list={["max-w-screen-md mx-auto markdown text-slate-300", className]}>
+<div
+  class:list={["max-w-screen-md mx-auto markdown text-slate-300", className]}>
   <slot />
 </div>
