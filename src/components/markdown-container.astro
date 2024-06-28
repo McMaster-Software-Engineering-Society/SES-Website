@@ -1,0 +1,8 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={["markdown text-slate-300", className]}>
+  <slot />
+</div>

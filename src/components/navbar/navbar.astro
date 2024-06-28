@@ -1,40 +1,78 @@
 ---
 import Container from "@components/container.astro";
-import Link from "@components/ui/link.astro";
+import { Astronav, MenuIcon, MenuItems } from "astro-navbar";
 import Dropdown from "./dropdown.astro";
-import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-const menuitems = [
+export type MenuItem = {
+  title: string;
+  path?: string;
+  dropdownItems?: {
+    title: string;
+    path: string;
+    children?: {
+      title: string;
+      path: string;
+    }[];
+  }[];
+  badge?: boolean; // Displays a 'New' badge next to the menu item
+};
+
+const menuItems: MenuItem[] = [
   {
-    title: "Features",
-    path: "#",
-    children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
-    ],
-  },
-  {
-    title: "Pricing",
-    path: "/pricing",
+    title: "Home",
+    path: "/",
   },
   {
     title: "About",
     path: "/about",
   },
   {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
     title: "Contact",
-    path: "/contact",
+    dropdownItems: [
+      { title: "Academic concerns", path: "/academic-concerns" },
+      { title: "Submit a suggestion", path: "/suggestions" },
+    ],
   },
   {
-    title: "Pro Version",
-    badge: true,
-    path: "https://astroship-pro.web3templates.com/",
+    title: "Events",
+    path: "/events",
+  },
+  {
+    title: "Resources",
+    dropdownItems: [
+      {
+        title: "Courses",
+        path: "/courses",
+        children: [
+          {
+            title: "Student advice",
+            path: "/courses/advice",
+          },
+          {
+            title: "Technical electives",
+            path: "/courses/technical-electives",
+          },
+          {
+            title: "Past outlines",
+            path: "/courses/past-outlines",
+          },
+        ],
+      },
+      {
+        title: "Experiences",
+        path: "/experiences",
+        children: [
+          {
+            title: "Internships",
+            path: "/experiences/internships",
+          },
+          {
+            title: "Hackathons",
+            path: "/experiences/hackathons",
+          },
+        ],
+      },
+    ],
   },
 ];
 ---
@@ -44,32 +82,32 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
+          ><span class="text-slate-500">McMaster</span><span
+            class="font-bold text-slate-400">SES</span
           >
         </a>
         <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+          <MenuIcon class="w-4 h-4 text-slate-400" />
         </div>
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
         <ul class="flex flex-col lg:flex-row lg:gap-3">
           {
-            menuitems.map((item, index) => (
+            menuItems.map((item, index) => (
               <>
-                {item.children && (
+                {item.dropdownItems && (
                   <Dropdown
                     title={item.title}
-                    children={item.children}
-                    lastItem={index === menuitems.length - 1}
+                    items={item.dropdownItems}
+                    lastItem={index === menuItems.length - 1}
                   />
                 )}
 
-                {!item.children && (
+                {!item.dropdownItems && (
                   <li>
                     <a
                       href={item.path}
-                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
+                      class="flex lg:px-3 py-2 items-center text-slate-400 hover:text-slate-500">
                       <span> {item.title}</span>
                       {item.badge && (
                         <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
@@ -83,17 +121,7 @@ const menuitems = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href="#" style="muted" block size="md">Log in</Link>
-          <Link href="#" size="md" block>Sign up</Link>
-        </div>
       </MenuItems>
     </Astronav>
-    <div>
-      <div class="hidden lg:flex items-center gap-4">
-        <a href="#">Log in</a>
-        <Link href="#" size="md">Sign up</Link>
-      </div>
-    </div>
   </header>
 </Container>

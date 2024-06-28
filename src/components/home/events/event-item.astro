@@ -1,0 +1,111 @@
+---
+import { Button } from "@nextui-org/react";
+import AddToCalendarButton from "./add-to-calendar-button";
+
+const { event } = Astro.props;
+
+// If today is the same as the event date, display "Today"
+// If tomorrow is the same as the event date, display "Tomorrow"
+// Otherwise, display the event date
+
+const isEventPast =
+  new Date(event.data.startDateTime).valueOf() < new Date().valueOf();
+
+const eventDate =
+  new Date().toDateString() ===
+  new Date(event.data.startDateTime).toDateString()
+    ? "Today"
+    : new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toDateString() ===
+        new Date(event.data.startDateTime).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        })
+      ? "Tomorrow"
+      : new Date(event.data.startDateTime).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        });
+
+const eventTime = new Date(event.data.startDateTime).toLocaleTimeString(
+  "en-US",
+  {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  },
+);
+
+// TODO: Only show date for past events, not time (?)
+// TODO: Link "details" button
+// TODO: Connect calendar button to event data
+
+const calendarEventData = {
+  title: event.data.title,
+  start: event.data.startDateTime.toISOString(),
+  end:
+    event.data.endDateTime?.toISOString() ??
+    new Date(event.data.startDateTime.valueOf() + 60 * 60 * 1000).toISOString(),
+  details: event.body,
+  location: event.data.location,
+};
+---
+
+<div class="event flex flex-col md:flex-row gap-x-8 gap-y-4 items-center">
+  <div
+    class="event-date-and-time hidden md:flex flex-col min-w-28 min-h-28 rounded-lg bg-slate-800 items-center justify-center">
+    {
+      isEventPast ? (
+        <h4 class="text-md uppercase">{eventDate}</h4>
+      ) : (
+        <div class="flex flex-col items-center">
+          <h4 class="text-xs uppercase">{eventDate}</h4>
+          <h3 class="text-xl">{eventTime}</h3>
+        </div>
+      )
+    }
+  </div>
+  <div class="event-info flex flex-col">
+    <div class="flex flex-col md:flex-row gap-2 md:items-end">
+      <h2 class="event-info-title text-xl font-bold line-clamp-1">
+        {event.data.title}
+      </h2>
+      <div class="mb-1">
+        <span
+          class="event-info-location text-xs font-semibold italic line-clamp-1">
+          {event.data.location}
+        </span>
+        {
+          !isEventPast && (
+            <span class="event-info-date-and-time-sm text-xs italic block md:hidden">
+              {eventDate} - {eventTime}
+            </span>
+          )
+        }
+      </div>
+    </div>
+    <span class="line-clamp-4 md:line-clamp-2 text-wrap mt-2">{event.body}</span
+    >
+  </div>
+  <div class="event-actions w-full md:w-auto">
+    <div class="event-actions-md hidden md:flex flex-row gap-x-2">
+      {
+        !isEventPast && (
+          <AddToCalendarButton client:visible event={calendarEventData} />
+        )
+      }
+      <Button variant="flat">Details</Button>
+    </div>
+    <div class="event-actions-sm flex md:hidden flex-row gap-x-2">
+      {
+        !isEventPast && (
+          <AddToCalendarButton
+            client:visible
+            event={calendarEventData}
+            size="sm"
+          />
+        )
+      }
+      <Button variant="flat" size="sm">Details</Button>
+    </div>
+  </div>
+</div>

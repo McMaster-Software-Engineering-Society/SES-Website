@@ -1,0 +1,107 @@
+<style>
+  .keyart {
+    position: relative;
+    z-index: 10;
+  }
+
+  .keyart,
+  .keyart_layer {
+    height: 1000px;
+  }
+
+  #keyart-0 {
+    background-image: url("/parallax/parallax0.png");
+    background-color: #0f0e17;
+  }
+
+  #keyart-1 {
+    background-image: url("/parallax/parallax1.png");
+  }
+
+  #keyart-2 {
+    background-image: url("/parallax/parallax2.png");
+  }
+
+  #keyart-3 {
+    background-image: url("/parallax/parallax3.png");
+  }
+
+  #keyart-4 {
+    background-image: url("/parallax/parallax4.png");
+  }
+
+  #keyart-5 {
+    background-image: url("/parallax/parallax5.png");
+  }
+
+  #keyart-6 {
+    background-image: url("/parallax/parallax6.png");
+  }
+
+  #keyart-7 {
+    background-image: url("/parallax/parallax7.png");
+  }
+
+  /* #keyart-8 {
+    background-image: url("/parallax/parallax8.png");
+  } */
+
+  #keyart-static-lg {
+    background-image: url("/parallax/parallax-static-lg.png");
+  }
+  #keyart-static-md {
+    background-image: url("/parallax/parallax-static-md.png");
+  }
+  #keyart-static-sm {
+    background-image: url("/parallax/parallax-static-sm.png");
+  }
+
+  .keyart_layer.parallax {
+    position: fixed;
+  }
+
+  .keyart_layer {
+    background-position: bottom center;
+    background-size: auto 1038px;
+    background-repeat: repeat-x;
+    width: 100%;
+    position: absolute;
+  }
+</style>
+
+<div class="keyart hidden 2xl:block" id="hero-parallax">
+  <div class="keyart_layer parallax" id="keyart-0" data-speed="1.56"></div>
+  <div class="keyart_layer parallax" id="keyart-1" data-speed="6.25"></div>
+  <div class="keyart_layer parallax" id="keyart-2" data-speed="14.06"></div>
+  <div class="keyart_layer parallax" id="keyart-3" data-speed="25"></div>
+  <div class="keyart_layer parallax" id="keyart-4" data-speed="39.06"></div>
+  <div class="keyart_layer parallax" id="keyart-5" data-speed="56.25"></div>
+  <div class="keyart_layer parallax" id="keyart-6" data-speed="76.56"></div>
+  <div class="keyart_layer parallax" id="keyart-7" data-speed="100"></div>
+  <!-- <div class="keyart_layer parallax" id="keyart-8" data-speed="100"></div> -->
+</div>
+<div class="keyart hidden lg:block 2xl:hidden" id="hero-static">
+  <div class="keyart_layer" id="keyart-static-lg"></div>
+</div>
+<div class="keyart hidden sm:block lg:hidden" id="hero-static">
+  <div class="keyart_layer" id="keyart-static-md"></div>
+</div>
+<div class="keyart block sm:hidden" id="hero-static">
+  <div class="keyart_layer" id="keyart-static-sm"></div>
+</div>
+
+<script>
+  document.addEventListener("scroll", function () {
+    const layers = document.querySelectorAll(".keyart_layer");
+    const scrollPosition = window.pageYOffset;
+
+    layers.forEach((layer) => {
+      const speed = layer.getAttribute("data-speed");
+      if (speed !== null) {
+        const yPos = -((scrollPosition * parseFloat(speed)) / 100);
+        const htmlLayer = layer as HTMLElement;
+        htmlLayer.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
+      }
+    });
+  });
+</script>

@@ -1,0 +1,27 @@
+---
+import MarkdownContainer from "@components/markdown-container.astro";
+import Layout from "./Layout.astro";
+import "../styles/markdown.css";
+
+export interface Props {
+  title: string;
+  description?: string;
+  class?: string;
+}
+
+const { title, description, class: className } = Astro.props;
+---
+
+<Layout title={title}>
+  <MarkdownContainer class={className}>
+    <div class="flex flex-col max-w-screen-md mx-auto">
+      <h1 class="font-bold" style="font-size: 3em; margin-bottom: 0;">
+        {title}
+      </h1>
+      <p>{description}</p>
+      <hr class="border-t-1 border-slate-500 my-6" />
+    </div>
+
+    <slot />
+  </MarkdownContainer>
+</Layout>

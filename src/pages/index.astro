@@ -1,17 +1,14 @@
 ---
-import Container from "@components/container.astro";
-import Cta from "@components/cta.astro";
-import Features from "@components/features.astro";
-import Hero from "@components/hero.astro";
-import Logos from "@components/logos.astro";
-import Layout from "@layouts/Layout.astro";
+import EventsList from "@components/home/events/events-list.astro";
+import SocialMedia from "@components/home/social-media.astro";
+import InstagramEmbed from "@components/home/instagram-embed.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
 ---
 
-<Layout title="">
-  <Container>
-    <Hero />
-    <Features />
-    <Logos />
-    <Cta />
-  </Container>
-</Layout>
+<HomeLayout title="Home">
+  <div class="flex flex-col gap-y-24">
+    <SocialMedia />
+    <EventsList />
+    <InstagramEmbed />
+  </div>
+</HomeLayout>
