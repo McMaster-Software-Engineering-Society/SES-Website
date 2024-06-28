@@ -9,8 +9,6 @@ type CourseListProps = {
   setSelectedCourse: (index: number) => void;
 };
 
-// TODO: Add link to form to submit past outlines
-
 export default function CourseList({
   courses,
   selectedCourse,
@@ -25,7 +23,9 @@ export default function CourseList({
               <span className="text-sm">
                 Sorry, no past outlines were found.
               </span>
-              <Link className="text-sm italic underline" href="#">
+              <Link
+                className="text-sm italic underline"
+                href="https://forms.gle/MLrNZnwsmeTEBbVcA">
                 Consider sending us yours!
               </Link>
             </div>
@@ -34,7 +34,7 @@ export default function CourseList({
               <div key={`${course.courseCode}-${index}`}>
                 <CourseListItem
                   courseCode={course.courseCode}
-                term={course.term}
+                  term={course.term}
                   handleClick={() => {
                     setSelectedCourse(index);
                   }}
