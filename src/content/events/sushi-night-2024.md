@@ -1,6 +1,6 @@
 ---
 title: "Sushi Night"
-dateTime: "2024-03-14 19:00"
+startDateTime: "2024-03-14 19:00"
 location: "Sapporo Japanese and Thai Restaurant"
 link: "https://forms.gle/1J1J1J1J1J1J1J1J1"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "P³ Profs, Paper, and Pizza"
-dateTime: "2024-02-13 17:30"
+startDateTime: "2024-02-13 17:30"
 location: "Gerald Hatch Centre, The Junction"
 ---
 

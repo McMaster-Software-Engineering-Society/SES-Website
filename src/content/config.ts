@@ -5,7 +5,8 @@ import { z, defineCollection } from "astro:content";
 const eventCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    dateTime: z.string().transform((str) => new Date(str)),
+    startDateTime: z.string().transform((str) => new Date(str)),
+    endDateTime: z.string().transform((str) => new Date(str)).optional(),
     location: z.string(),
     googleMapsLink: z.string().optional(),
     image: z

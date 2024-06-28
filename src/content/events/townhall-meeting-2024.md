@@ -1,6 +1,6 @@
 ---
 title: "Software Engineering Town Hall Meeting"
-dateTime: "2024-01-31 18:30"
+startDateTime: "2024-01-31 18:30"
 location: "ITB 137"
 ---
 
