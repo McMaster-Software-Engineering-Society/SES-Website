@@ -20,8 +20,7 @@ upcomingEvents.sort(
 );
 ---
 
-<!-- TODO: Limit past events to 3 --><!-- TODO: Add "view more" to past events that redirects to /events -->
-<div id="events-list" class="flex flex-col">
+<div id="events-list" class="flex flex-col gap-y-8">
   {
     upcomingEvents.length > 0 && (
       <div class="flex flex-col gap-y-5">
@@ -36,7 +35,7 @@ upcomingEvents.sort(
     pastEvents.length > 0 && (
       <div class="flex flex-col gap-y-5">
         <h1 class="text-2xl font-bold">Past events</h1>
-        {pastEvents.map((event) => (
+        {pastEvents.slice(0,3).map((event) => (
           <EventItem event={event} />
         ))}
       </div>
