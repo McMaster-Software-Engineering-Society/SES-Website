@@ -27,6 +27,10 @@ const eventTime = new Date(event.data.dateTime).toLocaleTimeString("en-US", {
   minute: "numeric",
   hour12: true,
 });
+
+// TODO: Only show date for past events, not time (?)
+// TODO: Link "details" button
+// TODO: Connect calendar button to event data
 ---
 
 <div class="event flex flex-col md:flex-row gap-x-8 gap-y-4 items-center">

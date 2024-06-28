@@ -28,8 +28,8 @@ export default function CourseListItem({
       role="button"
       tabIndex={0}
       className={clsx([
-        "course-list-item group flex flex-row items-center justify-between cursor-pointer lg:hover:bg-slate-100 lgactive:bg-slate-200 transition",
-        selected && "lg:bg-slate-100",
+        "course-list-item group flex flex-row items-center justify-between cursor-pointer lg:hover:bg-zinc-800 lg:active:bg-zinc-900 transition",
+        selected && "lg:bg-zinc-700",
         "p-3",
         className,
       ])}>

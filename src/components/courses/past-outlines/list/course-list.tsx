@@ -19,7 +19,7 @@ export default function CourseList({
   return (
     <Card className="mt-4">
       <CardBody>
-        <ScrollShadow className="flex flex-col overflow-y-scroll max-h-[65vh] no-scrollbar">
+        <ScrollShadow className="flex flex-col overflow-y-auto max-h-[65vh]">
           {courses.length === 0 ? (
             <div>
               <span className="text-sm">
@@ -34,7 +34,7 @@ export default function CourseList({
               <div key={`${course.courseCode}-${index}`}>
                 <CourseListItem
                   courseCode={course.courseCode}
-                  term={course.term}
+                term={course.term}
                   handleClick={() => {
                     setSelectedCourse(index);
                   }}

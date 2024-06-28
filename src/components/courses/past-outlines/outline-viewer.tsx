@@ -9,7 +9,6 @@ type PastOutlinesProps = {
 };
 
 // TODO: On selecting a course from the list, have the list automatically scroll to make the selected course second from the top
-// TODO: Add mobile layout
 
 const levelMap: { [key: string]: number } = {
   "level-2": 2,

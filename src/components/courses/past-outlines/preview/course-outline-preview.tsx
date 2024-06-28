@@ -10,6 +10,9 @@ type CourseOutlinePreviewProps = {
 };
 
 // TODO: Add loading skeleton to prevent jittering when switching between outlines
+// TODO: Fix view pdf tooltip text color
+// TODO: Fix item hover color
+// TODO: Fix search/filter toggle button color
 
 export default function CourseOutlinePreview({
   selectedCourse,

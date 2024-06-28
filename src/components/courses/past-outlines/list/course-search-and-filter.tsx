@@ -68,7 +68,7 @@ export default function CourseSearchAndFilter({
         <Button
           isIconOnly
           className={clsx([
-            "bg-[#F4F4F5] text-xl",
+            "bg-[#27272A] text-xl",
             !useSearch ? "w-full" : "w-16",
           ])}
           onClick={handleSearch}>
