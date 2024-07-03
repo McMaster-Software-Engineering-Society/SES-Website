@@ -2,6 +2,13 @@
 import { getCollection } from "astro:content";
 import EventItem from "./event-item.astro";
 
+export interface Props {
+  isHome?: boolean;
+  class?: string;
+}
+
+const { isHome = false, class: className } = Astro.props;
+
 const events = await getCollection("events");
 
 // filter the events by past and future events
@@ -22,7 +29,7 @@ upcomingEvents.sort(
 );
 ---
 
-<div id="events-list" class="flex flex-col gap-y-8">
+<div id="events-list" class:list={["flex flex-col gap-y-8", className]}>
   {
     upcomingEvents.length > 0 && (
       <div class="flex flex-col gap-y-5">
@@ -37,9 +44,12 @@ upcomingEvents.sort(
     pastEvents.length > 0 && (
       <div class="flex flex-col gap-y-5">
         <h1 class="text-2xl font-bold">Past events</h1>
-        {pastEvents.slice(0, 3).map((event) => (
-          <EventItem event={event} />
-        ))}
+        {isHome &&
+          upcomingEvents.length < 3 &&
+          pastEvents
+            .slice(0, 3 - upcomingEvents.length)
+            .map((event) => <EventItem event={event} />)}
+        {!isHome && pastEvents.map((event) => <EventItem event={event} />)}
       </div>
     )
   }
