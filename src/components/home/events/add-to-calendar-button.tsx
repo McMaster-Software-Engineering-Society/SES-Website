@@ -9,6 +9,7 @@ import {
 import { FaPlus } from "@react-icons/all-files/fa/FaPlus";
 import { SiGooglecalendar } from "@react-icons/all-files/si/SiGooglecalendar";
 import { SiMicrosoftoutlook } from "@react-icons/all-files/si/SiMicrosoftoutlook";
+import type { CalendarEvent } from "types/event";
 
 const getGoogleAddEventUrl = (event) => {
   const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
@@ -34,13 +35,7 @@ const getOutlookAddEventUrl = (event) => {
 };
 
 type AddToCalendarButtonProps = {
-  event: {
-    title: string;
-    start: string;
-    end: string;
-    details: string;
-    location: string;
-  };
+  event: CalendarEvent;
   size?: "sm" | "md";
 };
 
