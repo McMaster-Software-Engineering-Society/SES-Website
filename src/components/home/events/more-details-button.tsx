@@ -53,11 +53,7 @@ export default function MoreDetailsButton({
                       href={event.googleMapsLink}
                       target="_blank"
                       className="not-italic text-blue-500">
-                      (
-                      <span className="underline">
-                        Google Maps
-                      </span>
-                      )
+                      (<span className="underline">Google Maps</span>)
                     </a>
                   )}
                 </p>

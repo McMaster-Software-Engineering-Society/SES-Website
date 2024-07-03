@@ -10,4 +10,4 @@ export type CalendarEvent = {
     alt: string;
   };
   link?: string;
-}
+};
