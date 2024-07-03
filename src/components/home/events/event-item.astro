@@ -97,7 +97,11 @@ const calendarEventData = {
         )
       }
       <!-- <Button variant="flat">Details</Button> -->
-      <MoreDetailsButton client:visible event={calendarEventData} />
+      <MoreDetailsButton
+        client:visible
+        event={calendarEventData}
+        isEventPast={isEventPast}
+      />
     </div>
     <div class="event-actions-sm flex md:hidden flex-row gap-x-2">
       {
@@ -110,7 +114,12 @@ const calendarEventData = {
         )
       }
       <!-- <Button variant="flat" size="sm">Details</Button> -->
-      <MoreDetailsButton client:visible event={calendarEventData} size="sm" />
+      <MoreDetailsButton
+        client:visible
+        event={calendarEventData}
+        size="sm"
+        isEventPast={isEventPast}
+      />
     </div>
   </div>
 </div>
