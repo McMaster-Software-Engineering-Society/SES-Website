@@ -22,6 +22,6 @@ const { Content } = await event.render();
   <p>{event.data.startDateTime}</p>
   <p>{event.data.endDateTime}</p>
   <p>{event.data.googleMapsLink}</p>
-  <p>{event.data.image.src}</p>
+  <p>{event.data.image?.src}</p>
   <Content />
 </PageLayout>
