@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
+import { Button } from "@nextui-org/react"
 
 export async function getStaticPaths() {
   const eventEntries = await getCollection("events");
@@ -15,11 +16,12 @@ const { Content } = await event.render();
 ---
 
 <PageLayout title={event.data.title}>
+  <a href="/events"><Button>Back to events</Button></a>
   <h3>{event.data.title}</h3>
   <p>{event.data.location}</p>
   <p>{event.data.startDateTime}</p>
   <p>{event.data.endDateTime}</p>
   <p>{event.data.googleMapsLink}</p>
-  <p>{event.data.image}</p>
+  <p>{event.data.image.src}</p>
   <Content />
 </PageLayout>
