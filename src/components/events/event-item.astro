@@ -1,6 +1,11 @@
 ---
+import { Button } from "@nextui-org/react";
 import AddToCalendarButton from "./add-to-calendar-button";
-import MoreDetailsButton from "./more-details-button";
+
+export interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  event: any;
+}
 
 const { event } = Astro.props;
 
@@ -32,14 +37,26 @@ const eventTime = new Date(event.data.startDateTime).toLocaleTimeString(
     hour: "numeric",
     minute: "numeric",
     hour12: true,
-  },
+  }
 );
 
 // TODO: Only show date for past events, not time (?)
 // TODO: Link "details" button
 // TODO: Connect calendar button to event data
 
-const calendarEventData = {
+const calendarEventData: {
+  title: string;
+  start: string;
+  end: string;
+  details: string;
+  location: string;
+  googleMapsLink?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  link?: string;
+} = {
   title: event.data.title,
   start: event.data.startDateTime.toISOString(),
   end:
@@ -53,7 +70,9 @@ const calendarEventData = {
 };
 ---
 
-<div class="event flex flex-col md:flex-row gap-x-8 gap-y-4 items-center">
+<div
+  id={calendarEventData.title.toLowerCase().replace(/\s+/g, "-")}
+  class="event flex flex-col md:flex-row gap-x-8 gap-y-4 items-center">
   <div
     class="event-date-and-time hidden md:flex flex-col min-w-28 min-h-28 rounded-lg bg-slate-800 items-center justify-center">
     {
@@ -96,12 +115,9 @@ const calendarEventData = {
           <AddToCalendarButton client:visible event={calendarEventData} />
         )
       }
-      <!-- <Button variant="flat">Details</Button> -->
-      <MoreDetailsButton
-        client:visible
-        event={calendarEventData}
-        isEventPast={isEventPast}
-      />
+      <a href={`/events/${event.slug}`}>
+        <Button variant="flat">Details</Button>
+      </a>
     </div>
     <div class="event-actions-sm flex md:hidden flex-row gap-x-2">
       {
@@ -113,13 +129,9 @@ const calendarEventData = {
           />
         )
       }
-      <!-- <Button variant="flat" size="sm">Details</Button> -->
-      <MoreDetailsButton
-        client:visible
-        event={calendarEventData}
-        size="sm"
-        isEventPast={isEventPast}
-      />
+      <a href={`/events/${event.slug}`}>
+        <Button variant="flat" size="sm"> Details </Button>
+      </a>
     </div>
   </div>
 </div>
