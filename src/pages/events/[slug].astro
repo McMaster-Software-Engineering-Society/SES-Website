@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
-import { Button } from "@nextui-org/react"
+import { Button } from "@nextui-org/react";
 
 export async function getStaticPaths() {
   const eventEntries = await getCollection("events");
