@@ -14,71 +14,38 @@ import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
 
 <footer
   class:list={[
-    "py-10 flex flex-col text-slate-500",
+    "py-20 px-10 flex flex-col gap-y-5 text-slate-500 items-center",
     isHome && "bg-[#0f0e17] z-[98] relative",
   ]}>
-  <container class="">
-    <!-- --------- -->
-    <section class="flex justify-center text-center">
-      <div class="max-w-screen-md w-full flex flex-col px-5 pb-5">
-        <p class="mb-2">
-          <span class="text-slate-800 font-bold text-xl">Astro</span><span
-            class="text-slate-500 text-xl">ship</span
-          >
-        </p>
-        <p class="my-3 text-sm text-slate-500 hidden sm:block">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
-          dolor sit amet consectetur adipisicing elit.
-        </p>
-        <nav class="flex justify-center max-w-screen-md">
-          <ul class="flex justify-between gap-3 flex-col sm:flex-row">
-            <li class="px-3 py-2 font-bold"><a href="/">Home</a></li>
-            <li class="px-3 py-2 font-bold"><a href="/about">About</a></li>
-            <li class="px-3 py-2 font-bold"><a href="/">Contact</a></li>
-            <li class="px-3 py-2 font-bold"><a href="/events">Events</a></li>
-            <li class="px-3 py-2 font-bold"><a href="/">Resources</a></li>
-          </ul>
-        </nav>
-      </div>
-    </section>
-
-    <section class="flex justify-center">
-      <div class="flex flex-row justify-center max-w-screen-xl w-full px-5">
-        <div class="flex items-center text-center">
-          <nav class="flex gap-2">
-            <a href="#" class="text-lg border border-slate-200 rounded p-2"
-              ><FaGithub /></a
-            >
-            <a href="#" class="text-lg border border-slate-200 rounded p-2"
-              ><FaEnvelope /></a
-            >
-            <a href="#" class="text-lg border border-slate-200 rounded p-2"
-              ><FaInstagram /></a
-            >
-          </nav>
-        </div>
-      </div>
-    </section>
-  </container>
-
-  <!-- <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} Software Engineering Society.
-  </p> -->
-  <!--
-    Can we ask you a favor 🙏
-    Please keep this backlink on your website if possible.
-    or Purchase a commercial license from https://web3templates.com
-  -->
-
-  <p class="text-center text-xs text-slate-500 mt-6">
-    Copyright © {new Date().getFullYear()} Software Engineering Society. Made by
-    <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      class="hover:underline">Web3Templates</a
+  <!-- --------- -->
+  <h3>
+    <span class="text-slate-500">McMaster</span><span
+      class="font-bold text-slate-400">SES</span
     >
-  </p>
+  </h3>
+
+  <div class="flex flex-col items-center gap-y-3">
+    <nav class="flex justify-center max-w-screen-md">
+      <ul
+        class="flex justify-center gap-x-4 gap-y-1 items-center flex-row flex-wrap">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/">Contact</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/">Resources</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex flex-row justify-center px-5">
+      <a href="#" class="text-lg p-2"><FaGithub /></a>
+      <a href="#" class="text-lg p-2"><FaEnvelope /></a>
+      <a href="#" class="text-lg p-2"><FaInstagram /></a>
+    </div>
+
+    <p class="text-center text-xs text-slate-500">
+      Copyright © {new Date().getFullYear()} Software Engineering Society.
+    </p>
+  </div>
 </footer>
 
 <!-- Second footer  -->
