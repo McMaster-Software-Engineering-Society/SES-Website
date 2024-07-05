@@ -1,15 +1,10 @@
 ---
+import { socialMedia } from "data/social-media";
+
 export interface Props {
   isHome?: boolean;
 }
 const { isHome = false } = Astro.props;
-
-// import PageLayout from "@layouts/PageLayout.astro";
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
-// import { FaApple } from "@react-icons/all-files/fa/FaApple";
-// import { FaGooglePlay } from "@react-icons/all-files/fa/FaGooglePlay";
-import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
-import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
 ---
 
 <footer
@@ -36,10 +31,14 @@ import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
       </ul>
     </nav>
 
-    <div class="flex flex-row justify-center px-5">
-      <a href="#" class="text-lg p-2"><FaGithub /></a>
-      <a href="#" class="text-lg p-2"><FaEnvelope /></a>
-      <a href="#" class="text-lg p-2"><FaInstagram /></a>
+    <div class="flex flex-row flex-wrap justify-center px-5 gap-x-1">
+      {
+        socialMedia.map((media) => (
+          <a href={media.url} class="text-lg p-2" target="_blank">
+            <media.icon />
+          </a>
+        ))
+      }
     </div>
 
     <p class="text-center text-xs text-slate-500">
@@ -47,77 +46,3 @@ import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
     </p>
   </div>
 </footer>
-
-<!-- Second footer  -->
-
-<!-- <footer
-  class="mt-20 mb-1 pt-10 pb-7 flex flex-col border border-slate-100 shadow-lg">
-  <container class="">
-    <section class="flex justify-center">
-      <div class="max-w-screen-xl w-full flex flex-col px-5 pb-5 text-start">
-        <div class="flex justify-between">
-          <p class="">
-            <span class="text-slate-800 font-bold text-xl">Astro</span><span
-              class="text-slate-500 text-xl">ship</span
-            >
-          </p>
-        </div>
-        <div class="flex md:flex-row flex-row justify-between">
-          <p
-            class="md:inline hidden my-3 text-sm text-slate-500 max-w-lg w-full">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit.
-          </p>
-        </div>
-        <nav class="flex justify-start max-w-screen-md">
-          <ul class="flex justify-between gap-3 flex-col md:flex-row">
-            <li class="pr-3 py-2 font-bold"><a href="/">Home</a></li>
-            <li class="pr-3 lg:px-3 py-2 font-bold">
-              <a href="/about">About</a>
-            </li>
-            <li class="pr-3 lg:px-3 py-2 font-bold"><a href="/">Contact</a></li>
-            <li class="pr-3 lg:px-3 py-2 font-bold">
-              <a href="/events">Events</a>
-            </li>
-            <li class="pr-3 lg:px-3 py-2 font-bold">
-              <a href="/">Resources</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </section>
-
-    <section class="flex justify-center border-t pt-7 border-slate-100">
-      <div class="max-w-screen-xl w-full px-5">
-        <div class="flex justify-between items-center">
-          <p class="text-xs text-slate-500">
-            Copyright © {new Date().getFullYear()} Software Engineering Society.
-            Made by <a
-              href="https://web3templates.com"
-              target="_blank"
-              rel="noopener"
-              class="hover:underline">Web3Templates</a
-            >
-          </p>
-          <nav class="flex gap-2">
-            <a
-              href="#"
-              class="text-lg border border-slate-200 rounded p-2 bg-gray-100"
-              ><FaGithub /></a
-            >
-            <a
-              href="#"
-              class="text-lg border border-slate-200 rounded p-2 bg-gray-100"
-              ><FaEnvelope /></a
-            >
-            <a
-              href="#"
-              class="text-lg border border-slate-200 rounded p-2 bg-gray-100"
-              ><FaInstagram /></a
-            >
-          </nav>
-        </div>
-      </div>
-    </section>
-  </container>
-</footer> -->
