@@ -1,13 +1,13 @@
-import { IconType } from "@react-icons/all-files/lib/index.mjs";
 import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
 import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 import { FaXTwitter } from "@react-icons/all-files/fa6/FaXTwitter";
 import { IoMailOutline } from "@react-icons/all-files/io5/IoMailOutline";
 import { SiLinktree } from "@react-icons/all-files/si/SiLinktree";
+import type { ReactNode } from "react";
 
 export const socialMedia: {
   platform: string;
-  icon: IconType;
+  icon: ReactNode;
   url: string;
 }[] = [
   {
