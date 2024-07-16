@@ -25,7 +25,9 @@ export default function CourseList({
               </span>
               <Link
                 className="text-sm italic underline"
-                href="https://forms.gle/MLrNZnwsmeTEBbVcA">
+                href="https://forms.gle/MLrNZnwsmeTEBbVcA"
+                target="_blank"
+              >
                 Consider sending us yours!
               </Link>
             </div>
