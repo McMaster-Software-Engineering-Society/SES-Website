@@ -22,7 +22,7 @@ const eventCollection = defineCollection({
   }),
 });
 
-const hackathonsAtMacCollection = defineCollection({
+const hackathonCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -34,7 +34,6 @@ const hackathonsAtMacCollection = defineCollection({
         src: z.string(),
         alt: z.string(),
       })
-      .optional(),
   }),
 });
 
@@ -42,5 +41,6 @@ const hackathonsAtMacCollection = defineCollection({
 //    This key should match your collection directory name in "src/content"
 export const collections = {
   events: eventCollection,
-  hackathonsAtMac: hackathonsAtMacCollection,
+  mcmasterHackathons: hackathonCollection,
+  externalHackathons: hackathonCollection,
 };

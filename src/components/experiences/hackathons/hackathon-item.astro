@@ -1,0 +1,168 @@
+---
+import { FaLocationDot } from "@react-icons/all-files/fa6/FaLocationDot";
+import { FaCircleInfo } from "@react-icons/all-files/fa6/FaCircleInfo";
+
+export interface Props {
+  hackathon: {
+    data: {
+      title: string;
+      description: string;
+      date?: string;
+      location: string;
+      link: string;
+      image: {
+        src: string;
+        alt: string;
+      };
+    };
+  };
+  variant?: "primary" | "secondary";
+}
+
+const { hackathon, variant = "primary" } = Astro.props;
+
+const formatDate = (date: Date) => {
+  // Get the day, month, and year from the date object
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Months are zero-based
+  const year = date.getFullYear();
+
+  // Add leading zero to day and month if needed
+  const dayString = day < 10 ? "0" + day : day;
+  const monthString = month < 10 ? "0" + month : month;
+
+  // Construct the date string in DD.MM.YYYY format
+  return `${dayString}.${monthString}.${year}`;
+};
+
+const formatUpcomingDate = (date: Date): string => {
+  const today = new Date();
+
+  if (date.toDateString() === today.toDateString()) {
+    return "Today";
+  }
+
+  const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+
+  if (date.toDateString() === tomorrow.toDateString()) {
+    return "Tomorrow";
+  }
+
+  if (date < today) {
+    return "";
+  }
+
+  const daysUntil = Math.floor(
+    (date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
+  );
+
+  // if daysUntil is greater than 31, return the month of the event
+  if (daysUntil > 31) {
+    return `Starts in ${date.toLocaleDateString("en-US", { month: "long" })}`;
+  }
+
+  return `Starts in ${daysUntil} days`;
+};
+---
+
+<div id={hackathon.data.title}>
+  {/* Desktop layout */}
+  <div
+    class:list={[
+      "hackathon-desktop hidden sm:grid grid-cols-5 items-center px-3 rounded-xl gap-x-5 max-h-48",
+      variant === "primary" && "bg-slate-950",
+      variant === "secondary" && "bg-slate-900",
+    ]}>
+    <div class="hackathon-picture">
+      <img
+        src={hackathon.data.image.src}
+        alt={hackathon.data.image.alt}
+        class="rounded-lg"
+      />
+    </div>
+    <div class="hackathon-details col-span-4 flex flex-col gap-y-3 py-3 pr-2">
+      <div class="date-and-location flex flex-row text-sm">
+        {
+          hackathon.data.date && (
+            <span class="border-r-2 border-slate-600 pr-2 mr-2">
+              {formatDate(new Date(hackathon.data.date))}
+            </span>
+          )
+        }
+        <mark class="flex flex-row gap-x-1 items-center">
+          <FaLocationDot />
+          <span>{hackathon.data.location}</span>
+        </mark>
+      </div>
+      <div class="flex flex-col gap-y-1">
+        <span class="text-xl font-bold">{hackathon.data.title}</span>
+        <span class="text-sm line-clamp-2">
+          {hackathon.data.description}
+        </span>
+      </div>
+      <div class="flex flex-row justify-between">
+        <div class="flex flex-row items-center gap-x-1">
+          <div class="text-xs">
+            <FaCircleInfo />
+          </div>
+          <a href={hackathon.data.link} class="text-sm"> Details </a>
+        </div>
+        {
+          hackathon.data.date && (
+            <span class="text-sm text-slate-500 italic">
+              {formatUpcomingDate(new Date(hackathon.data.date))}
+            </span>
+          )
+        }
+      </div>
+    </div>
+  </div>
+  {/* Mobile layout */}
+  <div
+    class:list={[
+      "hackathon-mobile px-3 py-2 rounded-xl flex flex-col sm:hidden",
+      variant === "primary" && "bg-slate-950",
+      variant === "secondary" && "bg-slate-900",
+    ]}>
+    <div class="hackathon-desktop grid grid-cols-4 items-center gap-x-5 w-full">
+      <div class="hackathon-picture col-span-1">
+        <img
+          src={hackathon.data.image.src}
+          alt={hackathon.data.image.alt}
+          class="rounded-lg"
+        />
+      </div>
+      <div class="hackathon-details col-span-3 flex flex-col gap-y-3 py-3 pr-2">
+        <div class="flex flex-col gap-y-1">
+          <span class="text-xl font-bold line-clamp-1">
+            {hackathon.data.title}
+          </span>
+          <span class="text-sm line-clamp-3">
+            {hackathon.data.description}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row justify-between px-1">
+      <div class="date-and-location flex flex-row text-sm">
+        {
+          hackathon.data.date && (
+            <span class="mr-2">
+              {formatDate(new Date(hackathon.data.date))}
+            </span>
+          )
+        }
+        <mark class="flex flex-row gap-x-1 items-center">
+          <FaLocationDot />
+          <span>{hackathon.data.location}</span>
+        </mark>
+      </div>
+      <div class="flex flex-row items-center gap-x-1">
+        <div class="text-xs">
+          <FaCircleInfo />
+        </div>
+        <a href={hackathon.data.link} class="text-sm"> Details </a>
+      </div>
+    </div>
+  </div>
+</div>

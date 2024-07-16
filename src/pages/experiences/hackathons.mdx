@@ -1,5 +1,6 @@
 import MarkdownLayout from "@layouts/MarkdownLayout.astro";
-import HackathonsAtMac from "@components/experiences/hackathons/hackathons-at-mac.astro";
+import McMasterHackathons from "@components/experiences/hackathons/mcmaster-hackathons.astro";
+import ExternalHackathons from "@components/experiences/hackathons/external-hackathons.astro";
 
 {/* If current month is before July, then use current year */}
 {/* Otherwise, use current year + 1 */}
@@ -12,27 +13,28 @@ export const currentMLHSeason = new Date().getMonth() < 6 ? new Date().getFullYe
         experience and have a great time.">
   <section>
     ## Why Join Hackathons?
+
+    Lorem ipsum
   </section>
   <section>
-    ## Hackathons @ Mac
-
-    <HackathonsAtMac />
-
+    ## McMaster <mark>Hackathons</mark>
+    <McMasterHackathons />
   </section>
   <section>
-    ## External Hackathons
+    ## External <mark>Hackathons</mark>
 
     Many hackathons are hosted by other univeristies and organizations. Most of
     these hackathons are affiliated with Major League Hacking (MLH), and are open to students from all over the world!
 
     **Here are some other hackathons nearby that you can attend:**
 
-    <div>
-      <a
+    <ExternalHackathons />
+
+    <div class="mt-4 w-full text-center">
+      <span>Looking for more, or even online hackathons? <a
         href={`https://mlh.io/seasons/${currentMLHSeason}/events`}
         target="_blank">
-        More hackathons from MLH
-      </a>
+        View more hackathons from MLH</a></span>
     </div>
 
   </section>

@@ -122,12 +122,24 @@
 
   /* Section  */
   section {
-    padding: 1em 0;
+    padding: 1em 1.25em;
 
     > * {
       max-width: 768px;
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding: 1em 0;
+
+      > * {
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 
