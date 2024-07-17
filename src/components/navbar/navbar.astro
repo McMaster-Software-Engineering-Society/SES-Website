@@ -44,23 +44,28 @@ const menuItems: MenuItem[] = [
         title: "Past course outlines",
         path: "/courses/past-outlines",
       },
+      // Note: To make a 'sub-menu' item, add a 'children' array to the dropdownItems object
+      // {
+      //   title: "Experiences",
+      //   path: "/experiences",
+      //   children: [
+      //     {
+      //       title: "Internships",
+      //       path: "/experiences/internships",
+      //     },
+      //     ...
+      // },
       {
-        title: "Experiences",
-        path: "/experiences",
-        children: [
-          {
-            title: "Internships",
-            path: "/experiences/internships",
-          },
-          {
-            title: "Clubs & Teams",
-            path: "/experiences/clubs-and-teams",
-          },
-          {
-            title: "Hackathons",
-            path: "/experiences/hackathons",
-          },
-        ],
+        title: "Internships",
+        path: "/experiences/internships",
+      },
+      {
+        title: "Clubs & Teams",
+        path: "/experiences/clubs-and-teams",
+      },
+      {
+        title: "Hackathons",
+        path: "/experiences/hackathons",
       },
     ],
   },
