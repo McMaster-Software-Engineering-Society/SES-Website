@@ -1,4 +1,5 @@
 type pdfMetadata = {
+  id: number;
   courseCode: string;
   term: string;
   level: number;
@@ -65,6 +66,7 @@ const fetchOutlinePDFs = (pdfPaths: string[]): pdfMetadata[] => {
     }
 
     categorized.push({
+      id: categorized.length,
       courseCode: courseCode,
       term: `${season.charAt(0).toUpperCase() + season.slice(1)} ${year}`,
       level: level,
@@ -141,5 +143,7 @@ export const fetchOutlines = (): Course[] => {
   const filteredPDFs = fetchOutlinePDFs(pdfs);
 
   // Match PDFs with corresponding PNGs
-  return fetchOutlinesWithPngs(pngs, filteredPDFs);
+  const outlines = fetchOutlinesWithPngs(pngs, filteredPDFs);
+
+  return outlines;
 };
