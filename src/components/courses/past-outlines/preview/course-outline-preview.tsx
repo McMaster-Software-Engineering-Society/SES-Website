@@ -29,7 +29,11 @@ export default function CourseOutlinePreview({
             className="mt-2"
             variant="bordered"
             endContent={<HiOutlineExternalLink />}
-            onClick={() => window.open(courses[selectedCourse].pdfPath)}>
+            onClick={() =>
+              window.open(
+                courses.find((course) => course.id === selectedCourse)?.pdfPath,
+              )
+            }>
             Open outline
           </Button>
         </div>

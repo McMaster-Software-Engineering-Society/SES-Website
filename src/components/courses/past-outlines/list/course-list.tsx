@@ -6,7 +6,7 @@ import clsx from "clsx";
 type CourseListProps = {
   courses: Course[];
   selectedCourse: number;
-  setSelectedCourse: (index: number) => void;
+  setSelectedCourse: (id: number) => void;
 };
 
 export default function CourseList({
@@ -26,8 +26,7 @@ export default function CourseList({
               <Link
                 className="text-sm italic underline"
                 href="https://forms.gle/MLrNZnwsmeTEBbVcA"
-                target="_blank"
-              >
+                target="_blank">
                 Consider sending us yours!
               </Link>
             </div>
@@ -38,7 +37,7 @@ export default function CourseList({
                   courseCode={course.courseCode}
                   term={course.term}
                   handleClick={() => {
-                    setSelectedCourse(index);
+                    setSelectedCourse(course.id);
                   }}
                   pdfPath={course.pdfPath}
                   selected={selectedCourse === index}
