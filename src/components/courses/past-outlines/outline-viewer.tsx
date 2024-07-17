@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CourseList from "./list/course-list";
 import CourseSearchAndFilter from "./list/course-search-and-filter";
 import CourseOutlinePreview from "./preview/course-outline-preview";
+import { Link } from "@nextui-org/react";
 
 type PastOutlinesProps = {
   courses: Course[];
@@ -44,23 +45,34 @@ export default function OutlineViewer({
   }, [selectedLevel, selectedTerm, searchFilter]);
 
   return (
-    <div className="flex flex-row lg:justify-between w-full justify-center">
-      <div id="past-course-outline-list" className="flex flex-col max-w-min">
-        <CourseSearchAndFilter
-          selectedLevel={selectedLevel}
-          setSelectedLevel={setSelectedLevel}
-          selectedTerm={selectedTerm}
-          setSelectedTerm={setSelectedTerm}
-          searchFilter={searchFilter}
-          setSearchFilter={setSearchFilter}
-        />
-        <CourseList
-          courses={filteredCourses}
+    <div className="flex flex-col gap-y-5">
+      <div className="flex flex-row lg:justify-between w-full justify-center">
+        <div id="past-course-outline-list" className="flex flex-col max-w-min">
+          <CourseSearchAndFilter
+            selectedLevel={selectedLevel}
+            setSelectedLevel={setSelectedLevel}
+            selectedTerm={selectedTerm}
+            setSelectedTerm={setSelectedTerm}
+            searchFilter={searchFilter}
+            setSearchFilter={setSearchFilter}
+          />
+          <CourseList
+            courses={filteredCourses}
+            selectedCourse={selectedCourse}
+            setSelectedCourse={setSelectedCourse}
+          />
+        </div>
+        <CourseOutlinePreview
           selectedCourse={selectedCourse}
-          setSelectedCourse={setSelectedCourse}
+          courses={courses}
         />
       </div>
-      <CourseOutlinePreview selectedCourse={selectedCourse} courses={courses} />
+      <div className="w-full text-center flex flex-col items-center">
+        <span className="text-sm">Have any course outlines you want to share?</span>
+        <Link href="https://forms.gle/MLrNZnwsmeTEBbVcA" target="_blank" className="text-sm underline">
+          Send us yours!
+        </Link>
+      </div>
     </div>
   );
 }
