@@ -4,8 +4,5 @@ description: "McMaster's annual student hackathon for change. Encouraging studen
 date: "2024-01-13"
 location: "McMaster University"
 link: "https://deltahacks.com/"
-image: {
-  src: "/experiences/hackathons/deltahacks.png",
-  alt: "DeltaHacks logo"
-}
+image: { src: "/experiences/hackathons/deltahacks.png", alt: "DeltaHacks logo" }
 ---

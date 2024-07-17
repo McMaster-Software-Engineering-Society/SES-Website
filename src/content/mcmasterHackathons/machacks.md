@@ -4,8 +4,5 @@ description: "A hackathon with a focus on Artificial Intelligence, with a sprint
 date: "2023-02-03"
 location: "McMaster University"
 link: "https://www.mcmasterai.com/machacks"
-image: {
-  src: "/experiences/hackathons/machacks.png",
-  alt: "MacHacks logo"
-}
+image: { src: "/experiences/hackathons/machacks.png", alt: "MacHacks logo" }
 ---

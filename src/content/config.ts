@@ -29,11 +29,10 @@ const hackathonCollection = defineCollection({
     date: z.string().optional(),
     location: z.string(),
     link: z.string(),
-    image: z
-      .object({
-        src: z.string(),
-        alt: z.string(),
-      })
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
   }),
 });
 
