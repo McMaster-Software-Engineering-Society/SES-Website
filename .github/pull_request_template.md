@@ -11,3 +11,9 @@ Issue #\<issue number here>
 ## Screenshots (if applicable)
 
 <!-- If your changes include any visual updates, please attach relevant screenshots here -->
+
+## Checklist
+
+- [ ] The branch has been rebased with the latest `staging` branch
+- [ ] The code has been tested locally by running `pnpm dev` and verifying that the changes work as expected
+- [ ] The code has been linted and formatted using `pnpm lint:fix`
