@@ -16,6 +16,9 @@ module.exports = {
           "Inter",
           ...defaultTheme.fontFamily.sans,
         ],
+        londrina: [
+          'Londrina Outline'
+        ],
       },
     },
   },
