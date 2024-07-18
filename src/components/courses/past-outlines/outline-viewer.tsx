@@ -68,8 +68,13 @@ export default function OutlineViewer({
         />
       </div>
       <div className="w-full text-center flex flex-col items-center">
-        <span className="text-sm">Have any course outlines you want to share?</span>
-        <Link href="https://forms.gle/MLrNZnwsmeTEBbVcA" target="_blank" className="text-sm underline">
+        <span className="text-sm">
+          Have any course outlines you want to share?
+        </span>
+        <Link
+          href="https://forms.gle/MLrNZnwsmeTEBbVcA"
+          target="_blank"
+          className="text-sm underline">
           Send us yours!
         </Link>
       </div>
