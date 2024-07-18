@@ -40,7 +40,7 @@ export default function CourseList({
                     setSelectedCourse(course.id);
                   }}
                   pdfPath={course.pdfPath}
-                  selected={selectedCourse === index}
+                  selected={selectedCourse === course.id}
                   className={clsx([
                     courses.length === 1 && "rounded-md",
                     courses.length > 1 && index === 0 && "rounded-t-md",
