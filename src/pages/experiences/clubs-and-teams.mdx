@@ -1,0 +1,29 @@
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import McMasterHackathons from "@components/experiences/hackathons/mcmaster-hackathons.astro";
+import ExternalHackathons from "@components/experiences/hackathons/external-hackathons.astro";
+
+import ClubTeamItem from "@components/experiences/clubs-and-teams/club-team-item.astro";
+
+{/* If current month is before July, then use current year */}
+{/* Otherwise, use current year + 1 */}
+
+{/* TODO: Add description to MarkdownLayout property below */}
+
+<MarkdownLayout
+  title="Clubs and Teams"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt molestie semper. Morbi condimentum aliquet mi vel fermentum. Sed tincidunt urna sollicitudin, ultrices tellus eget.">
+
+  <section>
+    ## Why Join <mark>Clubs & Teams</mark>?
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus pharetra accumsan. Donec sagittis, nulla et cursus imperdiet, dolor nulla aliquam justo, eget ullamcorper sapien purus ac justo. Donec vestibulum eleifend augue, in tempor arcu sagittis id. Nullam non vehicula ex. Pellentesque sagittis non ligula at faucibus. Nulla imperdiet tellus a nisi bibendum aliquet. Vestibulum nisi ex, tempor nec vestibulum sed, blandit eu diam. Mauris convallis vehicula erat ut ullamcorper. Vivamus vel lobortis quam, sed.
+
+  </section>
+
+  <section>
+    ## McMaster <mark>Clubs & Teams</mark>
+
+    <ClubTeamItem />
+    
+  </section>
+</MarkdownLayout>
