@@ -7,17 +7,17 @@ import "@fontsource-variable/bricolage-grotesque";
 
 export interface Props {
   title: string;
-  isHome?: boolean;
+  variant?: "default" | "home" | "404";
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
   "/opengraph.jpg",
-  Astro.site,
+  Astro.site
 ).toString();
 
-const { title, isHome = false } = Astro.props;
+const { title, variant = "default" } = Astro.props;
 
 const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
 ---
@@ -59,9 +59,18 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
     />
   </head>
   <body class="dark">
-    <Navbar />
-    <slot />
-    <Footer isHome={isHome} />
+    <div
+      class:list={[
+        variant === "404" &&
+          "bg-[url('/404-error-page/background-image.png')] bg-bottom min-h-screen bg-repeat-x",
+      ]}
+      style={{
+        backgroundSize: "auto 1038px",
+      }}>
+      <Navbar />
+      <slot />
+    </div>
+    <Footer isHome={variant === "home"} />
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
