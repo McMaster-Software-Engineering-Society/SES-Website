@@ -1,0 +1,40 @@
+---
+import { FaLocationDot } from "@react-icons/all-files/fa6/FaLocationDot";
+import { FaCircleInfo } from "@react-icons/all-files/fa6/FaCircleInfo";
+---
+
+<div
+  class="hackathon-desktop grid grid-cols-5 items-center px-3 rounded-xl gap-x-5 max-h-48 bg-slate-950">
+  <div class="hackathon-picture">
+    <img
+      src={"/experiences/hackathons/deltahacks.png"}
+      alt={"DeltaHacks logo"}
+      class="rounded-lg"
+    />
+  </div>
+  <div class="hackathon-details col-span-4 flex flex-col gap-y-3 py-3 pr-2">
+    <div class="date-and-location flex flex-row text-sm">
+      <span class="border-r-2 border-slate-600 pr-2 mr-2"> 19.07.2024 </span>
+      <mark class="flex flex-row gap-x-1 items-center">
+        <FaLocationDot />
+        <span>McMaster University</span>
+      </mark>
+    </div>
+    <div class="flex flex-col gap-y-1">
+      <span class="text-xl font-bold">DeltaHacks</span>
+      <span class="text-sm line-clamp-2">
+        McMaster's annual student hackathon for change. Encouraging students in
+        all fields of study to come together to build real world applications
+        that create positive change.
+      </span>
+    </div>
+    <div class="flex flex-row justify-between">
+      <div class="flex flex-row items-center gap-x-1">
+        <div class="text-xs">
+          <FaCircleInfo />
+        </div>
+        <a href="https://deltahacks.com/" class="text-sm"> Details </a>
+      </div>
+    </div>
+  </div>
+</div>
