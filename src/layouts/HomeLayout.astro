@@ -11,7 +11,7 @@ export interface Props {
 const { title, class: className } = Astro.props;
 ---
 
-<Layout title={title} isHome>
+<Layout title={title} variant="home">
   <Parallax />
   <div class="relative z-[98] pt-32 bg-[#0f0e17]">
     <Container class={className}>
