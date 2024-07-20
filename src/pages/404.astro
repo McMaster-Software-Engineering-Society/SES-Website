@@ -1,12 +1,20 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
+import Layout from "@layouts/Layout.astro";
+import { Spacer } from "@nextui-org/react";
 ---
 
-<PageLayout title="404 Not Found">
-  <div class="min-h-[calc(100vh-18rem)] flex items-center justify-center">
-    <div class="mt-16 text-center">
-      <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">404</h1>
-      <p class="text-lg mt-4 text-slate-600">Page not found.</p>
-    </div>
+<Layout title="404 Page" variant="404">
+  <div
+    class="h-screen relative flex flex-col justify-center items-center text-white bg-cover opacity-90 mb-20">
+    <h1 class="text-[100px] md:text-[150px] font-bold font-londrina">404</h1>
+    <h2 class="text-3xl md:text-[40px] font-bold -mt-5">Page Not Found</h2>
+    <p class="text-center max-w-screen-sm items-center mt-3 px-5">
+      Oops! The page you are looking for doesn't exist. You might have entered
+      an incorrect URL or the page might have been moved or deleted.
+    </p>
+    <a href="/" class="rounded-full bg-[#080a17] py-2 px-8 border-2 mt-5"
+      >Return Home</a
+    >
+    <Spacer y={44} />
   </div>
-</PageLayout>
+</Layout>
