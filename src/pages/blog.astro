@@ -1,0 +1,70 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { Picture } from "astro:assets";
+import { getCollection } from "astro:content";
+
+// Filter blog entries with 'draft: false' & date before current date
+const publishedBlogEntries = await getCollection("blogPosts", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+
+// Sort content entries by publication date
+publishedBlogEntries.sort(function (a, b) {
+  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+});
+---
+
+<PageLayout title="Blog" class="flex flex-col items-center">
+  <h1 class="text-[2.75rem] font-bold pt-10">Our Blog</h1>
+  <span class="mt-3">
+    Written by Software Engineering students, for Software Engineering students.
+  </span>
+  <main class="mt-16">
+    <ul class="grid gap-16 max-w-4xl mx-auto">
+      {
+        publishedBlogEntries.map((blogPostEntry, index) => (
+          <li>
+            <a href={`/blog/${blogPostEntry.slug}`}>
+              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                <Picture
+                  src={
+                    blogPostEntry.data.image?.src ||
+                    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?&fit=crop&w=430&h=240"
+                  }
+                  alt={blogPostEntry.data.image?.alt || "Default image"}
+                  sizes="(max-width: 800px) 100vw, 800px"
+                  width={800}
+                  height={600}
+                  loading={index <= 2 ? "eager" : "lazy"}
+                  decoding={index <= 2 ? "sync" : "async"}
+                  class="w-full rounded-md object-cover object-center bg-white"
+                />
+                <div>
+                  <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+                    {blogPostEntry.data.category}
+                  </span>
+
+                  <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                    {blogPostEntry.data.title}
+                  </h2>
+
+                  <div class="flex gap-2 mt-3">
+                    <span class="text-gray-400">
+                      {blogPostEntry.data.author}
+                    </span>
+                    <span class="text-gray-400">• </span>
+                    <time
+                      class="text-gray-400"
+                      datetime={blogPostEntry.data.publishDate.toISOString()}>
+                      {blogPostEntry.data.publishDate.toDateString()}
+                    </time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</PageLayout>

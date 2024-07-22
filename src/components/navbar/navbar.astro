@@ -19,16 +19,16 @@ export type MenuItem = {
 
 const menuItems: MenuItem[] = [
   {
-    title: "Home",
-    path: "/",
-  },
-  {
     title: "About",
     path: "/about",
   },
   {
     title: "Events",
     path: "/events",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
   },
   {
     title: "Contact",
@@ -44,32 +44,27 @@ const menuItems: MenuItem[] = [
         title: "Past course outlines",
         path: "/courses/past-outlines",
       },
-      // Note: To make a 'sub-menu' item, add a 'children' array to the dropdownItems object
-      // {
-      //   title: "Experiences",
-      //   path: "/experiences",
-      //   children: [
-      //     {
-      //       title: "Internships",
-      //       path: "/experiences/internships",
-      //     },
-      //     ...
-      // },
       {
-        title: "Internships",
-        path: "/experiences/internships",
-      },
-      {
-        title: "Clubs & Teams",
-        path: "/experiences/clubs-and-teams",
-      },
-      {
-        title: "Hackathons",
-        path: "/experiences/hackathons",
-      },
-      {
-        title: "FAQ",
+        title: "FAQs",
         path: "/faq",
+      },
+      {
+        title: "Experiences",
+        path: "/experiences",
+        children: [
+          {
+            title: "Internships",
+            path: "/experiences/internships",
+          },
+          {
+            title: "Clubs & Teams",
+            path: "/experiences/clubs-and-teams",
+          },
+          {
+            title: "Hackathons",
+            path: "/experiences/hackathons",
+          },
+        ],
       },
     ],
   },
