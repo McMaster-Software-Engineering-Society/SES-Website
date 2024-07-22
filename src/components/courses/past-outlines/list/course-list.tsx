@@ -1,7 +1,7 @@
-import { Card, CardBody, Divider, Link, ScrollShadow } from "@nextui-org/react";
-import CourseListItem from "./course-list-item";
+import { Card, CardBody, Divider, ScrollShadow } from "@nextui-org/react";
 import type { Course } from "@utils/past-outlines";
 import clsx from "clsx";
+import CourseListItem from "./course-list-item";
 
 type CourseListProps = {
   courses: Course[];
@@ -19,16 +19,16 @@ export default function CourseList({
       <CardBody>
         <ScrollShadow className="flex flex-col overflow-y-auto">
           {courses.length === 0 ? (
-            <div>
+            <div className="flex flex-col">
               <span className="text-sm">
                 Sorry, no past outlines were found.
               </span>
-              <Link
-                className="text-sm italic underline"
+              <a
+                className="text-sm italic underline text-blue-600"
                 href="https://forms.gle/MLrNZnwsmeTEBbVcA"
                 target="_blank">
                 Consider sending us yours!
-              </Link>
+              </a>
             </div>
           ) : (
             courses.map((course, index) => (

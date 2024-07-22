@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import CourseList from "./list/course-list";
 import CourseSearchAndFilter from "./list/course-search-and-filter";
 import CourseOutlinePreview from "./preview/course-outline-preview";
-import { Link } from "@nextui-org/react";
 
 type PastOutlinesProps = {
   courses: Course[];
@@ -71,12 +70,12 @@ export default function OutlineViewer({
         <span className="text-sm">
           Have any course outlines you want to share?
         </span>
-        <Link
+        <a
           href="https://forms.gle/MLrNZnwsmeTEBbVcA"
           target="_blank"
-          className="text-sm underline">
+          className="text-sm underline text-blue-600">
           Send us yours!
-        </Link>
+        </a>
       </div>
     </div>
   );
