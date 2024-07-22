@@ -16,9 +16,9 @@ const internshipLists = await getCollection("internshipLists");
             <span class="italic line-clamp-1 pr-1">{item.data.author}</span>
           </div>
         </div>
-        <Link href={item.data.link} target="_blank">
+        <a href={item.data.link} target="_blank">
           <Button size="sm">View</Button>
-        </Link>
+        </a>
       </div>
     ))
   }

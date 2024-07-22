@@ -29,9 +29,9 @@ const links: ExperienceLink[] = [
 ];
 ---
 
-<MarkdownLayout title="Experiences" noDivider>
+<MarkdownLayout title="Experiences" noDivider noMarkdown>
   <div class="flex flex-col justify-center items-center">
-    <div class="flex flex-col w-full max-w-screen-md gap-x-3 gap-y-3">
+    <div class="flex flex-col w-full max-w-screen-md gap-y-3">
       {links.map((link) => <ExperienceLinkCard link={link} />)}
     </div>
     <Spacer y={12} />

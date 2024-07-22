@@ -1,5 +1,4 @@
 ---
-import MarkdownContainer from "@components/markdown-container.astro";
 import { Picture } from "astro:assets";
 import "../styles/markdown.css";
 import Layout from "./Layout.astro";
@@ -9,14 +8,21 @@ export interface Props {
   description?: string;
   class?: string;
   noDivider?: boolean;
+  noMarkdown?: boolean;
 }
 
-const { title, description, class: className, noDivider = false } = Astro.props;
+const {
+  title,
+  description,
+  class: className,
+  noDivider = false,
+  noMarkdown = false,
+} = Astro.props;
 ---
 
 <Layout title={title}>
-  <MarkdownContainer class={className}>
-    <div class="flex flex-col max-w-screen-md mx-auto px-5 md:px-0">
+  <div class:list={["text-slate-300", !noMarkdown && "markdown", className]}>
+    <div class="flex flex-col max-w-screen-md mx-auto px-5 md:px-0 markdown">
       <div class="grid grid-cols-2 w-full justify-between items-end">
         <div class="flex flex-col">
           <h1 class="font-bold leading-none" style="font-size: 3em; margin-bottom: 0;">
@@ -35,7 +41,6 @@ const { title, description, class: className, noDivider = false } = Astro.props;
       </div>
       {!noDivider && <hr />}
     </div>
-
     <slot />
-  </MarkdownContainer>
+  </div>
 </Layout>
