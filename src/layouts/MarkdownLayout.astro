@@ -8,9 +8,10 @@ export interface Props {
   title: string;
   description?: string;
   class?: string;
+  noDivider?: boolean;
 }
 
-const { title, description, class: className } = Astro.props;
+const { title, description, class: className, noDivider = false } = Astro.props;
 ---
 
 <Layout title={title}>
@@ -32,7 +33,7 @@ const { title, description, class: className } = Astro.props;
           height={110}
         />
       </div>
-      <hr />
+      {!noDivider && <hr />}
     </div>
 
     <slot />

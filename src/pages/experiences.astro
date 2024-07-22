@@ -1,0 +1,56 @@
+---
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import type { IconType } from "@react-icons/all-files";
+import { Spacer } from "@nextui-org/react";
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+
+type Link = {
+  title: string;
+  description: string;
+  icon: IconType;
+  href: string;
+};
+
+const links: Link[] = [
+  {
+    title: "Internships",
+    description: "Find internship and co-op postings",
+    icon: FaInstagram,
+    href: "/experiences/internships",
+  },
+  {
+    title: "Clubs and Teams",
+    description: "Get involved with extra-curriculars",
+    icon: FaInstagram,
+    href: "/experiences/clubs-and-teams",
+  },
+  {
+    title: "Hackathons",
+    description: "Challenge yourself and build projects",
+    icon: FaInstagram,
+    href: "/experiences/hackathons",
+  },
+];
+---
+
+<MarkdownLayout title="Experiences" noDivider>
+  <div class="flex flex-col justify-center items-center">
+    <div class="grid grid-cols-2 w-full max-w-screen-md gap-x-12 gap-y-6">
+      {
+        links.map((link, index) => (
+          <div
+            class:list={[
+              "h-18 w-full border-3 p-4 rounded-xl flex flex-row items-center justify-center",
+              links.length % 2 === 1 && index === links.length - 1 && "col-span-2",
+            ]}>
+            <div class="flex flex-col gap-y-1">
+              <span class="font-medium">{link.title}</span>
+              <span class="text-xs">{link.description}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <Spacer y={12} />
+  </div>
+</MarkdownLayout>
