@@ -15,9 +15,9 @@ export default function CourseList({
   setSelectedCourse,
 }: Readonly<CourseListProps>) {
   return (
-    <Card className="mt-4">
+    <Card className="mt-4 max-h-[63vh]">
       <CardBody>
-        <ScrollShadow className="flex flex-col overflow-y-auto max-h-[65vh]">
+        <ScrollShadow className="flex flex-col overflow-y-auto">
           {courses.length === 0 ? (
             <div>
               <span className="text-sm">
