@@ -10,16 +10,21 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://ses.eng.mcmaster.ca/",
-  integrations: [tailwind(), mdx(), sitemap(), icon(), react(), AstroPWA(
-    {
+  integrations: [
+    tailwind(),
+    mdx(),
+    sitemap(),
+    icon(),
+    react(),
+    AstroPWA({
       registerType: "autoUpdate",
       devOptions: {
         enabled: true,
       },
-      injectRegister: 'auto',
+      injectRegister: "auto",
       workbox: {
         navigateFallback: "/404",
       },
-    }
-  )],
+    }),
+  ],
 });
