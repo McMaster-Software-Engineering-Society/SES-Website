@@ -10,7 +10,8 @@ import { socialMedia } from "data/social-media";
         <a
           href={media.url}
           class="text-3xl hover:scale-110 transition-all rounded-full p-3 hover:bg-white/10"
-          target="_blank">
+          target="_blank"
+          aria-label={`SES's ${media.platform}`}>
           <media.icon />
         </a>
       ))
