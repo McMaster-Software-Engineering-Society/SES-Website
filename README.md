@@ -55,8 +55,6 @@
 
 The McMaster Software Engineering Society (SES) website is a platform for students to learn about the society, its events, and its members. It holds useful resources for all student of Software Engineering to easily access.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
 - [![Astro][Astro.js]][Astro-url]
@@ -64,23 +62,17 @@ The McMaster Software Engineering Society (SES) website is a platform for studen
 - [![NextUI][Next.js]][NextUI-url]
 - [![TailwindCSS][TailwindCSS]][TailwindCSS-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
 Visit our Wiki page [here](https://github.com/McMaster-Software-Engineering-Society/SES-Website/wiki/Installation-&-Deployment) for more information on how to install and deploy the website.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- ROADMAP -->
 
 ## Roadmap
 
 See the [open issues](https://github.com/McMaster-Software-Engineering-Society/SES-Website/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -90,8 +82,6 @@ If you have a suggestion that would make this better, please submit them to our 
 
 Interested in contributing to the project? Apply to join the website volunteer team! More information can be found on our Instagram page [@mcmaster_ses](https://www.instagram.com/mcmaster_ses/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- CONTACT -->
 
 ## Contact
@@ -99,8 +89,6 @@ Interested in contributing to the project? Apply to join the website volunteer t
 McMaster Software Engineering Society - [@mcmaster_ses](https://www.instagram.com/mcmaster_ses/) - macsoftwareengsociety@gmail.com
 
 Project Link: [https://github.com/McMaster-Software-Engineering-Society/SES-Website](https://github.com/McMaster-Software-Engineering-Society/SES-Website)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
