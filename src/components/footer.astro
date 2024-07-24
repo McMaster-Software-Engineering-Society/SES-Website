@@ -22,7 +22,11 @@ const { isHome = false } = Astro.props;
   <div class="flex flex-row flex-wrap justify-center px-5 gap-x-1">
     {
       socialMedia.map((media) => (
-        <a href={media.url} class="text-lg p-2" target="_blank">
+        <a
+          href={media.url}
+          class="text-lg p-2"
+          target="_blank"
+          aria-label={`SES's ${media.platform}`}>
           <media.icon />
         </a>
       ))
