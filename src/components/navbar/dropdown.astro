@@ -1,6 +1,12 @@
 ---
 import { Dropdown as DropdownContainer, DropdownItems } from "astro-navbar";
 const { title, lastItem, items } = Astro.props;
+
+// true if at least one dropdown item has a badge set to true
+const badge = items.some(
+  (item) =>
+    item.badge || (item.children && item.children.some((child) => child.badge))
+);
 ---
 
 <li class="relative">
@@ -8,6 +14,13 @@ const { title, lastItem, items } = Astro.props;
     <button
       class="flex items-center gap-1 w-full lg:w-auto lg:px-3 py-2 text-slate-400 hover:text-slate-500">
       <span>{title}</span>
+      {
+        badge && (
+          <span class="ml-1 px-2 py-0.5 text-[10px] font-semibold uppercase text-white bg-indigo-600 rounded-full">
+            New
+          </span>
+        )
+      }
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -24,7 +37,7 @@ const { title, lastItem, items } = Astro.props;
     <DropdownItems>
       <div
         class:list={[
-          "lg:absolute w-full lg:w-48",
+          "lg:absolute w-full lg:min-w-max",
           lastItem
             ? "lg:right-0 origin-top-right"
             : "lg:left-0 origin-top-left",
@@ -38,6 +51,11 @@ const { title, lastItem, items } = Astro.props;
                   href={item.path}
                   class="py-1 text-slate-400 hover:text-slate-500">
                   {item.title}
+                  {item.badge && (
+                    <span class="ml-1 px-2 py-0.5 text-[10px] font-semibold uppercase text-white bg-indigo-600 rounded-full">
+                      New
+                    </span>
+                  )}
                 </a>
                 {item.children && (
                   <div class="flex flex-col">
@@ -46,6 +64,11 @@ const { title, lastItem, items } = Astro.props;
                         href={child.path}
                         class="py-1 text-slate-400 hover:text-slate-500 ml-3">
                         {child.title}
+                        {child.badge && (
+                          <span class="ml-1 px-2 py-0.5 text-[10px] font-semibold uppercase text-white bg-indigo-600 rounded-full">
+                            New
+                          </span>
+                        )}
                       </a>
                     ))}
                   </div>
