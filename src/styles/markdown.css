@@ -133,7 +133,6 @@
 
   hr {
     border-top: 1px solid rgb(100, 116, 139);
-    margin: 1.5rem 0;
   }
 
   @media (min-width: 768px) {
