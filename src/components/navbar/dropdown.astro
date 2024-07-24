@@ -5,7 +5,7 @@ const { title, lastItem, items } = Astro.props;
 // true if at least one dropdown item has a badge set to true
 const badge = items.some(
   (item) =>
-    item.badge || (item.children && item.children.some((child) => child.badge))
+    item.badge || (item.children && item.children.some((child) => child.badge)),
 );
 ---
 
