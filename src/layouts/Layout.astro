@@ -14,7 +14,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
   "/opengraph.jpg",
-  Astro.site
+  Astro.site,
 ).toString();
 
 const { title, variant = "default" } = Astro.props;
@@ -40,20 +40,15 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
       title={makeTitle}
       description="Official website for McMaster Software Engineering Society."
       canonical={canonicalURL}
-      twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
-        card: "summary_large_image",
-      }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`, // TODO: Change this
+          title: `McMaster Software Engineering Society`,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot", // TODO: Change this
+          alt: "McMaster SES Homepage Screenshot",
         },
       }}
     />

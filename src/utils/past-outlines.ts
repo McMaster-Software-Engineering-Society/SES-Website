@@ -128,7 +128,6 @@ const fetchOutlinesWithPngs = (
   return coursesWithPdfAndPngs;
 };
 
-// TODO: Add return type
 export const fetchOutlines = (): Course[] => {
   // Import all PDFs in the past-outlines directory
   const pdfs = Object.keys(
