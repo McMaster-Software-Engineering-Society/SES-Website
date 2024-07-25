@@ -11,12 +11,14 @@ export type Question = {
 };
 
 type GoogleFormProps = {
+  title: string;
   questions: Question[];
   googleFormId: string;
   googleFormEntryIds: { [key: string]: string };
 };
 
 export default function GoogleForm({
+  title,
   googleFormId,
   questions,
   googleFormEntryIds,
@@ -67,7 +69,7 @@ export default function GoogleForm({
 
   return (
     <div className="flex flex-col max-w-screen-sm mx-auto mb-8">
-      <h2 className="text-center font-semibold">Suggestion Form</h2>
+      <h2 className="text-center font-semibold">{title}</h2>
       <div className="flex flex-col gap-y-6">
         {questions.map((question) => {
           if (question.variant === "short")
