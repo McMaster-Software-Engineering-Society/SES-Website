@@ -1,0 +1,36 @@
+---
+import GoogleForm from "../google-form";
+import type { Question } from "../google-form";
+
+const googleFormId = "1FAIpQLSe2BwSEd0JkYzIfILQOhsreYF1RxZ5btCugcdU5h8TiRV_AMA"; // Replace with the actual Google Form ID
+
+const googleFormEntryIds = {
+  name: "1531492032",
+  suggestion: "1666418087",
+};
+
+const questions: Question[] = [
+  {
+    id: "name",
+    label: "Name",
+    type: "text",
+    variant: "short",
+    placeholder: "Your name",
+  },
+  {
+    id: "suggestion",
+    label: "Suggestion",
+    type: "text",
+    variant: "long",
+    placeholder: "Write your suggestion here",
+    isRequired: true,
+  },
+];
+---
+
+<GoogleForm
+  googleFormId={googleFormId}
+  googleFormEntryIds={googleFormEntryIds}
+  questions={questions}
+  client:visible
+/>
