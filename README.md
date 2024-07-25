@@ -59,7 +59,7 @@ The McMaster Software Engineering Society (SES) website is a platform for studen
 
 - [![Astro][Astro.js]][Astro-url]
 - [![React][React.js]][React-url]
-- [![NextUI][Next.js]][NextUI-url]
+- [![NextUI][NextUI-badge]][NextUI-url]
 - [![TailwindCSS][TailwindCSS]][TailwindCSS-url]
 
 <!-- GETTING STARTED -->
@@ -104,7 +104,7 @@ Project Link: [https://github.com/McMaster-Software-Engineering-Society/SES-Webs
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/software-engineering-society
 [product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/nextnext.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
@@ -125,3 +125,4 @@ Project Link: [https://github.com/McMaster-Software-Engineering-Society/SES-Webs
 [NextUI-url]: https://nextui.org/
 [TailwindCSS-url]: https://tailwindcss.com/
 [TailwindCSS]: https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+[NextUI-badge]: https://img.shields.io/badge/NextUI-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
