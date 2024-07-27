@@ -40,7 +40,7 @@ const eventCollection = defineCollection({
   }),
 });
 
-const hackathonCollection = defineCollection({
+const hackathonConferenceCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -67,7 +67,8 @@ const internshipListCollection = defineCollection({
 export const collections = {
   blogPosts: blogCollection,
   events: eventCollection,
-  mcmasterHackathons: hackathonCollection,
-  externalHackathons: hackathonCollection,
+  mcmasterHackathons: hackathonConferenceCollection,
+  externalHackathons: hackathonConferenceCollection,
+  conferences: hackathonConferenceCollection,
   internshipsLists: internshipListCollection,
 };

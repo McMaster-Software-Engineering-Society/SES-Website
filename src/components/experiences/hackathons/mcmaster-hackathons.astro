@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import HackathonItem from "./hackathon-item.astro";
+import HackathonConferenceItem from "../hackathon-conference-item.astro";
 
 const mcmasterHackathons = await getCollection("mcmasterHackathons");
 ---
@@ -9,7 +9,7 @@ const mcmasterHackathons = await getCollection("mcmasterHackathons");
 <div class="flex flex-col gap-y-4">
   {
     mcmasterHackathons.map((hackathon) => (
-      <HackathonItem hackathon={hackathon} />
+      <HackathonConferenceItem hackathon={hackathon} />
     ))
   }
 </div>

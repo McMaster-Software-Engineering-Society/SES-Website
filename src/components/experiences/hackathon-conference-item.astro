@@ -23,9 +23,9 @@ const { hackathon, variant = "primary" } = Astro.props;
 
 const formatDate = (date: Date) => {
   // Get the day, month, and year from the date object
-  const day = date.getDate();
-  const month = date.getMonth() + 1; // Months are zero-based
-  const year = date.getFullYear();
+  const day = date.getUTCDate();
+  const month = date.getUTCMonth() + 1; // Months are zero-based
+  const year = date.getUTCFullYear();
 
   // Add leading zero to day and month if needed
   const dayString = day < 10 ? "0" + day : day;
