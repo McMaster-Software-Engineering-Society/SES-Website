@@ -15,7 +15,8 @@ export interface Props {
   slug: string;
 }
 
-const { index, image, author, publishDate, title, category, slug } = Astro.props;
+const { index, image, author, publishDate, title, category, slug } =
+  Astro.props;
 ---
 
 <a href={`/blog/${slug}`}>

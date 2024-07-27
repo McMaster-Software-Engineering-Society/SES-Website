@@ -1,10 +1,9 @@
 ---
+import { Button } from "@nextui-org/react";
 import { getCollection } from "astro:content";
+import EmptySideBlogPosts from "./empty-side-blog-posts.astro";
 import MainBlogPost from "./main-blog-post.astro";
 import SideBlogPosts from "./side-blog-posts.astro";
-import EmptySideBlogPosts from "./empty-side-blog-posts.astro";
-import { Button } from "@nextui-org/react";
-import { FaArrowRight } from "@react-icons/all-files/fa/FaArrowRight";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blogPosts", ({ data }) => {
