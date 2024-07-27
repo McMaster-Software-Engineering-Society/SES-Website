@@ -1,0 +1,59 @@
+---
+import { Picture } from "astro:assets";
+import { defaultBlogPicture } from "data/default-blog";
+
+export interface Props {
+  image?: {
+    src: string;
+    alt: string;
+  };
+  author: string;
+  publishDate: Date;
+  title: string;
+  snippet: string;
+  tags: string[];
+  slug: string;
+}
+
+const { image, author, publishDate, title, snippet, tags, slug } = Astro.props;
+---
+
+<a href={`/blog/${slug}`}>
+  <div id="newest-post" class="col-span-1 flex flex-col gap-y-6">
+    <Picture
+      id="newest-post-img"
+      src={image?.src || defaultBlogPicture}
+      alt={image?.alt || "Default image"}
+      sizes="(max-width: 800px) 100vw, 800px"
+      width={800}
+      height={600}
+      loading="eager"
+      decoding="sync"
+      class="w-full rounded-md object-cover object-center bg-white"
+    />
+    <div id="newest-post-details" class="flex flex-col gap-y-2">
+      <div id="newest-post-author-and-date" class="flex gap-2 text-sm">
+        <span class="text-gray-400">
+          {author}
+        </span>
+        <span class="text-gray-400">• </span>
+        <time class="text-gray-400" datetime={publishDate.toISOString()}>
+          {publishDate.toDateString()}
+        </time>
+      </div>
+      <h2 id="newest-post-title" class="text-xl font-semibold line-clamp-1">
+        {title}
+      </h2>
+      <p id="newest-post-snippet" class="line-clamp-3">
+        {snippet}
+      </p>
+      <div id="newest-post-tags" class="flex flex-row gap-x-3">
+        {
+          tags.map((tag: string) => (
+            <span class="text-sm text-gray-500">#{tag}</span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</a>

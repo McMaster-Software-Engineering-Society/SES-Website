@@ -2,6 +2,7 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import { Picture } from "astro:assets";
 import { getCollection } from "astro:content";
+import { defaultBlogPicture } from "data/default-blog";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blogPosts", ({ data }) => {
@@ -30,10 +31,7 @@ publishedBlogEntries.sort(function (a, b) {
             <a href={`/blog/${blogPostEntry.slug}`}>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
                 <Picture
-                  src={
-                    blogPostEntry.data.image?.src ||
-                    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?&fit=crop&w=430&h=240"
-                  }
+                  src={blogPostEntry.data.image?.src || defaultBlogPicture}
                   alt={blogPostEntry.data.image?.alt || "Default image"}
                   sizes="(max-width: 800px) 100vw, 800px"
                   width={800}

@@ -1,0 +1,45 @@
+---
+import { Skeleton } from "@nextui-org/react";
+import { Picture } from "astro:assets";
+import { defaultBlogPicture } from "data/default-blog";
+---
+
+<div class="grid grid-cols-3 gap-x-6 items-center">
+  <Skeleton disableAnimation className="rounded-md">
+    <Picture
+      src={defaultBlogPicture}
+      alt={"Default image"}
+      sizes="(max-width: 800px) 100vw, 800px"
+      width={800}
+      height={600}
+      loading="eager"
+      decoding="sync"
+      class="w-full rounded-md object-cover object-center bg-white col-span-1"
+    />
+  </Skeleton>
+  <div class="col-span-2 flex flex-col gap-y-1">
+    <div class="flex gap-2 text-xs">
+      <Skeleton disableAnimation className="rounded-md">
+        <span class="text-gray-400">
+          <!-- {author} -->
+          First LastName
+        </span>
+      </Skeleton>
+      <Skeleton disableAnimation className="rounded-md">
+        <time class="text-gray-400"> Mon Jan 01 0000 </time>
+      </Skeleton>
+    </div>
+    <Skeleton disableAnimation className="rounded-md w-4/5">
+      <h2 class="text-md font-semibold line-clamp-1">
+        <!-- {title} -->
+        Lorem ipsum dolor sit amet
+      </h2>
+    </Skeleton>
+    <Skeleton disableAnimation className="rounded-md w-1/4">
+      <span class="text-blue-400 uppercase tracking-wider text-xs font-medium">
+        <!-- {category} -->
+        Category
+      </span>
+    </Skeleton>
+  </div>
+</div>

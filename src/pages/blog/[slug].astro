@@ -41,7 +41,7 @@ const { Content } = await entry.render();
         <span class="text-gray-400 hidden md:block">•</span>
         <div class="w-full md:w-auto flex flex-wrap gap-3">
           {
-            entry.data.tags.map((tag) => (
+            entry.data.tags.map((tag: string) => (
               <span class="text-sm text-gray-500">#{tag}</span>
             ))
           }
