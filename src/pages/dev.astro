@@ -1,0 +1,163 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { SiAstro } from "@react-icons/all-files/si/SiAstro";
+import { SiMdx } from "@react-icons/all-files/si/SiMdx";
+import { SiNetlify } from "@react-icons/all-files/si/SiNetlify";
+import { SiNextui } from "@react-icons/all-files/si/SiNextui";
+import { SiReact } from "@react-icons/all-files/si/SiReact";
+import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
+import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
+import { SiGithub } from "@react-icons/all-files/si/SiGithub";
+
+const technologies = [
+  {
+    name: "Astro",
+    icon: SiAstro,
+    color: "text-[#0d68a0]",
+    description:
+      "Astro is the framework that powers the SES website. It is a modern static site generator that allows us to build fast, modern websites with a great developer experience.",
+    href: "https://astro.build",
+  },
+  {
+    name: "React",
+    icon: SiReact,
+    color: "text-[#61dafb]",
+    description:
+      "React is a JavaScript library that we use to build interactive user interfaces on the SES website. It allows us to create reusable components and manage state in our applications.",
+    href: "https://reactjs.org",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+    color: "text-[#06b6d4]",
+    description:
+      "Tailwind CSS is a utility-first CSS framework that we use to style the SES website. It allows us to quickly build custom designs without writing any CSS.",
+    href: "https://tailwindcss.com",
+  },
+  {
+    name: "Next UI",
+    icon: SiNextui,
+    color: "text-[#ffffff]",
+    description:
+      "Next UI is a component library that we use to build the SES website. It provides a set of pre-designed components that we can use to quickly build pages and layouts.",
+    href: "https://nextui.org",
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "text-[#007acc]",
+    description:
+      "TypeScript is a superset of JavaScript that we use to write type-safe code on the SES website. It helps us catch errors early and write more maintainable code.",
+    href: "https://www.typescriptlang.org",
+  },
+  {
+    name: "MDX",
+    icon: SiMdx,
+    color: "text-[#f9ac00]",
+    description:
+      "MDX is a format that allows us to write JSX in Markdown documents on the SES website. It allows us to embed React components and write interactive content in our pages.",
+    href: "https://mdxjs.com",
+  },
+  {
+    name: "Netlify",
+    icon: SiNetlify,
+    color: "text-[#00c7b7]",
+    description:
+      "Netlify is a platform that we use to deploy the SES website. It provides continuous deployment, serverless functions, and other features that help us build and deploy our site.",
+    href: "https://www.netlify.com",
+  },
+];
+
+type Contributor = {
+  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  starred_url: string;
+  subscriptions_url: string;
+  organizations_url: string;
+  repos_url: string;
+  events_url: string;
+  received_events_url: string;
+  type: string;
+  site_admin: boolean;
+  contributions: number;
+};
+
+const response = await fetch(
+  "https://api.github.com/repos/McMaster-Software-Engineering-Society/SES-Website/contributors"
+);
+
+const contributors: Contributor[] =
+  (await response.json()) as unknown as Contributor[];
+
+contributors.sort((a, b) => b.contributions - a.contributions);
+---
+
+<PageLayout
+  title="Development Details"
+  class="w-full items-center flex flex-col gap-y-12">
+  <div id="header" class="flex flex-col mt-6">
+    <a
+      href="https://github.com/McMaster-Software-Engineering-Society/SES-Website/"
+      class="group flex flex-col items-center gap-y-1">
+      <h1 class="font-bold text-3xl">SES-Website</h1>
+      <div class="flex flex-row gap-x-2 items-center">
+        <SiGithub />
+        <span class="group-hover:underline">Check out our repo!</span>
+      </div>
+    </a>
+  </div>
+  <div id="developed-with" class="flex flex-col w-full items-center gap-y-4">
+    <span>Developed with</span>
+    <div
+      class="flex flex-row flex-wrap text-2xl justify-center max-w-screen-sm items-center group">
+      {
+        technologies.map(({ name, icon: Icon, color, href }) => (
+          <a
+            href={href}
+            class:list={[
+              "flex flex-row items-center gap-x-3 py-3 px-6 transition-all",
+              color,
+              "group-hover:opacity-50 hover:!opacity-100 hover:-translate-y-0.5",
+            ]}>
+            <Icon />
+            <span class={`text-xl ${color}`}>{name}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <div id="contributed-by" class="flex flex-col gap-y-8 items-center">
+    <span>Contributed by</span>
+    <div class="flex flex-col gap-y-3 max-w-screen-md mx-auto">
+      {
+        contributors.map((contributor) => (
+          <a
+            href={contributor.html_url}
+            class="flex flex-row gap-x-3 items-center">
+            <img
+              src={contributor.avatar_url}
+              alt={contributor.login}
+              width={40}
+              height={40}
+              class="rounded-full border-[mediumorchid] border-2"
+            />
+            <div class="flex flex-col">
+              <span class="font-bold">{contributor.login}</span>
+              <span class="text-sm">
+                {contributor.contributions} contributions
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</PageLayout>
