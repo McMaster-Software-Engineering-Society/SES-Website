@@ -45,6 +45,7 @@ export default function CourseOutlinePreview({
                 key={`${pngPath}-${index}`}
                 alt={`${courses[selectedCourse].courseCode} ${courses[selectedCourse].term} outline page #${index + 1}`}
                 src={pngPath}
+                className="select-none"
               />
             ))}
           </div>
