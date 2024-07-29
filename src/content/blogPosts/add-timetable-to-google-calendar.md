@@ -13,7 +13,7 @@ author: "Willie Pai"
 tags: [google-calendar, timetable, schedule]
 ---
 
-If you use Outlook's calendar to keep track of your schedule, you might already know that there's a tool on Mosaic called "[Timetable to Outlook](https://timetabletooutlook.mcmaster.ca/)" that allows you to automatically copy your class timetable to your Outlook calendar.
+If you use Outlook's calendar to keep track of your schedule, you might already know that there's a tool on Mosaic called [Timetable to Outlook](https://timetabletooutlook.mcmaster.ca/) that allows you to automatically copy your class timetable to your Outlook calendar.
 
 However, if you're like me and prefer to use Google Calendar, you might be wondering how you can copy your timetable to Google Calendar as well. A few years ago, there used to be a tool called "Timetable to Google Calendar" that allowed you to do just that. Ever since the migration to Microsoft 365, this tool has been hidden from Mosaic. Luckily for everyone, the link to the tool is still accessible, and it still works!
 
