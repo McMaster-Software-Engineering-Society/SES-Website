@@ -40,3 +40,5 @@ However, if you're like me and prefer to use Google Calendar, you might be wonde
 7. Be sure to sign out of the tool once you're done to protect your privacy.
 
 ![alt text](https://i.imgur.com/mEKnfnb.png)
+
+Done! Your timetable should now be copied to your Google Calendar. You can check your Google Calendar to see all of your classes, and you can also make changes to the reminders or delete classes as needed.
