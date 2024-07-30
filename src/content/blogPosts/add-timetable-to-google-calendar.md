@@ -27,18 +27,18 @@ However, if you're like me and prefer to use Google Calendar, you might be wonde
 
 4. In step 2, you have the option of having the tool automatically include a reminder for all of your classes in your Google Calendar. By default, the reminder is set to 10 minutes before the class starts. You can change this later.
 
-![alt text](https://i.imgur.com/7aTjewH.png)
+![Toggle switch for reminders](https://i.imgur.com/7aTjewH.png)
 
 5. At the bottom of the page, there is a table with all of your current classes. You can choose to include or exclude each class from your Google Calendar by toggling the switch under the "Export?" column. Note that you can only export classes that are currently in your timetable. You won't be able to export classes from your upcoming term until the term has started.
 
-![alt text](https://i.imgur.com/0WMHTim.png)
+![Table of classes to export](https://i.imgur.com/0WMHTim.png)
 
 6. Finally, click the "Click here to copy your schedule to your calendar" button to copy your timetable to Google Calendar!
 
-![alt text](https://i.imgur.com/j1tAgdL.png)
+![Button to copy schedule to calendar](https://i.imgur.com/j1tAgdL.png)
 
 7. Be sure to sign out of the tool once you're done to protect your privacy.
 
-![alt text](https://i.imgur.com/mEKnfnb.png)
+![Sign out button](https://i.imgur.com/mEKnfnb.png)
 
 Done! Your timetable should now be copied to your Google Calendar. You can check your Google Calendar to see all of your classes, and you can also make changes to the reminders or delete classes as needed.
