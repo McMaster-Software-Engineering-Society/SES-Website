@@ -1,0 +1,64 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { Button } from "@nextui-org/react";
+import { Image } from "astro:assets";
+import { shortWebsite, email, mcmasterGoogleMaps } from "data/social-media";
+import sesLogo from "../../assets/ses-logo.png";
+
+// TODO:
+// - Add sponsorship package
+// - Add contact email
+// - Add sponsor list with logos
+---
+
+<PageLayout title="Sponsorship" class="flex flex-col items-center">
+  <!-- <div
+    class="bg-[url('/contact/sponsorship/sponsorship-banner.png')] aspect-[5/1] max-w-screen-md w-full bg-contain flex flex-col justify-center">
+    <h1 class="text-4xl font-bold text-white ml-24 uppercase tracking-wide">Sponsor us</h1>
+  </div> -->
+  <div class="flex flex-col w-full max-w-screen-lg pt-12">
+    <div id="sponsorship-header" class="grid grid-cols-2 gap-x-6">
+      <div class="flex flex-col gap-y-6">
+        <h1 class="text-4xl font-bold text-primary">Sponsor us</h1>
+        <span>
+          The Software Engineer Society (SES) is a student-led club, aiming to
+          enhance McMaster students’ extracurricular life through various social
+          and professional endeavours. Our society is dedicated to fostering
+          innovation, creativity, and excellence among software engineering
+          students.
+          <br />
+          <br />
+          By sponsoring our initiatives, you play a crucial role in shaping the future
+          of tomorrow’s leaders.
+        </span>
+        <div class="flex flex-row gap-x-3">
+          <Button href="#" variant="shadow"> Sponsorship package </Button>
+          <Button href="#" variant="light" className="hover:underline">
+            Contact us
+          </Button>
+        </div>
+      </div>
+      <div class="bg-slate-600">Image</div>
+    </div>
+
+    <!-- <div
+      id="sponsorship-contact-card"
+      class="flex flex-col gap-y-8 bg-slate-100 text-black text-sm max-w-fit pl-8 pr-24 py-4 -rotate-3 border-1.5 border-gray-500">
+      <div class="flex flex-row items-center gap-x-2">
+        <Image alt="SES logo" src={sesLogo} width={75} class="select-none pointer-events-none" />
+        <span class="text-nowrap font-bold"
+          >McMaster University<br />Software Engineering Society</span
+        >
+      </div>
+      <a href={mcmasterGoogleMaps} class="hover:underline max-w-fit"
+        >1280 Main St W<br />Hamilton, ON, L8S 4l8</a
+      >
+      <span
+        ><a href="/" class="hover:underline">{shortWebsite}</a><br /><a
+          href=`mailto:${email}`
+          class="hover:underline">{email}</a
+        ></span
+      >
+    </div> -->
+  </div>
+</PageLayout>
