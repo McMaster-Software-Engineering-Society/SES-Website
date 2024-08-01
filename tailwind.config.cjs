@@ -18,6 +18,9 @@ module.exports = {
         ],
         londrina: ["Londrina Outline"],
       },
+      colors: {
+        primary: "rgb(186 85 211 / var(--tw-text-opacity))",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), nextui()],
