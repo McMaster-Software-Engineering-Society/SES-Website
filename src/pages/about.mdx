@@ -1,4 +1,5 @@
 import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import ProfileCard from "@components/profile-card.astro";
 
 <MarkdownLayout title="About Us" description="Learn more about who we are!">
   <section>
@@ -37,5 +38,13 @@ import MarkdownLayout from "@layouts/MarkdownLayout.astro";
   </section>
   <section>
     # SES <mark>Team</mark>
+    <div class="team-container">
+      <ProfileCard 
+        name="Tushar Aggarwal"
+        title="Web Developer"
+        image="src\assets\profile-photos\tushar-aggarwal.jpg"
+        description="Tushar is a fourth-year Software Engineering student with a passion for Cybersecurity and Cloud."
+      />
+    </div>
   </section>
 </MarkdownLayout>
