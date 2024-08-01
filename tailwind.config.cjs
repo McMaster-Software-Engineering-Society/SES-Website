@@ -20,6 +20,7 @@ module.exports = {
       },
       colors: {
         primary: "rgb(186 85 211 / var(--tw-text-opacity))",
+        background: "#0f0e17",
       },
     },
   },
