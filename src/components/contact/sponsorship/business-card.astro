@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import { mcmasterGoogleMaps, shortWebsite, email } from "data/social-media";
+import sesLogo from "../../../assets/ses-logo.png";
+import { IoMailOutline } from "@react-icons/all-files/io5/IoMailOutline";
+import { IoGlobeOutline } from "@react-icons/all-files/io5/IoGlobeOutline";
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "sponsorship-business-card flex flex-col gap-y-8 bg-slate-100 text-black text-sm max-w-fit pl-8 pr-24 py-4 border-1.5 border-gray-500",
+    className,
+  ]}>
+  <div class="flex flex-row items-center gap-x-2">
+    <Image
+      alt="SES logo"
+      src={sesLogo}
+      width={75}
+      class="select-none pointer-events-none"
+    />
+    <span class="text-nowrap font-bold"
+      >McMaster University<br />Software Engineering Society</span
+    >
+  </div>
+  <a href={mcmasterGoogleMaps} class="hover:underline max-w-fit"
+    >1280 Main St W<br />Hamilton, ON, L8S 4l8</a
+  >
+  <span
+    ><a href="/" class="hover:underline flex flex-row gap-x-1 items-center"
+      ><IoGlobeOutline />{shortWebsite}</a
+    ><a
+      href=`mailto:${email}`
+      class="hover:underline flex flex-row gap-x-1 items-center"
+      ><IoMailOutline />{email}</a
+    ></span
+  >
+</div>

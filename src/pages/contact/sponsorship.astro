@@ -1,9 +1,8 @@
 ---
+import BusinessCard from "@components/contact/sponsorship/business-card.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import { Button } from "@nextui-org/react";
 import { Image } from "astro:assets";
-import { shortWebsite, email, mcmasterGoogleMaps } from "data/social-media";
-import sesLogo from "../../assets/ses-logo.png";
 
 // TODO:
 // - Add sponsorship package
@@ -16,9 +15,9 @@ import sesLogo from "../../assets/ses-logo.png";
     class="bg-[url('/contact/sponsorship/sponsorship-banner.png')] aspect-[5/1] max-w-screen-md w-full bg-contain flex flex-col justify-center">
     <h1 class="text-4xl font-bold text-white ml-24 uppercase tracking-wide">Sponsor us</h1>
   </div> -->
-  <div class="flex flex-col w-full max-w-screen-lg pt-12">
-    <div id="sponsorship-header" class="grid grid-cols-2 gap-x-6">
-      <div class="flex flex-col gap-y-6">
+  <div class="flex flex-col w-full max-w-screen-lg pt-12 gap-y-12">
+    <div id="sponsorship-header" class="grid grid-cols-5 gap-x-12">
+      <div class="col-span-3 flex flex-col gap-y-6">
         <h1 class="text-4xl font-bold text-primary">Sponsor us</h1>
         <span>
           The Software Engineer Society (SES) is a student-led club, aiming to
@@ -32,33 +31,45 @@ import sesLogo from "../../assets/ses-logo.png";
           of tomorrow’s leaders.
         </span>
         <div class="flex flex-row gap-x-3">
-          <Button href="#" variant="shadow"> Sponsorship package </Button>
-          <Button href="#" variant="light" className="hover:underline">
-            Contact us
-          </Button>
+          <Button
+            href="#"
+            variant="shadow"
+            className="hover:opacity-85 active:translate-y-0.5"
+            >Sponsorship package</Button
+          >
+          <a href="#contact-us">
+            <Button variant="light" className="hover:underline">
+              Contact us
+            </Button>
+          </a>
         </div>
       </div>
-      <div class="bg-slate-600">Image</div>
+      <Image
+        src="/contact/sponsorship/sponsorship-hero.svg"
+        alt="Sponsorship hero image"
+        width={986}
+        height={881}
+        class="col-span-2"
+      />
     </div>
 
-    <!-- <div
-      id="sponsorship-contact-card"
-      class="flex flex-col gap-y-8 bg-slate-100 text-black text-sm max-w-fit pl-8 pr-24 py-4 -rotate-3 border-1.5 border-gray-500">
-      <div class="flex flex-row items-center gap-x-2">
-        <Image alt="SES logo" src={sesLogo} width={75} class="select-none pointer-events-none" />
-        <span class="text-nowrap font-bold"
-          >McMaster University<br />Software Engineering Society</span
-        >
+    <div id="sponsorship-past-sponsors" class="flex flex-col items-center">
+      <span>Our past sponsors</span>
+      Past sponsors - Bell - Computing Councils of Canada (CCubed) - Qualcomm - Promach
+      - ATS - Gyptech - Dayforce
+    </div>
+
+    <div id="contact-us" class="flex flex-col w-full items-center mt-8">
+      <div class="relative h-64 w-full items-center flex flex-col">
+        <BusinessCard class="absolute rotate-1 translate-y-4" />
+        <BusinessCard class="absolute rotate-0 translate-y-2" />
+        <BusinessCard class="absolute -rotate-1" />
+        <BusinessCard class="absolute -rotate-2 -translate-y-2" />
+        <div
+          class="absolute -rotate-3 -translate-y-4 lg:motion-safe:hover:-translate-y-12 lg:motion-safe:hover:rotate-0 transition pb-12">
+          <BusinessCard />
+        </div>
       </div>
-      <a href={mcmasterGoogleMaps} class="hover:underline max-w-fit"
-        >1280 Main St W<br />Hamilton, ON, L8S 4l8</a
-      >
-      <span
-        ><a href="/" class="hover:underline">{shortWebsite}</a><br /><a
-          href=`mailto:${email}`
-          class="hover:underline">{email}</a
-        ></span
-      >
-    </div> -->
+    </div>
   </div>
 </PageLayout>
