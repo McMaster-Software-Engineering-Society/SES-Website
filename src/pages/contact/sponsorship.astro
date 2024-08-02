@@ -49,34 +49,36 @@ const sponsors = await getCollection("sponsors");
       />
     </div>
 
-    <div
-      id="sponsorship-past-sponsors"
-      class="flex flex-col items-center gap-y-8">
-      <span class="text-xl font-medium">Our past sponsors</span>
-      <div class="flex flex-wrap flex-row gap-x-8 gap-y-6 justify-center group">
-        {
-          sponsors.map((sponsor) => (
-            <a
-              href={sponsor.data.link}
-              target="_blank"
-              rel="noopener"
-              class:list={[
-                "p-4 rounded-md h-24 overflow-hidden group-hover:opacity-50 hover:!opacity-100 hover:-translate-y-0.5 transition",
-                sponsor.data.logo.backgroundColor
-                  ? `border-1 border-slate-500`
-                  : "bg-white",
-              ]}
-              style={`background-color: ${sponsor.data.logo.backgroundColor}`}>
-              <img
-                src={sponsor.data.logo.src}
-                alt={sponsor.data.logo.alt}
-                class="select-none pointer-events-none max-w-full max-h-full object-contain"
-              />
-            </a>
-          ))
-        }
-      </div>
-    </div>
+    {
+      sponsors.length > 0 && (
+        <div
+          id="sponsorship-past-sponsors"
+          class="flex flex-col items-center gap-y-8">
+          <span class="text-xl font-medium">Our past sponsors</span>
+          <div class="flex flex-wrap flex-row gap-x-8 gap-y-6 justify-center group">
+            {sponsors.map((sponsor) => (
+              <a
+                href={sponsor.data.link}
+                target="_blank"
+                rel="noopener"
+                class:list={[
+                  "p-4 rounded-md h-24 overflow-hidden group-hover:opacity-50 hover:!opacity-100 hover:-translate-y-0.5 transition",
+                  sponsor.data.logo.backgroundColor
+                    ? `border-1 border-slate-500`
+                    : "bg-white",
+                ]}
+                style={`background-color: ${sponsor.data.logo.backgroundColor}`}>
+                <img
+                  src={sponsor.data.logo.src}
+                  alt={sponsor.data.logo.alt}
+                  class="select-none pointer-events-none max-w-full max-h-full object-contain"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
     <div
       id="contact-us"
