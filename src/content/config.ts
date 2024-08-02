@@ -95,6 +95,28 @@ const sponsorCollection = defineCollection({
   }),
 });
 
+const profileCardCollection = defineCollection({
+  schema: z.object({
+    name: z.string(),
+    title: z.string(),
+    description: z.string(),
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
+    socials: z
+      .object({
+        github: z.string().optional(),
+        linkedin: z.string().optional(),
+        twitter: z.string().optional(),
+        website: z.string().optional(),
+      })
+      .optional(),
+  }),
+});
+
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
@@ -108,4 +130,5 @@ export const collections = {
   technicalTeams: clubTeamCollection,
   technicalClubs: clubTeamCollection,
   otherClubs: clubTeamCollection,
+  profileCards: profileCardCollection,
 };
