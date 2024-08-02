@@ -4,11 +4,7 @@ import BusinessCard from "@components/contact/sponsorship/business-card.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import { Button } from "@nextui-org/react";
 import { Image } from "astro:assets";
-
-// TODO:
-// - Add sponsorship package
-// - Add contact email
-// - Add sponsor list with logos
+import { sponsorshipPackageURL } from "data/sponsorship";
 
 const sponsors = await getCollection("sponsors");
 ---
@@ -30,11 +26,12 @@ const sponsors = await getCollection("sponsors");
           of tomorrow’s leaders.
         </span>
         <div class="flex flex-row gap-x-3">
-          <Button
-            href="#"
-            variant="shadow"
-            className="hover:opacity-85 active:translate-y-0.5"
-            >Sponsorship package</Button
+          <a href={sponsorshipPackageURL} target="_blank" rel="noopener">
+            <Button
+              variant="shadow"
+              className="hover:opacity-85 active:translate-y-0.5"
+              >Sponsorship package</Button
+            ></a
           >
           <a href="#contact-us">
             <Button variant="light" className="hover:underline">
