@@ -5,6 +5,11 @@ import { IoMailOutline } from "@react-icons/all-files/io5/IoMailOutline";
 import { SiLinktree } from "@react-icons/all-files/si/SiLinktree";
 import type { ReactNode } from "react";
 
+export const website = "https://ses.eng.mcmaster.ca/";
+export const shortWebsite = "ses.eng.mcmaster.ca";
+export const email = "macsoftwareengsociety@gmail.com";
+export const mcmasterGoogleMaps = "https://maps.app.goo.gl/eeXMBnELVbtoj94M9";
+
 export const socialMedia: {
   platform: string;
   icon: ReactNode;
@@ -33,6 +38,6 @@ export const socialMedia: {
   {
     platform: "Email",
     icon: IoMailOutline,
-    url: "mailto:macsoftwareengsociety@gmail.com",
+    url: `mailto:${email}`,
   },
 ];
