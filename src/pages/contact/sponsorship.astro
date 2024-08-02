@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import BusinessCard from "@components/contact/sponsorship/business-card.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import { Button } from "@nextui-org/react";
@@ -8,14 +9,12 @@ import { Image } from "astro:assets";
 // - Add sponsorship package
 // - Add contact email
 // - Add sponsor list with logos
+
+const sponsors = await getCollection("sponsors");
 ---
 
 <PageLayout title="Sponsorship" class="flex flex-col items-center">
-  <!-- <div
-    class="bg-[url('/contact/sponsorship/sponsorship-banner.png')] aspect-[5/1] max-w-screen-md w-full bg-contain flex flex-col justify-center">
-    <h1 class="text-4xl font-bold text-white ml-24 uppercase tracking-wide">Sponsor us</h1>
-  </div> -->
-  <div class="flex flex-col w-full max-w-screen-lg pt-12 gap-y-12">
+  <div class="flex flex-col w-full max-w-screen-lg pt-12 gap-y-24">
     <div id="sponsorship-header" class="grid grid-cols-5 gap-x-12">
       <div class="col-span-3 flex flex-col gap-y-6">
         <h1 class="text-4xl font-bold text-primary">Sponsor us</h1>
@@ -53,13 +52,36 @@ import { Image } from "astro:assets";
       />
     </div>
 
-    <div id="sponsorship-past-sponsors" class="flex flex-col items-center">
-      <span>Our past sponsors</span>
-      Past sponsors - Bell - Computing Councils of Canada (CCubed) - Qualcomm - Promach
-      - ATS - Gyptech - Dayforce
+    <div
+      id="sponsorship-past-sponsors"
+      class="flex flex-col items-center gap-y-8">
+      <span class="text-xl font-medium">Our past sponsors</span>
+      <div class="flex flex-wrap flex-row gap-x-8 gap-y-6 justify-center">
+        {
+          sponsors.map((sponsor) => (
+            <div
+              class:list={[
+                "p-4 rounded-md h-24 overflow-hidden",
+                sponsor.data.logo.backgroundColor
+                  ? `border-1 border-slate-500`
+                  : "bg-white",
+              ]}
+              style={`background-color: ${sponsor.data.logo.backgroundColor}`}>
+              <img
+                src={sponsor.data.logo.src}
+                alt={sponsor.data.logo.alt}
+                class="select-none pointer-events-none max-w-full max-h-full object-contain"
+              />
+            </div>
+          ))
+        }
+      </div>
     </div>
 
-    <div id="contact-us" class="flex flex-col w-full items-center mt-8">
+    <div
+      id="contact-us"
+      class="flex flex-col w-full items-center mt-8 gap-y-16">
+      <span class="text-xl font-medium">Contact us</span>
       <div class="relative h-64 w-full items-center flex flex-col">
         <BusinessCard class="absolute rotate-1 translate-y-4" />
         <BusinessCard class="absolute rotate-0 translate-y-2" />
