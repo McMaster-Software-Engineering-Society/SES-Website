@@ -1,16 +1,25 @@
 ---
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
+import { FaXTwitter } from "@react-icons/all-files/fa6/FaXTwitter";
+import { IoMailOutline } from "@react-icons/all-files/io5/IoMailOutline";
 const { name, title, image, description } = Astro.props;
 ---
 
 <div class="profile-card">
   <div class="profile-card-upper">
-    <img src={image} alt={`${name}'s picture`} class="profile-image" />
+    <img src={image.src} alt={`${name}'s picture`} class="profile-image" />
   </div>
   <div class="profile-card-lower">
     <div class="profile-info">
       <h2>{name}</h2>
       <h3>{title}</h3>
       <p>{description}</p>
+      <div class = "profile-card-social"><FaInstagram/>
+      </div>
+      <FaFacebook/>
+      <FaXTwitter/>
+      <IoMailOutline/>
     </div>
   </div>
 </div>
