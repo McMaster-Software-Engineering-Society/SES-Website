@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "How to Automatically Copy Your Timetable to Google Calendar"
+title: "How to Copy Your Timetable to Google Calendar"
 snippet: "You might have noticed that there's a tool on Mosaic to add your class timetable to Outlook, but did you know that there's a secret tool to add your timetable to Google Calendar as well?"
 image:
   {
