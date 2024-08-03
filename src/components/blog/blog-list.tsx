@@ -22,6 +22,7 @@ export default function BlogList({
   ).sort((a, b) => a.localeCompare(b));
 
   const fuseOptions = {
+    // Search by title, author, category, and tags
     keys: ["data.title", "data.author", "data.category", "data.tags"],
     isCaseSensitive: false,
     threshold: 0.5,
@@ -32,10 +33,12 @@ export default function BlogList({
   useEffect(() => {
     let results = publishedBlogEntries;
 
+    // Use Fuse.js to fuzzy search the blog post entries
     if (searchFilter) {
       results = fuse.search(searchFilter).map(({ item }) => item);
     }
 
+    // Filter by category
     if (selectedCategory) {
       results = results.filter(
         (blogPostEntry) => blogPostEntry.data.category === selectedCategory,
