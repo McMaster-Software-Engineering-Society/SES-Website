@@ -37,7 +37,7 @@ export default function BlogList({
   ).sort((a, b) => a.localeCompare(b));
 
   const fuseOptions = {
-    keys: ["data.title"],
+    keys: ["data.title", "data.author", "data.category", "data.tags"],
     isCaseSensitive: false,
     threshold: 0.5,
   };
