@@ -62,7 +62,7 @@ export default function BlogList({
 
   return (
     <div className="flex flex-col items-center w-full gap-y-12">
-      <div className="flex flex-col md:grid md:grid-cols-4 gap-x-4 gap-y-2 w-full max-w-screen-sm">
+      <div className="flex flex-col md:grid md:grid-cols-4 gap-4 w-full max-w-screen-sm">
         <Input
           placeholder="Search for a post"
           size="lg"
