@@ -63,7 +63,6 @@ export default function GoogleForm({
 
   const isFormInvalid = () => {
     const invalid = questions.some((question) => isQuestionInvalid(question));
-    console.log("isFormInvalid", invalid);
     return invalid;
   };
 
