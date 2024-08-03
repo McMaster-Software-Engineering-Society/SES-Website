@@ -77,8 +77,7 @@ export default function BlogList({
           label="Category"
           size="sm"
           value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          className="">
+          onChange={(e) => setSelectedCategory(e.target.value)}>
           {categories.map((category) => (
             <SelectItem
               key={category}
