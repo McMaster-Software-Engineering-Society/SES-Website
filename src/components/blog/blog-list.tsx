@@ -62,7 +62,7 @@ export default function BlogList({
 
   return (
     <div className="flex flex-col items-center w-full gap-y-12">
-      <div className="flex flex-col md:grid md:grid-cols-4 gap-4 w-full max-w-screen-sm">
+      <div className="flex flex-col items-center md:grid md:grid-cols-4 gap-4 w-full max-w-screen-sm">
         <Input
           placeholder="Search for a post"
           size="lg"
@@ -77,7 +77,8 @@ export default function BlogList({
           label="Category"
           size="sm"
           value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}>
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          className="w-1/2 md:w-full">
           {categories.map((category) => (
             <SelectItem
               key={category}
