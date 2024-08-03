@@ -15,21 +15,6 @@ export default function BlogList({
   const [selectedCategory, setSelectedCategory] = useState<string>();
   const [filteredEntries, setFilteredEntries] = useState(publishedBlogEntries);
 
-  // Update the filtered blog entries whenever the selected category changes
-  // useEffect(() => {
-  //   setFilteredBlogEntries(
-  //     publishedBlogEntries.filter(
-  //       (blogPostEntry) =>
-  //         (!selectedCategory ||
-  //           blogPostEntry.data.category === selectedCategory) &&
-  //         (searchFilter === "" ||
-  //           blogPostEntry.data.title
-  //             .toLowerCase()
-  //             .includes(searchFilter.toLowerCase())),
-  //     ),
-  //   );
-  // }, [selectedCategory, searchFilter]);
-
   const categories = Array.from(
     new Set(
       publishedBlogEntries.map((blogPostEntry) => blogPostEntry.data.category),
@@ -79,6 +64,7 @@ export default function BlogList({
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
           className="w-1/2 md:w-full">
+          {/* Width is set to 1/2 on mobile due to dropdown bug */}
           {categories.map((category) => (
             <SelectItem
               key={category}
