@@ -1,0 +1,26 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+const {question, answer, icon} = Astro.props;
+---
+
+<PageLayout title="FAQ" class="flex flex-col items-left justify-right">
+    <div class="intro">
+        <h1 class="text-[44px] font-bold text-white pt-10">
+        Frequently Asked Questions <span class="text-primary">(FAQ)</span></h1>
+        <p class="mt-3 text-left font-thin max-w-screen-sm">Find answers to common questions we get about our society and all 
+            things software engineering. If you have more questions, feel free to contact us!</p>
+        <div class="h-px mt-8 bg-gray-700 w-full"></div>
+
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 pt-8">
+        <p class="col-start-1 row-start-1 rounded-md font-bold p-4 pl-20 justify-center">{question}</p>
+        <div class="pt-4 col-start-1 row-start-1 justify-left">
+            <div class=" rounded-md bg-primary w-12 h-12 flex justify-center items-center text-3xl">{icon}</div>
+        </div>
+        <p class="-mt-6 pl-20 row-start-2 font-thin rounded-md justify-center">{answer}</p>
+
+        </div>
+
+    <div class="h-px mt-8 bg-gray-700 w-full"></div>
+</PageLayout>

@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content"
+import FrequentlyAskedQuestions from "@pages/frequently-asked-questions/faq.astro";
+const faq = await getCollection("faqs")
+---
+
+{ faq.map((faq) => (
+   <FrequentlyAskedQuestions
+     question={faq.data.question}
+     answer={faq.data.answer}
+    />
+))}
