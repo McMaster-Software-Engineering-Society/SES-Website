@@ -74,7 +74,7 @@ const sponsorCollection = defineCollection({
   }),
 });
 
-const frequentlyAskedQuestionsCollection = defineCollection({
+const faqsCollection = defineCollection({
   schema: z.object({
     question: z.string(),
     answer: z.string(),
@@ -91,5 +91,5 @@ export const collections = {
   conferences: hackathonConferenceCollection,
   internshipsLists: internshipListCollection,
   sponsors: sponsorCollection,
-  faqs: frequentlyAskedQuestionsCollection,
+  faqs: faqsCollection,
 };

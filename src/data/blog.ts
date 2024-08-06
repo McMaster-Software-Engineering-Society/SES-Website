@@ -1,0 +1,2 @@
+export const defaultBlogPicture =
+  "https://images.unsplash.com/photo-1542831371-29b0f74f9713?&fit=crop&w=430&h=240";

@@ -1,0 +1,24 @@
+---
+export interface Props {
+  question: string;
+  answer: string;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<div class="grid grid-cols-2 gap-4 pt-8">
+  <p
+    class="col-start-1 row-start-1 rounded-md font-bold p-4 pl-20 justify-center">
+    {question}
+  </p>
+  <div class="pt-4 col-start-1 row-start-1 justify-left">
+    <div
+      class="rounded-md bg-primary w-12 h-12 flex justify-center items-center text-3xl">
+      <!-- {icon} -->
+    </div>
+  </div>
+  <p class="-mt-6 pl-20 row-start-2 font-thin rounded-md justify-center">
+    {answer}
+  </p>
+</div>

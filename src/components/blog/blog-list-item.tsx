@@ -1,4 +1,4 @@
-import { defaultBlogPicture } from "@pages/blog.astro";
+import { defaultBlogPicture } from "data/blog";
 
 type BlogListItemProps = {
   slug: string;
