@@ -1,0 +1,131 @@
+---
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import { FaXTwitter } from "@react-icons/all-files/fa6/FaXTwitter";
+import { IoGlobeOutline } from "@react-icons/all-files/io5/IoGlobeOutline";
+import { IoMailOutline } from "@react-icons/all-files/io5/IoMailOutline";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
+import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
+import { Image } from "astro:assets";
+
+export interface Props {
+  name: string;
+  title: string;
+  level?: number;
+  image?: string;
+  description?: string;
+  socials?: {
+    instagram?: string;
+    twitter?: string;
+    github?: string;
+    linkedin?: string;
+    website?: string;
+    email?: string;
+  };
+}
+
+const { name, level, title, image, description, socials } = Astro.props;
+
+const levelToRoman = (level?: number) => {
+  switch (level) {
+    case 1:
+      return "I";
+    case 2:
+      return "II";
+    case 3:
+      return "III";
+    case 4:
+      return "IV";
+    case 5:
+      return "V";
+    default:
+      return "";
+  }
+};
+---
+
+<div class="flex flex-col items-center bg-[#282737] rounded-2xl drop-shadow-md">
+  <Image
+    src={image || "/about/profile-photos/default-profile-picture.png"}
+    alt={`${name}'s picture`}
+    class="profile-card-img w-32 h-32 rounded-full translate-y-16 -mt-8 bg-black"
+    width={128}
+    height={128}
+  />
+  <div
+    class="profile-card-lower bg-[#4A4A67] flex flex-col items-center text-center w-full px-4 pb-6 pt-16 rounded-2xl text-white h-full">
+    <span class="mt-2 text-lg"
+      >{name}
+      <span class="text-sm text-zinc-400">{levelToRoman(level)}</span></span
+    >
+    <span class="text-zinc-300">{title}</span>
+    <div class="profile-card-socials flex flex-row transition">
+      {
+        socials?.instagram && (
+          <a
+            href={socials.instagram}
+            class="p-2 rounded-full hover:bg-black/15">
+            <div class="text-white">
+              <FaInstagram />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.twitter && (
+          <a href={socials.twitter} class="p-2 rounded-full hover:bg-black/15">
+            <div class="text-white">
+              <FaXTwitter />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.github && (
+          <a href={socials.github} class="p-2 rounded-full hover:bg-black/15">
+            <div class="text-white">
+              <FaGithub />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.linkedin && (
+          <a href={socials.linkedin} class="p-2 rounded-full hover:bg-black/15">
+            <div class="text-white">
+              <FaLinkedinIn />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.website && (
+          <a href={socials.website} class="p-2 rounded-full hover:bg-black/15">
+            <div class="text-white">
+              <IoGlobeOutline />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.email && (
+          <a
+            href={`mailto:${socials.email}`}
+            class="p-2 rounded-full hover:bg-black/15">
+            <div class="text-white">
+              <IoMailOutline />
+            </div>
+          </a>
+        )
+      }
+    </div>
+    <span class="mt-4 text-sm">{description}</span>
+  </div>
+</div>
+
+<style>
+  .profile-card-lower {
+    box-shadow:
+      0 -10px 15px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+</style>
