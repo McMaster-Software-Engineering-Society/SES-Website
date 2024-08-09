@@ -5,6 +5,22 @@ import PageLayout from "@layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 
 const questions = await getCollection("faqs");
+
+const grades = {
+  willie: {
+    math: 90,
+    science: 80,
+    english: 70,
+  },
+  senuni: {
+    math: 99,
+    science: 98,
+    english: 97,
+  },
+};
+
+console.log(grades["willie"]?.math);
+console.log(grades["michael"]?.english);
 ---
 
 <PageLayout title="FAQ" class="flex flex-col items-left justify-right">
@@ -24,6 +40,7 @@ const questions = await getCollection("faqs");
       <FaqItem
         question={question.data.question}
         answer={question.data.answer}
+        category={question.data.category}
       />
     ))
   }

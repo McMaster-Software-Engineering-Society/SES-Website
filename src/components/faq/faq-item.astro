@@ -1,4 +1,5 @@
 ---
+import { FaGraduationCap } from "@react-icons/all-files/fa/FaGraduationCap";
 import { FaQuestion } from "@react-icons/all-files/fa6/FaQuestion";
 import { faqCategoryIcons } from "data/faq";
 
@@ -21,10 +22,13 @@ const { question, answer, category } = Astro.props;
       class="rounded-md bg-primary w-12 h-12 flex justify-center items-center text-3xl">
       <!-- Render icon corresponding to category, defaults to Question mark if category does not exist -->
       {
-        faqCategoryIcons.find(
-          (categoryIcon) =>
-            categoryIcon.category.toLowerCase() === category?.toLowerCase(),
-        )?.icon ?? <FaQuestion />
+        category === "Academic" ? (
+          <FaGraduationCap />
+        ) : category === "General" ? (
+          <FaQuestion />
+        ) : (
+          <FaQuestion />
+        )
       }
     </div>
   </div>
