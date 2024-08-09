@@ -24,5 +24,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), nextui()],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("tailwindcss-displaymodes"),
+    nextui(),
+  ],
 };

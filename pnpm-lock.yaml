@@ -85,6 +85,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
+      tailwindcss-displaymodes:
+        specifier: ^1.0.8
+        version: 1.0.8
     devDependencies:
       "@eslint/js":
         specifier: ^9.4.0
@@ -6746,6 +6749,12 @@ packages:
     peerDependencies:
       tailwindcss: "*"
 
+  tailwindcss-displaymodes@1.0.8:
+    resolution:
+      {
+        integrity: sha512-TBbEAw8793XPPJzPrgKsJPeLIm7NCeUQeGifqJateH3MlyB0nV0AtmiPM/gCHczRAbFv02QboU4iaHoUP1a/gA==,
+      }
+
   tailwindcss@3.4.3:
     resolution:
       {
@@ -12790,6 +12799,8 @@ snapshots:
     dependencies:
       tailwind-merge: 1.14.0
       tailwindcss: 3.4.3
+
+  tailwindcss-displaymodes@1.0.8: {}
 
   tailwindcss@3.4.3:
     dependencies:
