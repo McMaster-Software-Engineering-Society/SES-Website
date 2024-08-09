@@ -78,6 +78,7 @@ const faqsCollection = defineCollection({
   schema: z.object({
     question: z.string(),
     answer: z.string(),
+    category: z.string().optional(),
   }),
 });
 

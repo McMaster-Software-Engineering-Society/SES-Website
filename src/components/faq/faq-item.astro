@@ -1,10 +1,14 @@
 ---
+import { FaQuestion } from "@react-icons/all-files/fa6/FaQuestion";
+import { faqCategoryIcons } from "data/faq";
+
 export interface Props {
   question: string;
   answer: string;
+  category?: string;
 }
 
-const { question, answer } = Astro.props;
+const { question, answer, category } = Astro.props;
 ---
 
 <div class="grid grid-cols-2 gap-4 pt-8">
@@ -15,7 +19,13 @@ const { question, answer } = Astro.props;
   <div class="pt-4 col-start-1 row-start-1 justify-left">
     <div
       class="rounded-md bg-primary w-12 h-12 flex justify-center items-center text-3xl">
-      <!-- {icon} -->
+      <!-- Render icon corresponding to category, defaults to Question mark if category does not exist -->
+      {
+        faqCategoryIcons.find(
+          (categoryIcon) =>
+            categoryIcon.category.toLowerCase() === category?.toLowerCase(),
+        )?.icon ?? <FaQuestion />
+      }
     </div>
   </div>
   <p class="-mt-6 pl-20 row-start-2 font-thin rounded-md justify-center">
