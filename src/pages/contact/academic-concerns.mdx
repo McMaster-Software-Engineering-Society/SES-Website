@@ -1,0 +1,23 @@
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import ConcernsForm from "@components/contact/academic-concerns/concerns-form.astro";
+
+<MarkdownLayout
+  title="Academic Concerns"
+  description="Fill out this form for each course you would like to report any concerns with.">
+  <section>
+    Our goal on the SES is to provide a voice to software engineering students and
+    make sure your concerns are heard by the department. We recommend first
+    speaking with your professor about any concerns you have with a course; in the
+    case where you feel your concerns are not being adequately adressed (or you
+    just don't feel comfortable speaking up), fill out this form and we will
+    provide support. We will do our best to maintain your anonymity - emails will
+    only be seen by the SES VP Academic, and are only needed in case we need to
+    reach out to you to discuss the topic further if necessary.
+  </section>
+
+  <section>
+    <div>
+      <ConcernsForm />
+    </div>
+  </section>
+</MarkdownLayout>
