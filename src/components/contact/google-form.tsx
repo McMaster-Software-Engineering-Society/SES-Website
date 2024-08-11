@@ -54,10 +54,9 @@ export default function GoogleForm({
 
     if (question.isRequired && !value) return true;
 
-    if (question.type === "email") {
+    if (question.type === "email" && value) {
       return !validateEmail(value);
     }
-
     return false;
   };
 
