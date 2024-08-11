@@ -54,6 +54,27 @@ const hackathonConferenceCollection = defineCollection({
   }),
 });
 
+const clubTeamCollection = defineCollection({
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    socials: z
+      .object({
+        instagram: z.string().optional(),
+        twitter: z.string().optional(),
+        github: z.string().optional(),
+        linkedin: z.string().optional(),
+        website: z.string().optional(),
+        email: z.string().optional(),
+      })
+      .optional(),
+  }),
+});
+
 const internshipListCollection = defineCollection({
   schema: z.object({
     title: z.string(),
@@ -84,4 +105,7 @@ export const collections = {
   conferences: hackathonConferenceCollection,
   internshipsLists: internshipListCollection,
   sponsors: sponsorCollection,
+  technicalTeams: clubTeamCollection,
+  technicalClubs: clubTeamCollection,
+  otherClubs: clubTeamCollection,
 };

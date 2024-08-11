@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import ClubTeamItem from "./club-team-item.astro";
+import ClubTeamListBase from "./club-team-list-base.astro";
+
+const otherClubs = await getCollection("otherClubs");
+---
+
+<ClubTeamListBase>
+  {
+    otherClubs.map((clubTeam) => (
+      <ClubTeamItem
+        name={clubTeam.data.name}
+        description={clubTeam.data.description}
+        image={clubTeam.data.image}
+        socials={clubTeam.data.socials}
+      />
+    ))
+  }
+</ClubTeamListBase>
