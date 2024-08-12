@@ -89,7 +89,7 @@ const sponsorCollection = defineCollection({
     logo: z.object({
       src: z.string(),
       alt: z.string(),
-      backgroundColor: z.string().optional(),
+      backgroundColour: z.string().optional(),
     }),
     link: z.string(),
   }),
@@ -127,7 +127,7 @@ export const collections = {
   externalHackathons: hackathonConferenceCollection,
   conferences: hackathonConferenceCollection,
   internshipsLists: internshipListCollection,
-  sponsors: sponsorCollection,
+  pastSponsors: sponsorCollection,
   technicalTeams: clubTeamCollection,
   technicalClubs: clubTeamCollection,
   otherClubs: clubTeamCollection,

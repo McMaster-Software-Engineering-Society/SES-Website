@@ -6,7 +6,7 @@ import { Button } from "@nextui-org/react";
 import { Image } from "astro:assets";
 import { sponsorshipPackageURL } from "data/sponsorship";
 
-const sponsors = await getCollection("sponsors");
+const sponsors = await getCollection("pastSponsors");
 ---
 
 <PageLayout title="Sponsorship" class="flex flex-col items-center">
@@ -65,11 +65,11 @@ const sponsors = await getCollection("sponsors");
                 rel="noopener"
                 class:list={[
                   "p-4 rounded-md h-24 overflow-hidden group-hover:opacity-50 hover:!opacity-100 hover:-translate-y-0.5 transition",
-                  sponsor.data.logo.backgroundColor
+                  sponsor.data.logo.backgroundColour
                     ? `border-1 border-slate-500`
                     : "bg-white",
                 ]}
-                style={`background-color: ${sponsor.data.logo.backgroundColor}`}>
+                style={`background-color: ${sponsor.data.logo.backgroundColour}`}>
                 <img
                   src={sponsor.data.logo.src}
                   alt={sponsor.data.logo.alt}
