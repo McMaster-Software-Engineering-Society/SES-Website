@@ -1,8 +1,7 @@
 ---
+import { academicConcernsFormId } from "data/forms";
 import GoogleForm from "../google-form";
 import type { Question } from "../google-form";
-
-const googleFormId = "1FAIpQLSfogfBA2dPTx16imH90uNNF2m3HqpiMq34lw1791F7AZIaNkw";
 
 const googleFormEntryIds = {
   course: "351571338",
@@ -71,7 +70,7 @@ const questions: Question[] = [
 
 <GoogleForm
   title="Tell us Your Concerns"
-  googleFormId={googleFormId}
+  googleFormId={academicConcernsFormId}
   googleFormEntryIds={googleFormEntryIds}
   questions={questions}
   client:visible

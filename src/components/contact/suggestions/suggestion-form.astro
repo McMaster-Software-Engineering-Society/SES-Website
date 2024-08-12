@@ -1,8 +1,7 @@
 ---
+import { suggestionFormId } from "data/forms";
 import GoogleForm from "../google-form";
 import type { Question } from "../google-form";
-
-const googleFormId = "1FAIpQLSe2BwSEd0JkYzIfILQOhsreYF1RxZ5btCugcdU5h8TiRV_AMA"; // Replace with the actual Google Form ID
 
 const googleFormEntryIds = {
   name: "1531492032",
@@ -38,7 +37,7 @@ const questions: Question[] = [
 
 <GoogleForm
   title="Submit a Suggestion"
-  googleFormId={googleFormId}
+  googleFormId={suggestionFormId}
   googleFormEntryIds={googleFormEntryIds}
   questions={questions}
   client:visible

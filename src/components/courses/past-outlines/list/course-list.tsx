@@ -2,6 +2,7 @@ import { Card, CardBody, Divider, ScrollShadow } from "@nextui-org/react";
 import type { Course } from "@utils/past-outlines";
 import clsx from "clsx";
 import CourseListItem from "./course-list-item";
+import { pastOutlineDropbox } from "data/forms";
 
 type CourseListProps = {
   courses: Course[];
@@ -25,7 +26,7 @@ export default function CourseList({
               </span>
               <a
                 className="text-sm italic underline text-blue-600"
-                href="https://forms.gle/MLrNZnwsmeTEBbVcA"
+                href={pastOutlineDropbox}
                 target="_blank">
                 Consider sending us yours!
               </a>
