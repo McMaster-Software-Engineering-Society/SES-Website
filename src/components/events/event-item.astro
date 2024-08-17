@@ -1,6 +1,7 @@
 ---
 import { Button } from "@nextui-org/react";
 import AddToCalendarButton from "./add-to-calendar-button";
+import type { CalendarEvent } from "types/event";
 
 export interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -40,19 +41,7 @@ const eventTime = new Date(event.data.startDateTime).toLocaleTimeString(
   },
 );
 
-const calendarEventData: {
-  title: string;
-  start: string;
-  end: string;
-  details: string;
-  location: string;
-  googleMapsLink?: string;
-  image?: {
-    src: string;
-    alt: string;
-  };
-  link?: string;
-} = {
+const calendarEventData: CalendarEvent = {
   title: event.data.title,
   start: event.data.startDateTime.toISOString(),
   end:

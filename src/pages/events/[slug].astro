@@ -7,6 +7,8 @@ import { FaCopy } from "@react-icons/all-files/fa/FaCopy";
 import { FaCalendarAlt } from "@react-icons/all-files/fa/FaCalendarAlt";
 import { FaMapMarkedAlt } from "@react-icons/all-files/fa/FaMapMarkedAlt";
 import { Button } from "@nextui-org/react";
+import AddToCalendarButton from "@components/events/add-to-calendar-button";
+import type { CalendarEvent } from "types/event";
 
 export async function getStaticPaths() {
   const eventEntries = await getCollection("events");
@@ -27,6 +29,22 @@ const getEventDuration = (startDateTime: Date, endDateTime: Date) => {
   const minuteLabel = minutes === 1 ? "min" : "mins";
   return `${hours} ${hourLabel} ${minutes} ${minuteLabel}`;
 };
+
+const calendarEventData: CalendarEvent = {
+  title: event.data.title,
+  start: event.data.startDateTime.toISOString(),
+  end:
+    event.data.endDateTime?.toISOString() ??
+    new Date(event.data.startDateTime.valueOf() + 60 * 60 * 1000).toISOString(),
+  details: event.body,
+  location: event.data.location,
+  googleMapsLink: event.data.googleMapsLink,
+  image: event.data.image,
+  link: event.data.link,
+};
+
+const customButtonStyle =
+  "flex text-sm text-white items-center rounded-xl bg-[#3F3F4666] px-3 py-2 gap-x-2";
 ---
 
 <PageLayout title={event.data.title} class="flex justify-center">
@@ -61,7 +79,7 @@ const getEventDuration = (startDateTime: Date, endDateTime: Date) => {
                 <p class="text-lg">
                   {getEventDuration(
                     event.data.startDateTime,
-                    event.data.endDateTime
+                    event.data.endDateTime,
                   )}
                 </p>
               </div>
@@ -73,20 +91,23 @@ const getEventDuration = (startDateTime: Date, endDateTime: Date) => {
           </div>
         </div>
         <div class="flex text-slate-300 text-md mt-4 gap-3">
+          <AddToCalendarButton
+            client:visible
+            event={calendarEventData}
+            variant="flat"
+          />
           <a
             href={event.data.googleMapsLink}
             target="_blank"
             class:list={[
-              "flex items-center rounded-lg px-3 py-2 gap-x-1 bg-gray-800",
+              customButtonStyle,
               event.data.googleMapsLink ? "block" : "hidden",
             ]}>
-            <p class="mr-1"><FaMapMarkerAlt /></p>
+            <span><FaMapMarkerAlt /></span>
             <p class="text-slate-300">Google Maps</p>
           </a>
-          <button
-            id="share-button"
-            class="flex items-center rounded-lg bg-gray-800 px-3 py-2 gap-x-1">
-            <p class="mr-1"><FaCopy /></p>
+          <button id="share-button" class={customButtonStyle}>
+            <span><FaCopy /></span>
             <p id="share-display">Share</p>
           </button>
         </div>
