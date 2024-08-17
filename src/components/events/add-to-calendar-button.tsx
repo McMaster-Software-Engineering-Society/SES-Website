@@ -37,16 +37,18 @@ const getOutlookAddEventUrl = (event) => {
 type AddToCalendarButtonProps = {
   event: CalendarEvent;
   size?: "sm" | "md";
+  variant?: "bordered" | "flat";
 };
 
 export default function AddToCalendarButton({
   event,
   size = "md",
+  variant = "bordered",
 }: Readonly<AddToCalendarButtonProps>) {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="bordered" startContent={<FaPlus />} size={size}>
+        <Button variant={variant} startContent={<FaPlus />} size={size}>
           Calendar
         </Button>
       </DropdownTrigger>
