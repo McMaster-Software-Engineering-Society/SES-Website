@@ -27,7 +27,14 @@ const getEventDuration = (startDateTime: Date, endDateTime: Date) => {
   const minutes = Math.floor((duration % 36e5) / 6e4);
   const hourLabel = hours === 1 ? "hour" : "hours";
   const minuteLabel = minutes === 1 ? "min" : "mins";
-  return `${hours} ${hourLabel} ${minutes} ${minuteLabel}`;
+  let durationString = "";
+  if (hours > 0) {
+    durationString += `${hours} ${hourLabel} `;
+  }
+  if (minutes > 0) {
+    durationString += `${minutes} ${minuteLabel}`;
+  }
+  return durationString;
 };
 
 const calendarEventData: CalendarEvent = {
@@ -55,8 +62,8 @@ const customButtonStyle =
       <div class="flex flex-col items-start text-slate-400">
         <h1 class="font-bold text-4xl text-slate-300">{event.data.title}</h1>
         <div class="flex flex-col mt-8">
-          <div class="flex flex-row items-center">
-            <p class="mr-2"><FaCalendarAlt /></p>
+          <div class="flex flex-row items-center gap-x-2">
+            <FaCalendarAlt />
             <p class="text-lg">
               {
                 event.data.startDateTime.toLocaleDateString("en-US", {
@@ -72,10 +79,8 @@ const customButtonStyle =
           </div>
           {
             event.data.endDateTime && (
-              <div class="flex flex-row items-center">
-                <p class="mr-2">
-                  <FaRegClock />
-                </p>
+              <div class="flex flex-row items-center gap-x-2">
+                <FaRegClock />
                 <p class="text-lg">
                   {getEventDuration(
                     event.data.startDateTime,
@@ -85,9 +90,9 @@ const customButtonStyle =
               </div>
             )
           }
-          <div class="flex flex-row items-center">
-            <p class="mr-2"><FaMapMarkedAlt /></p>
-            <p class="mt-1 text-lg">{event.data.location}</p>
+          <div class="flex flex-row items-center gap-x-2">
+            <FaMapMarkedAlt />
+            <p class="text-lg">{event.data.location}</p>
           </div>
         </div>
         <div class="flex flex-wrap text-slate-300 text-md mt-4 gap-3">
