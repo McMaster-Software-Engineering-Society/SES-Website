@@ -84,7 +84,7 @@ const customButtonStyle =
                 <p class="text-lg">
                   {getEventDuration(
                     event.data.startDateTime,
-                    event.data.endDateTime
+                    event.data.endDateTime,
                   )}
                 </p>
               </div>
@@ -118,8 +118,12 @@ const customButtonStyle =
         </div>
       </div>
 
-      <div class="shadow-gray-800 h-full sm:w-2/3 lg:w-full">
-        <img src={event.data.image?.src} class="rounded-lg" />
+      <div
+        class="shadow-gray-800 h-full sm:w-2/3 lg:w-full flex lg:justify-end">
+        <img
+          src={event.data.image?.src}
+          class="rounded-lg lg:max-h-64 max-h-96"
+        />
       </div>
     </section>
 
