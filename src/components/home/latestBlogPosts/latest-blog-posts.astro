@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import EmptySideBlogPosts from "./empty-side-blog-posts.astro";
 import MainBlogPost from "./main-blog-post.astro";
 import SideBlogPosts from "./side-blog-posts.astro";
+import { submitBlogForm } from "data/forms";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blogPosts", ({ data }) => {
@@ -54,7 +55,9 @@ publishedBlogEntries.sort(function (a, b) {
         id="more-blogs"
         class="w-full flex flex-row justify-center md:justify-start">
         <a href="/blog"><Button variant="bordered">View more</Button></a>
-        <a><Button variant="light">Submit a post →</Button></a>
+        <a href={submitBlogForm}
+          ><Button variant="light">Submit a post →</Button></a
+        >
       </div>
     </div>
   </div>

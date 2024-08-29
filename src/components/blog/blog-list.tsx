@@ -1,7 +1,8 @@
 import { Input, Select, SelectItem } from "@nextui-org/react";
-import BlogListItem from "./blog-list-item";
-import { useEffect, useState } from "react";
+import { submitBlogForm } from "data/forms";
 import Fuse from "fuse.js";
+import { useEffect, useState } from "react";
+import BlogListItem from "./blog-list-item";
 
 type BlogListItemProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -78,19 +79,62 @@ export default function BlogList({
           ))}
         </Select>
       </div>
-      <ul className="grid gap-16 max-w-4xl mx-auto">
-        {filteredEntries.map((blogPostEntry, index) => (
-          <BlogListItem
-            slug={blogPostEntry.slug}
-            image={blogPostEntry.data.image}
-            category={blogPostEntry.data.category}
-            title={blogPostEntry.data.title}
-            author={blogPostEntry.data.author}
-            publishDate={blogPostEntry.data.publishDate}
-            index={index}
-            key={blogPostEntry.slug}
-          />
-        ))}
+      <ul className="flex flex-col gap-16 max-w-4xl mx-auto">
+        {filteredEntries.map((blogPostEntry, index) => {
+          if (index === 3) {
+            return (
+              <div className="gap-16 flex flex-col" key={blogPostEntry.slug}>
+                <li className="flex flex-row w-full items-center justify-center">
+                  <span>
+                    Interested in writing a post? Submit one{" "}
+                    <a
+                      href={submitBlogForm}
+                      className="text-blue-600 hover:underline">
+                      here
+                    </a>
+                    !
+                  </span>
+                </li>
+                <BlogListItem
+                  slug={blogPostEntry.slug}
+                  image={blogPostEntry.data.image}
+                  category={blogPostEntry.data.category}
+                  title={blogPostEntry.data.title}
+                  author={blogPostEntry.data.author}
+                  publishDate={blogPostEntry.data.publishDate}
+                  index={index}
+                  key={blogPostEntry.slug}
+                />
+              </div>
+            );
+          }
+
+          return (
+            <BlogListItem
+              slug={blogPostEntry.slug}
+              image={blogPostEntry.data.image}
+              category={blogPostEntry.data.category}
+              title={blogPostEntry.data.title}
+              author={blogPostEntry.data.author}
+              publishDate={blogPostEntry.data.publishDate}
+              index={index}
+              key={blogPostEntry.slug}
+            />
+          );
+        })}
+        {filteredEntries.length <= 3 && (
+          <li className="flex flex-row w-full items-center justify-center">
+            <span>
+              Interested in writing a post? Submit one{" "}
+              <a
+                href={submitBlogForm}
+                className="text-blue-600 hover:underline">
+                here
+              </a>
+              !
+            </span>
+          </li>
+        )}
       </ul>
     </div>
   );
