@@ -105,7 +105,9 @@ const fetchOutlinesWithPngs = (
     const pdfExists = fileName && courseFileNames.includes(fileName);
 
     // Check if the filename has a correctly formatted page number
-    const hasPageNumber = /^[1-9]\d*$/.test(pngName?.split("-").pop() ?? "");
+    const hasPageNumber = /^(0?[1-9]|[1-2]\d)$/.test(
+      pngName?.split("-").pop() ?? "",
+    );
 
     if (!pdfExists || !hasPageNumber) {
       console.error(`Invalid PNG file ${pngName}`);
