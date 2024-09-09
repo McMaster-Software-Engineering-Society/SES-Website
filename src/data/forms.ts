@@ -1,6 +1,6 @@
 export const pastOutlineDropbox = "https://forms.gle/MLrNZnwsmeTEBbVcA";
 
-export const submitBlogForm = "";
+export const submitBlogForm = "https://forms.gle/HrGtrPZNoWbzMoEf6";
 
 // Use the Google Form ID (found in the URL), instead of the form URL
 export const suggestionFormId =
