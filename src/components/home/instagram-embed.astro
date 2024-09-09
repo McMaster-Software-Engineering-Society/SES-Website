@@ -1,9 +1,10 @@
 ---
-const embedPosts = (await Astro.glob("../../content/instagramPosts/*.astro")).reverse();
+const embedPosts = (
+  await Astro.glob("../../content/instagramPosts/*.astro")
+).reverse();
 
 // Change the number of posts to display
 const numDisplayPosts = 3;
-
 ---
 
 <div
