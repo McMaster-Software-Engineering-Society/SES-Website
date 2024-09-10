@@ -31,7 +31,9 @@ publishedBlogEntries.sort(function (a, b) {
           tags={publishedBlogEntries[0].data.tags}
           slug={publishedBlogEntries[0].slug}
         />
-      ) : <div />
+      ) : (
+        <div />
+      )
     }
     <div class="flex flex-col col-span-1 gap-y-8">
       <div id="older-posts" class="flex flex-col gap-y-8">
