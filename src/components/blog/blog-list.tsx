@@ -89,6 +89,7 @@ export default function BlogList({
                     Interested in writing a post? Submit one{" "}
                     <a
                       href={submitBlogForm}
+                      target="_blank"
                       className="text-blue-600 hover:underline">
                       here
                     </a>
@@ -128,6 +129,7 @@ export default function BlogList({
               Interested in writing a post? Submit one{" "}
               <a
                 href={submitBlogForm}
+                target="_blank"
                 className="text-blue-600 hover:underline">
                 here
               </a>
