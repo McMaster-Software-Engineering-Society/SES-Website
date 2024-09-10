@@ -1,38 +1,23 @@
 ---
-import { FaGraduationCap } from "@react-icons/all-files/fa/FaGraduationCap";
-import { FaQuestion } from "@react-icons/all-files/fa6/FaQuestion";
-import { faqCategoryIcons } from "data/faq";
-
 export interface Props {
   question: string;
   answer: string;
   category?: string;
 }
 
-const { question, answer, category } = Astro.props;
+const { question, answer} = Astro.props;
 ---
 
-<div class="grid grid-cols-2 gap-4 pt-8">
-  <p
-    class="col-start-1 row-start-1 rounded-md font-bold p-4 pl-20 justify-center">
-    {question}
-  </p>
-  <div class="pt-4 col-start-1 row-start-1 justify-left">
-    <div
-      class="rounded-md bg-primary w-12 h-12 flex justify-center items-center text-3xl">
-      <!-- Render icon corresponding to category, defaults to Question mark if category does not exist -->
-      {
-        category === "Academic" ? (
-          <FaGraduationCap />
-        ) : category === "General" ? (
-          <FaQuestion />
-        ) : (
-          <FaQuestion />
-        )
-      }
-    </div>
-  </div>
-  <p class="-mt-6 pl-20 row-start-2 font-thin rounded-md justify-center">
-    {answer}
-  </p>
+<div class="mt-5 w-full bg-[#27272a] rounded-md list-disc">
+  <details class="open:bg-zinc-300 open:rounded-md open:text-black">
+    <summary class="font-bold p-5 hover:bg-primary">&nbsp &nbsp"{question}"</summary>
+    <p class="pr-5 pl-5 pb-5">{answer}</p>
+
+  </details>
 </div>
+
+<style>
+  details[open] summary:hover {
+  background-color: inherit; 
+  }
+</style>
