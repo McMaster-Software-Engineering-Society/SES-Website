@@ -50,7 +50,8 @@ export default function BlogListItem({
               <span className="text-gray-400">• </span>
               <time
                 className="text-gray-400"
-                dateTime={publishDate.toISOString()}>
+                dateTime={publishDate.toISOString()}
+              >
                 {publishDate.toDateString()}
               </time>
             </div>

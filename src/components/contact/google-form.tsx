@@ -102,12 +102,14 @@ export default function GoogleForm({
           <a
             href={isFormInvalid() ? undefined : getHref()}
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             <Button
               onClick={() => {
                 setSubmitAttempted(true);
               }}
-              className="w-full">
+              className="w-full"
+            >
               Submit
             </Button>
           </a>

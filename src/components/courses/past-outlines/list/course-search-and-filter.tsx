@@ -71,7 +71,8 @@ export default function CourseSearchAndFilter({
             "bg-[#27272A] text-xl",
             !useSearch ? "w-full" : "w-16",
           ])}
-          onClick={handleSearch}>
+          onClick={handleSearch}
+        >
           {useSearch ? <HiOutlineFilter /> : <HiSearch />}
         </Button>
       </div>

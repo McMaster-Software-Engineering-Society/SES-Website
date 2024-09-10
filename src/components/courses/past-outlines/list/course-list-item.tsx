@@ -32,7 +32,8 @@ export default function CourseListItem({
         selected && "lg:bg-zinc-700",
         "p-3",
         className,
-      ])}>
+      ])}
+    >
       <div className="flex flex-col">
         <div className="flex flex-row items-center justify-between">
           <span className="font-bold">{name}</span>
@@ -49,7 +50,8 @@ export default function CourseListItem({
           variant="flat"
           onClick={() => {
             window.open(pdfPath, "_blank");
-          }}>
+          }}
+        >
           <HiOutlineExternalLink />
         </Button>
       </div>

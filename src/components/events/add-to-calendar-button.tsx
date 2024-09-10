@@ -56,13 +56,15 @@ export default function AddToCalendarButton({
         <DropdownItem
           startContent={<SiGooglecalendar />}
           href={getGoogleAddEventUrl(event)}
-          target="_blank">
+          target="_blank"
+        >
           Google Calendar
         </DropdownItem>
         <DropdownItem
           startContent={<SiMicrosoftoutlook />}
           href={getOutlookAddEventUrl(event)}
-          target="_blank">
+          target="_blank"
+        >
           Outlook Calendar
         </DropdownItem>
       </DropdownMenu>

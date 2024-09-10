@@ -67,13 +67,15 @@ export default function BlogList({
           size="sm"
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="w-1/2 md:w-full">
+          className="w-1/2 md:w-full"
+        >
           {/* Width is set to 1/2 on mobile due to dropdown bug */}
           {categories.map((category) => (
             <SelectItem
               key={category}
               value={category === "Any" ? undefined : category}
-              className="text-white">
+              className="text-white"
+            >
               {category}
             </SelectItem>
           ))}
@@ -90,7 +92,8 @@ export default function BlogList({
                     <a
                       href={submitBlogForm}
                       target="_blank"
-                      className="text-blue-600 hover:underline">
+                      className="text-blue-600 hover:underline"
+                    >
                       here
                     </a>
                     !
@@ -130,7 +133,8 @@ export default function BlogList({
               <a
                 href={submitBlogForm}
                 target="_blank"
-                className="text-blue-600 hover:underline">
+                className="text-blue-600 hover:underline"
+              >
                 here
               </a>
               !

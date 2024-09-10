@@ -21,7 +21,8 @@ export default function LevelSelect({
       aria-label="Options"
       selectedKey={selected}
       onSelectionChange={setSelected}
-      className={className}>
+      className={className}
+    >
       {items.map((item) => (
         <Tab key={item.key} title={item.label} />
       ))}

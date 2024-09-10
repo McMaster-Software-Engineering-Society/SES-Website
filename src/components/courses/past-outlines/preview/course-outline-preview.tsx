@@ -21,7 +21,8 @@ export default function CourseOutlinePreview({
       className={clsx([
         "hidden flex-col ml-8 lg:flex w-full justify-center items-center text-center",
         courses[selectedCourse].pngPaths.length !== 0 && "border-1",
-      ])}>
+      ])}
+    >
       {courses[selectedCourse].pngPaths.length === 0 ? (
         <div>
           <h2 className="text-xl font-bold">Preview is unavailable</h2>
@@ -33,7 +34,8 @@ export default function CourseOutlinePreview({
               window.open(
                 courses.find((course) => course.id === selectedCourse)?.pdfPath,
               )
-            }>
+            }
+          >
             Open outline
           </Button>
         </div>
@@ -53,11 +55,13 @@ export default function CourseOutlinePreview({
             className={clsx([
               "absolute top-4 right-8 transition duration-150",
               !isMobile && "group-hover:opacity-100 opacity-0",
-            ])}>
+            ])}
+          >
             <Tooltip
               content={<span className="text-white">Open in browser</span>}
               placement="top-end"
-              closeDelay={0}>
+              closeDelay={0}
+            >
               <Button
                 isIconOnly
                 variant="shadow"
@@ -65,7 +69,8 @@ export default function CourseOutlinePreview({
                 onClick={() =>
                   window.open(courses[selectedCourse].pdfPath, "_blank")
                 }
-                className="text-xl">
+                className="text-xl"
+              >
                 <HiOutlineExternalLink />
               </Button>
             </Tooltip>

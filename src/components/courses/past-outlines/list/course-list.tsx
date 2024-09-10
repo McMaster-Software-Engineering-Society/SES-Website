@@ -27,7 +27,8 @@ export default function CourseList({
               <a
                 className="text-sm italic underline text-blue-600"
                 href={pastOutlineDropbox}
-                target="_blank">
+                target="_blank"
+              >
                 Consider sending us yours!
               </a>
             </div>

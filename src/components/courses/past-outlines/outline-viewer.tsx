@@ -74,7 +74,8 @@ export default function OutlineViewer({
         <a
           href={pastOutlineDropbox}
           target="_blank"
-          className="text-sm underline text-blue-600">
+          className="text-sm underline text-blue-600"
+        >
           Send us yours!
         </a>
       </div>
