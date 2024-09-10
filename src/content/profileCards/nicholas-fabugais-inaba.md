@@ -5,6 +5,7 @@ level: "5"
 image: "/about/profile-photos/nicholas-fabugais-inaba.jpeg"
 socials: {
     email: "fabugain@mcmaster.ca",
-    linkedin: "https://www.linkedin.com/in/nicholas-fabugais-inaba/"
+    linkedin: "https://www.linkedin.com/in/nicholas-fabugais-inaba/",
+    github: "https://github.com/Nicholas-Fabugais-Inaba"
 }
 ---

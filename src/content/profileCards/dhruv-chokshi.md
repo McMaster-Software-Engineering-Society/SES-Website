@@ -2,7 +2,7 @@
 name: "Dhruv Chokshi"
 title: "Web Developer"
 level: "2"
-image: "/about/profile-photos/dhruv-chokshi.png"
+image: "/about/profile-photos/dhruv-chokshi.jpg"
 description: "Software Engineering student at McMaster University."
 socials: {
     email: "chokshid@mcmaster.ca",
