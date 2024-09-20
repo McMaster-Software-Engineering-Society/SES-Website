@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+
+import HackathonConferenceItem from "../hackathon-conference-item.astro";
+
+const conferences = await getCollection("conferences");
+---
+
+<div class="flex flex-col gap-y-4">
+  {
+    conferences.map((hackathon) => (
+      <HackathonConferenceItem hackathon={hackathon} />
+    ))
+  }
+</div>

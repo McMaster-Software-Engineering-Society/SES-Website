@@ -1,0 +1,21 @@
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import McMasterHackathons from "@components/experiences/hackathons/mcmaster-hackathons.astro";
+import ExternalHackathons from "@components/experiences/hackathons/external-hackathons.astro";
+
+import IntershipList from "@components/experiences/internships/internship-list.astro";
+
+<MarkdownLayout title="Internships">
+  <section>
+    ## List of Canadian Tech <mark>Internships</mark>
+    You can find many lists of Canadian tech internships online, both from
+    McMaster-affiliated clubs and external sources. These lists are a great way
+    to find internship opportunities in Canada, and can help you find the
+    perfect internship.
+  </section>
+  <section>
+    Here are some databases we've gathered for you:
+
+    <IntershipList />
+
+  </section>
+</MarkdownLayout>

@@ -1,0 +1,156 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import { FaRegClock } from "@react-icons/all-files/fa/FaRegClock";
+import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
+import { FaCopy } from "@react-icons/all-files/fa/FaCopy";
+import { FaCalendarAlt } from "@react-icons/all-files/fa/FaCalendarAlt";
+import { FaMapMarkedAlt } from "@react-icons/all-files/fa/FaMapMarkedAlt";
+import { Button } from "@nextui-org/react";
+import AddToCalendarButton from "@components/events/add-to-calendar-button";
+import type { CalendarEvent } from "types/event";
+
+export async function getStaticPaths() {
+  const eventEntries = await getCollection("events");
+  return eventEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { event: entry },
+  }));
+}
+
+const { event } = Astro.props;
+const { Content } = await event.render();
+
+const getEventDuration = (startDateTime: Date, endDateTime: Date) => {
+  const duration = Math.abs(Number(endDateTime) - Number(startDateTime));
+  const hours = Math.floor(duration / 36e5);
+  const minutes = Math.floor((duration % 36e5) / 6e4);
+  const hourLabel = hours === 1 ? "hour" : "hours";
+  const minuteLabel = minutes === 1 ? "min" : "mins";
+  let durationString = "";
+  if (hours > 0) {
+    durationString += `${hours} ${hourLabel} `;
+  }
+  if (minutes > 0) {
+    durationString += `${minutes} ${minuteLabel}`;
+  }
+  return durationString;
+};
+
+const calendarEventData: CalendarEvent = {
+  title: event.data.title,
+  start: event.data.startDateTime.toISOString(),
+  end:
+    event.data.endDateTime?.toISOString() ??
+    new Date(event.data.startDateTime.valueOf() + 60 * 60 * 1000).toISOString(),
+  details: event.body,
+  location: event.data.location,
+  googleMapsLink: event.data.googleMapsLink,
+  image: event.data.image,
+  link: event.data.link,
+};
+
+const customButtonStyle =
+  "flex text-sm text-white items-center rounded-xl bg-[#3F3F4666] px-3 py-2 gap-x-2";
+---
+
+<PageLayout title={event.data.title} class="flex justify-center">
+  <div class="max-w-screen-lg w-full flex flex-col my-10 gap-y-6">
+    <section
+      id="event-heading"
+      class="flex flex-col-reverse gap-y-6 lg:grid lg:grid-cols-2 justify-between">
+      <div class="flex flex-col items-start text-slate-400">
+        <h1 class="font-bold text-4xl text-slate-300">{event.data.title}</h1>
+        <div class="flex flex-col mt-8">
+          <div class="flex flex-row items-center gap-x-2">
+            <FaCalendarAlt />
+            <p class="text-lg">
+              {
+                event.data.startDateTime.toLocaleDateString("en-US", {
+                  weekday: "long",
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+              }
+            </p>
+          </div>
+          {
+            event.data.endDateTime && (
+              <div class="flex flex-row items-center gap-x-2">
+                <FaRegClock />
+                <p class="text-lg">
+                  {getEventDuration(
+                    event.data.startDateTime,
+                    event.data.endDateTime,
+                  )}
+                </p>
+              </div>
+            )
+          }
+          <div class="flex flex-row items-center gap-x-2">
+            <FaMapMarkedAlt />
+            <p class="text-lg">{event.data.location}</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap text-slate-300 text-md mt-4 gap-3">
+          <AddToCalendarButton
+            client:visible
+            event={calendarEventData}
+            variant="flat"
+          />
+          <a
+            href={event.data.googleMapsLink}
+            target="_blank"
+            class:list={[
+              customButtonStyle,
+              event.data.googleMapsLink ? "block" : "hidden",
+            ]}>
+            <span><FaMapMarkerAlt /></span>
+            <p class="text-slate-300">Google Maps</p>
+          </a>
+          <button id="share-button" class={customButtonStyle}>
+            <span><FaCopy /></span>
+            <p id="share-display">Share</p>
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="shadow-gray-800 h-full sm:w-2/3 lg:w-full flex lg:justify-end">
+        <img
+          src={event.data.image?.src}
+          class="rounded-lg lg:max-h-64 max-h-96"
+        />
+      </div>
+    </section>
+
+    <section
+      id="event-description"
+      class="flex flex-col items-start text-slate-400">
+      <p><Content /></p>
+    </section>
+
+    <section id="event-footer">
+      <a href="/events"><Button variant="bordered">← Back</Button></a>
+    </section>
+  </div>
+
+  <script>
+    document
+      .getElementById("share-button")
+      ?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          const shareDisplay = document.getElementById("share-display");
+          if (shareDisplay) {
+            shareDisplay.textContent = "Link copied!";
+          }
+        } catch (err) {
+          console.error("Failed to copy to clipboard: ", err);
+        }
+      });
+  </script>
+</PageLayout>

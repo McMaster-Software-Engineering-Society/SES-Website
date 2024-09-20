@@ -1,0 +1,44 @@
+---
+import { suggestionFormId } from "data/forms";
+import GoogleForm from "../google-form";
+import type { Question } from "../google-form";
+
+const googleFormEntryIds = {
+  name: "1531492032",
+  email: "432740948",
+  suggestion: "1666418087",
+};
+
+const questions: Question[] = [
+  {
+    id: "name",
+    label: "Name",
+    type: "text",
+    variant: "short",
+    placeholder: "Your name",
+  },
+  {
+    id: "email",
+    label: "Email",
+    type: "email",
+    variant: "short",
+    placeholder: "Your email",
+  },
+  {
+    id: "suggestion",
+    label: "Suggestion",
+    type: "text",
+    variant: "long",
+    placeholder: "Write your suggestion here",
+    isRequired: true,
+  },
+];
+---
+
+<GoogleForm
+  title="Submit a Suggestion"
+  googleFormId={suggestionFormId}
+  googleFormEntryIds={googleFormEntryIds}
+  questions={questions}
+  client:visible
+/>

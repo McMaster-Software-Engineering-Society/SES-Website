@@ -1,0 +1,46 @@
+---
+import ExperienceLinkCard from "@components/experiences/experience-link-card";
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import { Spacer } from "@nextui-org/react";
+import { FaBriefcase } from "@react-icons/all-files/fa/FaBriefcase";
+import { FaPeopleCarry } from "@react-icons/all-files/fa/FaPeopleCarry";
+import { FaLaptop } from "@react-icons/all-files/fa/FaLaptop";
+import { FaPersonChalkboard } from "@react-icons/all-files/fa6/FaPersonChalkboard";
+import type { ExperienceLink } from "types/experiences";
+
+const links: ExperienceLink[] = [
+  {
+    title: "Internships",
+    description: "Find internship and co-op postings.",
+    icon: FaBriefcase,
+    href: "/experiences/internships",
+  },
+  {
+    title: "Clubs and Teams",
+    description: "Get involved with extra-curriculars.",
+    icon: FaPeopleCarry,
+    href: "/experiences/clubs-and-teams",
+  },
+  {
+    title: "Hackathons",
+    description: "Challenge yourself and build projects.",
+    icon: FaLaptop,
+    href: "/experiences/hackathons",
+  },
+  {
+    title: "Conferences",
+    description: "Attend conferences and workshops.",
+    icon: FaPersonChalkboard,
+    href: "/experiences/conferences",
+  },
+];
+---
+
+<MarkdownLayout title="Experiences" noDivider noMarkdown>
+  <div class="flex flex-col justify-center items-center px-5">
+    <div class="flex flex-col w-full max-w-screen-md gap-y-3">
+      {links.map((link) => <ExperienceLinkCard link={link} />)}
+    </div>
+    <Spacer y={12} />
+  </div>
+</MarkdownLayout>

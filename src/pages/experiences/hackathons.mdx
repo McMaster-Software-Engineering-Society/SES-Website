@@ -1,0 +1,47 @@
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import McMasterHackathons from "@components/experiences/hackathons/mcmaster-hackathons.astro";
+import ExternalHackathons from "@components/experiences/hackathons/external-hackathons.astro";
+
+{/* If current month is before July, then use current year */}
+{/* Otherwise, use current year + 1 */}
+export const currentMLHSeason = new Date().getMonth() < 6 ? new Date().getFullYear() : new Date().getFullYear() + 1;
+
+<MarkdownLayout
+  title="Hackathons"
+  description="Learn new skills, meet new people, and have fun!">
+  <section>
+    ## Why Join Hackathons?
+
+    Imagine developing an amazing application in just a few days. By yourself? That's
+    nearly impossible! But with many other eager developers in an organized forum?
+    This is commonplace! It's called a hackathon; a marathon in software development.
+    Many hackathons involve development team; which means you create an even better application
+    and improve your teammwork along the way! Futhermore, throughout the development you are
+    sure to learn new software skills. If you enjoy software development (as you should),
+    hackathons will be a ton of fun! Lastly, you could win a prize if your application is really good!
+    So join one of the hackathons below. You won't regret it!
+
+  </section>
+  <section>
+    ## McMaster <mark>Hackathons</mark>
+  <McMasterHackathons />
+  </section>
+  <section>
+    ## External <mark>Hackathons</mark>
+
+    Many hackathons are hosted by other univeristies and organizations. Most of
+    these hackathons are affiliated with Major League Hacking (MLH), and are open to students from all over the world!
+
+    **Here are some other hackathons nearby that you can attend:**
+
+    <ExternalHackathons />
+
+    <div class="mt-4 w-full text-center">
+      <span>Looking for more, or even online hackathons? <a
+        href={`https://mlh.io/seasons/${currentMLHSeason}/events`}
+        target="_blank">
+        View more hackathons from MLH</a></span>
+    </div>
+
+  </section>
+</MarkdownLayout>

@@ -1,0 +1,45 @@
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import TeamList from "@components/about/team-list.astro";
+
+<MarkdownLayout title="About Us" description="Learn more about who we are!">
+  <section>
+    The Software Engineering Society is a student-run organization aimed to
+    enhance student life for Software Engineering students at McMaster
+    University. Our mission is to create a community where students can learn,
+    grow, and connect with their peers. We provide resources, support, and
+    opportunities for students to develop their skills, engage in study
+    sessions, and have insightful talks with professors about their research. We
+    also host social events to help students relax and have fun!
+  </section>
+  <section>
+    # SES <mark>Events</mark>
+
+    At SES, we believe in the importance of community and collaboration.
+    We organize a diverse range of events throughout the year, including:
+
+    1. **Social Events**: From game nights, pub nights, movie nights, and bowling nights, we provide opportunities for students to relax, connect, and build lasting friendships within the software engineering community.
+
+    2. **Academic Events**: Study sessions, workshops, and talks by professors on their cutting-edge research equip students with the knowledge and skills necessary for success in their studies and future careers.
+
+    3. **Industry Events**: Networking events, career fairs, and guest speaker sessions with industry professionals provide valuable insights into the real-world applications of software engineering and potential career paths.
+
+  </section>
+  <section>
+    # SES <mark>Resources</mark>
+
+    SES is committed to providing students with the resources they need to thrive in their academic journey and beyond. We offer:
+
+    1. **Past Course Outline Database**: An extensive collection of past course outlines helps students prepare for their courses and understand the expectations of their professors.
+
+    2. **Hackathons, Clubs, and Teams**: Information on hackathons, clubs, and teams allows students to explore their interests, gain hands-on experience, and collaborate with like-minded individuals.
+
+    3. **Academic Concerns & Suggestions**: A platform for students to voice their academic concerns and suggestions, enabling us to advocate for changes that benefit the student body as a whole.
+
+  </section>
+  <section>
+    # SES <mark>Team</mark>
+    <div class="team-container">
+      <TeamList />
+    </div>
+  </section>
+</MarkdownLayout>

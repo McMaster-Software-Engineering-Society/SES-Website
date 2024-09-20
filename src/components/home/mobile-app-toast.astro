@@ -1,0 +1,33 @@
+---
+import { Button } from "@nextui-org/react";
+---
+
+<div
+  id="toast-message"
+  class="standalone:hidden
+  sm:hidden
+  fixed
+  bottom-0
+  w-full
+  p-4
+  bg-black
+  border-t-0.5
+  border-zinc-500
+  text-white
+  shadow-md
+  z-[100]
+  flex
+  flex-row
+  justify-between
+  items-center
+  text-sm">
+  <img
+    src="/apple-touch-icon.png"
+    alt="Mobile App Icon"
+    class="w-10 h-10 rounded-lg"
+  />
+  <span class="text-nowrap font-semibold">
+    Get the best experience on the app
+  </span>
+  <a href="/download"><Button size="sm" variant="bordered">Get</Button></a>
+</div>

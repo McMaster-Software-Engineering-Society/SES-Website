@@ -1,0 +1,50 @@
+---
+import { Picture } from "astro:assets";
+import "../styles/markdown.css";
+import Layout from "./Layout.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+  class?: string;
+  noDivider?: boolean;
+  noMarkdown?: boolean;
+}
+
+const {
+  title,
+  description,
+  class: className,
+  noDivider = false,
+  noMarkdown = false,
+} = Astro.props;
+---
+
+<Layout title={title}>
+  <div class:list={["text-slate-300", !noMarkdown && "markdown", className]}>
+    <div class="flex flex-col max-w-screen-md mx-auto px-5 md:px-0 markdown">
+      <div
+        class="flex flex-row md:grid md:grid-cols-2 w-full justify-between items-end">
+        <div class="flex flex-col grid-cols-2">
+          <h1
+            class="font-bold leading-none"
+            style="font-size: 3em; margin-bottom: 0;">
+            <mark>
+              {title}
+            </mark>
+          </h1>
+          <p>{description}</p>
+        </div>
+        <Picture
+          src="/layout/header-mountains-narrow.png"
+          alt="Header Image"
+          width={386}
+          height={110}
+          class="hidden md:block select-none pointer-events-none"
+        />
+      </div>
+      {!noDivider && <hr />}
+    </div>
+    <slot />
+  </div>
+</Layout>

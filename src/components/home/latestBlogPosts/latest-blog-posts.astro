@@ -1,0 +1,70 @@
+---
+import { Button } from "@nextui-org/react";
+import { getCollection } from "astro:content";
+import EmptySideBlogPosts from "./empty-side-blog-posts.astro";
+import MainBlogPost from "./main-blog-post.astro";
+import SideBlogPosts from "./side-blog-posts.astro";
+import { submitBlogForm } from "data/forms";
+
+// Filter blog entries with 'draft: false' & date before current date
+const publishedBlogEntries = await getCollection("blogPosts", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+
+// Sort content entries by publication date
+publishedBlogEntries.sort(function (a, b) {
+  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+});
+---
+
+<div id="latest-blog-posts" class="w-full justify-center">
+  <h1 class="text-2xl font-bold">Latest blog posts</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mt-8">
+    {
+      publishedBlogEntries.length > 0 ? (
+        <MainBlogPost
+          image={publishedBlogEntries[0].data.image}
+          author={publishedBlogEntries[0].data.author}
+          publishDate={publishedBlogEntries[0].data.publishDate}
+          title={publishedBlogEntries[0].data.title}
+          snippet={publishedBlogEntries[0].data.snippet}
+          tags={publishedBlogEntries[0].data.tags}
+          slug={publishedBlogEntries[0].slug}
+        />
+      ) : (
+        <div />
+      )
+    }
+    <div class="flex flex-col col-span-1 gap-y-8">
+      <div id="older-posts" class="flex flex-col gap-y-8">
+        {
+          [1, 2, 3].map((index) => {
+            if (index > publishedBlogEntries.length - 1) {
+              return <EmptySideBlogPosts />;
+            }
+
+            return (
+              <SideBlogPosts
+                index={index}
+                image={publishedBlogEntries[index].data.image}
+                author={publishedBlogEntries[index].data.author}
+                publishDate={publishedBlogEntries[index].data.publishDate}
+                title={publishedBlogEntries[index].data.title}
+                category={publishedBlogEntries[index].data.category}
+                slug={publishedBlogEntries[index].slug}
+              />
+            );
+          })
+        }
+      </div>
+      <div
+        id="more-blogs"
+        class="w-full flex flex-row justify-center md:justify-start">
+        <a href="/blog"><Button variant="bordered">View more</Button></a>
+        <a href={submitBlogForm} target="_blank"
+          ><Button variant="light">Submit a post →</Button></a
+        >
+      </div>
+    </div>
+  </div>
+</div>

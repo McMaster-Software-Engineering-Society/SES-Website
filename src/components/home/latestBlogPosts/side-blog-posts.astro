@@ -1,0 +1,59 @@
+---
+import { defaultBlogPicture } from "data/blog";
+import { Picture } from "astro:assets";
+
+export interface Props {
+  index: number;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  author: string;
+  publishDate: Date;
+  title: string;
+  category: string;
+  slug: string;
+}
+
+const { index, image, author, publishDate, title, category, slug } =
+  Astro.props;
+---
+
+<a href={`/blog/${slug}`}>
+  <div
+    id={`older-posts-${index}`}
+    class="grid grid-cols-3 gap-x-6 items-center">
+    <Picture
+      id={`older-posts-${index}-img`}
+      src={image?.src || defaultBlogPicture}
+      alt={image?.alt || "Default image"}
+      sizes="(max-width: 800px) 100vw, 800px"
+      width={800}
+      height={600}
+      loading="eager"
+      decoding="sync"
+      class="w-full rounded-md object-cover object-center bg-white col-span-1 select-none pointer-events-none"
+    />
+    <div id={`older-posts-${index}-details`} class="col-span-2">
+      <div
+        id={`older-posts-${index}-author-and-date`}
+        class="flex gap-2 text-sm">
+        <span class="text-gray-400">
+          {author}
+        </span>
+        <span class="text-gray-400">• </span>
+        <time class="text-gray-400" datetime={publishDate.toISOString()}>
+          {publishDate.toDateString()}
+        </time>
+      </div>
+      <h2
+        id={`older-posts-${index}-title`}
+        class="text-lg font-semibold line-clamp-1">
+        {title}
+      </h2>
+      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+        {category}
+      </span>
+    </div>
+  </div>
+</a>

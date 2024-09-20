@@ -1,0 +1,102 @@
+---
+import { getCollection } from "astro:content";
+import BusinessCard from "@components/contact/sponsorship/business-card.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { Button } from "@nextui-org/react";
+import { Image } from "astro:assets";
+import { sponsorshipPackageURL } from "data/sponsorship";
+
+const sponsors = await getCollection("pastSponsors");
+---
+
+<PageLayout title="Sponsorship" class="flex flex-col items-center">
+  <div class="flex flex-col w-full max-w-screen-lg pt-12 gap-y-24">
+    <div
+      id="sponsorship-header"
+      class="flex flex-col-reverse items-center md:items-start md:grid md:grid-cols-5 gap-x-12 gap-y-6">
+      <div class="col-span-3 flex flex-col gap-y-6">
+        <h1 class="text-4xl font-bold text-primary">Sponsor us</h1>
+        <span>
+          The Software Engineer Society (SES) is a student-led club, aiming to
+          enhance McMaster students’ extracurricular life through various social
+          and professional endeavours. Our society is dedicated to fostering
+          innovation, creativity, and excellence among software engineering
+          students.
+          <br />
+          <br />
+          By sponsoring our initiatives, you play a crucial role in shaping the future
+          of tomorrow’s leaders.
+        </span>
+        <div class="flex flex-row gap-x-3">
+          <a href={sponsorshipPackageURL} target="_blank" rel="noopener">
+            <Button
+              variant="shadow"
+              className="hover:opacity-85 active:translate-y-0.5"
+              >Sponsorship package</Button
+            ></a
+          >
+          <a href="#contact-us">
+            <Button variant="light" className="hover:underline">
+              Contact us
+            </Button>
+          </a>
+        </div>
+      </div>
+      <Image
+        src="/contact/sponsorship/sponsorship-hero.svg"
+        alt="Sponsorship hero image"
+        width={986}
+        height={881}
+        class="col-span-2 w-1/2 md:w-auto"
+      />
+    </div>
+
+    {
+      sponsors.length > 0 && (
+        <div
+          id="sponsorship-past-sponsors"
+          class="flex flex-col items-center gap-y-8">
+          <span class="text-xl font-medium">Our past sponsors</span>
+          <div class="flex flex-wrap flex-row gap-x-8 gap-y-6 justify-center group">
+            {sponsors.map((sponsor) => (
+              <a
+                href={sponsor.data.link}
+                target="_blank"
+                rel="noopener"
+                class:list={[
+                  "p-4 rounded-md h-24 overflow-hidden group-hover:opacity-50 hover:!opacity-100 hover:-translate-y-0.5 transition",
+                  sponsor.data.logo.backgroundColour
+                    ? `border-1 border-slate-500`
+                    : "bg-white",
+                ]}
+                style={`background-color: ${sponsor.data.logo.backgroundColour}`}>
+                <img
+                  src={sponsor.data.logo.src}
+                  alt={sponsor.data.logo.alt}
+                  class="select-none pointer-events-none max-w-full max-h-full object-contain"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <div
+      id="contact-us"
+      class="flex flex-col w-full items-center mt-8 gap-y-16">
+      <span class="text-xl font-medium">Contact us</span>
+      <div
+        class="relative h-64 w-full items-center flex flex-col scale-85 sm:scale-100">
+        <BusinessCard class="absolute rotate-1 translate-y-4" />
+        <BusinessCard class="absolute rotate-0 translate-y-2" />
+        <BusinessCard class="absolute -rotate-1" />
+        <BusinessCard class="absolute -rotate-2 -translate-y-2" />
+        <div
+          class="absolute -rotate-3 -translate-y-4 lg:motion-safe:hover:-translate-y-12 lg:motion-safe:hover:rotate-0 transition pb-12">
+          <BusinessCard />
+        </div>
+      </div>
+    </div>
+  </div>
+</PageLayout>

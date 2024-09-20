@@ -1,0 +1,77 @@
+---
+import { academicConcernsFormId } from "data/forms";
+import GoogleForm from "../google-form";
+import type { Question } from "../google-form";
+
+const googleFormEntryIds = {
+  course: "351571338",
+  instructor: "993931929",
+  posFeedback: "877834984",
+  concerns: "1089608747",
+  suggestions: "1390866896",
+  other: "1382325484",
+  email: "1478958311",
+};
+
+const questions: Question[] = [
+  {
+    id: "course",
+    label: "Course",
+    type: "text",
+    variant: "short",
+    placeholder: "Course name",
+    isRequired: true,
+  },
+  {
+    id: "instructor",
+    label: "Instructor/TA (if applicable)",
+    type: "text",
+    variant: "short",
+    placeholder: "Instructor name",
+  },
+  {
+    id: "posFeedback",
+    label: "What works well in the course?",
+    type: "text",
+    variant: "long",
+    placeholder: "Write positive feedback here",
+  },
+  {
+    id: "concerns",
+    label: "What are your concerns or issues with the course?",
+    type: "text",
+    variant: "long",
+    placeholder: "Write your concerns here",
+  },
+  {
+    id: "suggestions",
+    label: "Suggestions for improvement?",
+    type: "text",
+    variant: "long",
+    placeholder: "Write your suggestions here",
+  },
+  {
+    id: "other",
+    label: "Anything else to add?",
+    type: "text",
+    variant: "long",
+    placeholder: "Write additional information or requests here",
+  },
+  {
+    id: "email",
+    label: "Email",
+    type: "email",
+    variant: "short",
+    placeholder: "Your email",
+    isRequired: true,
+  },
+];
+---
+
+<GoogleForm
+  title="Tell us Your Concerns"
+  googleFormId={academicConcernsFormId}
+  googleFormEntryIds={googleFormEntryIds}
+  questions={questions}
+  client:visible
+/>

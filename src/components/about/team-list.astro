@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import ProfileCard from "./profile-card.astro";
+
+const members = await getCollection("profileCards");
+
+const titleOrder = [
+  "President",
+  "VP Admin",
+  "VP Professional Development",
+  "VP Academic",
+  "VP Graphic Design",
+  "VP Finance",
+  "VP Social Media",
+  "VP External",
+  "Rep",
+  "Lead Web",
+  "Web",
+  "Events",
+  "Merch",
+];
+
+// Sort the members by titleOrder, where the titleOrder is the order of the titles in the array
+members.sort((a, b) => {
+  const aIndex = titleOrder.findIndex((title) => a.data.title.includes(title));
+  const bIndex = titleOrder.findIndex((title) => b.data.title.includes(title));
+
+  return aIndex - bIndex;
+});
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {
+    members.map((profile) => (
+      <ProfileCard
+        name={profile.data.name}
+        title={profile.data.title}
+        level={profile.data.level}
+        image={profile.data.image}
+        description={profile.data.description}
+        socials={profile.data.socials}
+      />
+    ))
+  }
+</div>

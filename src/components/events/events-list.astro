@@ -1,0 +1,66 @@
+---
+import { Button } from "@nextui-org/react";
+import { getCollection } from "astro:content";
+import EventItem from "./event-item.astro";
+
+export interface Props {
+  isHome?: boolean;
+  class?: string;
+}
+
+const { isHome = false, class: className } = Astro.props;
+
+const events = await getCollection("events");
+
+// filter the events by past and future events
+const pastEvents = events.filter(
+  (event) =>
+    new Date(event.data.startDateTime).valueOf() < new Date().valueOf(),
+);
+const upcomingEvents = events.filter(
+  (event) =>
+    new Date(event.data.startDateTime).valueOf() >= new Date().valueOf(),
+);
+
+pastEvents.sort(
+  (a, b) => b.data.startDateTime.valueOf() - a.data.startDateTime.valueOf(),
+);
+upcomingEvents.sort(
+  (a, b) => a.data.startDateTime.valueOf() - b.data.startDateTime.valueOf(),
+);
+---
+
+<div id="events-list" class:list={["flex flex-col gap-y-8", className]}>
+  {
+    upcomingEvents.length > 0 && (
+      <div class="flex flex-col gap-y-5">
+        <h1 class="text-2xl font-bold">Upcoming events</h1>
+        {upcomingEvents.map((event) => (
+          <EventItem event={event} />
+        ))}
+      </div>
+    )
+  }
+  <div class="flex flex-col gap-y-2">
+    {
+      pastEvents.length > 0 && (
+        <div class="flex flex-col gap-y-5">
+          <h1 class="text-2xl font-bold">Past events</h1>
+          {isHome
+            ? upcomingEvents.length < 3 &&
+              pastEvents
+                .slice(0, 3 - upcomingEvents.length)
+                .map((event) => <EventItem event={event} />)
+            : pastEvents.map((event) => <EventItem event={event} />)}
+        </div>
+      )
+    }
+    {
+      isHome && (
+        <a href="/events" class="w-fit">
+          <Button variant="light">View more →</Button>
+        </a>
+      )
+    }
+  </div>
+</div>
