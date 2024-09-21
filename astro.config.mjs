@@ -10,7 +10,6 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://ses.eng.mcmaster.ca/",
   integrations: [tailwind(), mdx(), sitemap(), icon(), react()],
-  server: {
-    port: 80,
-  },
+  base: "/",
+  trailingSlash: 'always',
 });
