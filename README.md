@@ -9,7 +9,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/McMaster-Software-Engineering-Society/SES-Website">
-    <img src="public/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="public/opengraph.jpg" alt="McMaster SES Homepage Screenshot" width="1200" height="630">
   </a>
 
 <h3 align="center">SES Website</h3>
