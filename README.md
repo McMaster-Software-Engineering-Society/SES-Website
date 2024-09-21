@@ -78,9 +78,9 @@ See the [open issues](https://github.com/McMaster-Software-Engineering-Society/S
 
 ## Contributing
 
-If you have a suggestion that would make this better, please submit them to our Google Form [here (coming soon!)](https://forms.gle/)
+If you have a suggestion that would make this better, please submit them to our Google Form [here](https://ses.eng.mcmaster.ca/contact/suggestions/).
 
-Interested in contributing to the project? Apply to join the website volunteer team! More information can be found on our Instagram page [@mcmaster_ses](https://www.instagram.com/mcmaster_ses/)
+Interested in contributing to the project? Apply to join the website volunteer team! More information can be found on our Instagram page [@mcmaster_ses](https://www.instagram.com/mcmaster_ses/).
 
 <!-- CONTACT -->
 
