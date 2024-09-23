@@ -24,7 +24,7 @@ export default function BlogListItem({
 }: Readonly<BlogListItemProps>) {
   return (
     <li>
-      <a href={`/blog/${slug}`}>
+      <a href={`/blog/${slug}/`}>
         <div className="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
           <img
             src={image?.src ?? defaultBlogPicture}
