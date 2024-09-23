@@ -22,23 +22,23 @@ export type MenuItem = {
 const menuItems: MenuItem[] = [
   {
     title: "About",
-    path: "/about",
+    path: "/about/",
   },
   {
     title: "Events",
-    path: "/events",
+    path: "/events/",
   },
   {
     title: "Blog",
-    path: "/blog",
+    path: "/blog/",
     badge: true,
   },
   {
     title: "Contact",
     dropdownItems: [
-      { title: "Academic concerns", path: "/contact/academic-concerns" },
-      { title: "Submit a suggestion", path: "/contact/suggestions" },
-      { title: "Sponsor us ✨", path: "/contact/sponsorship" },
+      { title: "Academic concerns", path: "/contact/academic-concerns/" },
+      { title: "Submit a suggestion", path: "/contact/suggestions/" },
+      { title: "Sponsor us ✨", path: "/contact/sponsorship/" },
     ],
   },
   {
@@ -46,29 +46,29 @@ const menuItems: MenuItem[] = [
     dropdownItems: [
       {
         title: "Past course outlines",
-        path: "/courses/past-outlines",
+        path: "/courses/past-outlines/",
         badge: true,
       },
       {
         title: "Experiences",
-        path: "/experiences",
+        path: "/experiences/",
         badge: true,
         children: [
           {
             title: "Internships",
-            path: "/experiences/internships",
+            path: "/experiences/internships/",
           },
           {
             title: "Clubs & Teams",
-            path: "/experiences/clubs-and-teams",
+            path: "/experiences/clubs-and-teams/",
           },
           {
             title: "Hackathons",
-            path: "/experiences/hackathons",
+            path: "/experiences/hackathons/",
           },
           {
             title: "Conferences",
-            path: "/experiences/conferences",
+            path: "/experiences/conferences/",
           },
         ],
       },
