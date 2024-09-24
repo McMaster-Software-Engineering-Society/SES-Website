@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { defaultBlogPicture } from "data/blog";
 export interface Props {
   image?: {
@@ -18,13 +19,14 @@ const { image, author, publishDate, title, snippet, tags, slug } = Astro.props;
 
 <a href={`/blog/${slug}`}>
   <div id="newest-post" class="col-span-1 flex flex-col gap-y-6">
-    <img
+    <Image
       id="newest-post-img"
       src={image?.src || defaultBlogPicture}
       alt={image?.alt || "Default image"}
       sizes="(max-width: 800px) 100vw, 800px"
       loading="eager"
       decoding="sync"
+      inferSize={true}
       class="w-full rounded-md object-cover object-center bg-white select-none pointer-events-none"
     />
     <div id="newest-post-details" class="flex flex-col gap-y-2">
