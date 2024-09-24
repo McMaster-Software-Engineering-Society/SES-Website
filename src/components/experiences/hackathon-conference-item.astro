@@ -24,15 +24,11 @@ const { hackathon, variant = "primary" } = Astro.props;
 const formatDate = (date: Date) => {
   // Get the day, month, and year from the date object
   const day = date.getUTCDate();
-  const month = date.getUTCMonth() + 1; // Months are zero-based
+  const month = date.toLocaleString("default", { month: "short" }); // Get the month name
   const year = date.getUTCFullYear();
 
-  // Add leading zero to day and month if needed
-  const dayString = day < 10 ? "0" + day : day;
-  const monthString = month < 10 ? "0" + month : month;
-
-  // Construct the date string in DD.MM.YYYY format
-  return `${dayString}.${monthString}.${year}`;
+  // Construct the date string in "Mon DD, YYYY" format
+  return `${month} ${day}, ${year}`;
 };
 
 const formatUpcomingDate = (date: Date): string => {

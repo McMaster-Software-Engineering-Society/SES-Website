@@ -103,7 +103,7 @@ const calendarEventData: CalendarEvent = {
             <AddToCalendarButton client:visible event={calendarEventData} />
           )
         }
-        <a href={`/events/${event.slug}`}>
+        <a href={`/events/${event.slug}/`}>
           <Button variant="flat">Details</Button>
         </a>
       </div>
@@ -117,7 +117,7 @@ const calendarEventData: CalendarEvent = {
             />
           )
         }
-        <a href={`/events/${event.slug}`}>
+        <a href={`/events/${event.slug}/`}>
           <Button variant="flat" size="sm">Details</Button>
         </a>
       </div>
