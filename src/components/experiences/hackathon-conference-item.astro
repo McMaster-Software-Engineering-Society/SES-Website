@@ -24,7 +24,7 @@ const { hackathon, variant = "primary" } = Astro.props;
 const formatDate = (date: Date) => {
   // Get the day, month, and year from the date object
   const day = date.getUTCDate();
-  const month = date.toLocaleString('default', { month: 'short' }); // Get the month name
+  const month = date.toLocaleString("default", { month: "short" }); // Get the month name
   const year = date.getUTCFullYear();
 
   // Construct the date string in "Mon DD, YYYY" format

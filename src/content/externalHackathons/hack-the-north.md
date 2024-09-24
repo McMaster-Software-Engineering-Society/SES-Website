@@ -4,5 +4,9 @@ description: "Join hackers from around the world for a hackathon like no other. 
 date: "2024-09-13"
 location: "University of Waterloo"
 link: "https://hackthenorth.com/"
-image: { src: "/experiences/hackathons/hack-the-north.png", alt: "Hack the North logo" }
+image:
+  {
+    src: "/experiences/hackathons/hack-the-north.png",
+    alt: "Hack the North logo",
+  }
 ---
