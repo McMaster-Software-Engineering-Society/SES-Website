@@ -35,11 +35,12 @@ const sponsors = await getCollection("pastSponsors");
               >Sponsorship package</Button
             ></a
           >
-          <a href="/contact/sponsorship#contact-us">
-            <Button variant="light" className="hover:underline">
-              Contact us
-            </Button>
-          </a>
+          <Button
+            id="contact-us-button"
+            variant="light"
+            className="hover:underline">
+            Contact us
+          </Button>
         </div>
       </div>
       <Image
@@ -100,3 +101,14 @@ const sponsors = await getCollection("pastSponsors");
     </div>
   </div>
 </PageLayout>
+
+<script>
+  document
+    .getElementById("contact-us-button")
+    ?.addEventListener("click", function (event) {
+      event.preventDefault();
+      document
+        .querySelector("#contact-us")
+        ?.scrollIntoView({ behavior: "smooth" });
+    });
+</script>
