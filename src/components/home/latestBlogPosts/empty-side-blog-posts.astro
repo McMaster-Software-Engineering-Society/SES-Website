@@ -1,17 +1,18 @@
 ---
 import { Skeleton } from "@nextui-org/react";
+import { Image } from "astro:assets";
 import { defaultBlogPicture } from "data/blog";
-import { Picture } from "astro:assets";
 ---
 
 <div class="grid grid-cols-3 gap-x-6 items-center">
   <Skeleton disableAnimation className="rounded-md">
-    <Picture
+    <Image
       src={defaultBlogPicture}
       alt={"Default image"}
       sizes="(max-width: 800px) 100vw, 800px"
       loading="eager"
       decoding="sync"
+      inferSize={true}
       class="w-full rounded-md object-cover object-center bg-white col-span-1 select-none pointer-events-none"
     />
   </Skeleton>
