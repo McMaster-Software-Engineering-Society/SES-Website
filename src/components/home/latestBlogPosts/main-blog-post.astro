@@ -17,7 +17,7 @@ export interface Props {
 const { image, author, publishDate, title, snippet, tags, slug } = Astro.props;
 ---
 
-<a href={`/blog/${slug}`}>
+<a href={`/blog/${slug}/`}>
   <div id="newest-post" class="col-span-1 flex flex-col gap-y-6">
     <Image
       id="newest-post-img"
