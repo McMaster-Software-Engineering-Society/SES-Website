@@ -17,20 +17,13 @@ const { event } = Astro.props;
 const isEventPast =
   new Date(event.data.startDateTime).valueOf() < new Date().valueOf();
 
-const eventDate =
-  new Date().toDateString() ===
-  new Date(event.data.startDateTime).toDateString()
-    ? "Today"
-    : new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toDateString() ===
-        new Date(event.data.startDateTime).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        })
-      ? "Tomorrow"
-      : new Date(event.data.startDateTime).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        });
+const eventDate = new Date(event.data.startDateTime).toLocaleDateString(
+  "en-US",
+  {
+    month: "short",
+    day: "numeric",
+  },
+);
 
 const eventTime = new Date(event.data.startDateTime).toLocaleTimeString(
   "en-US",
