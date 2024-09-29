@@ -27,57 +27,37 @@ However, if you're like me and prefer to use Google Calendar, you might be wonde
 
 3. Since the tool is not fully verified by Google, you may see a warning. Click the "Advanced" link, then click "Go to &lt;app name&gt; (unsafe)" to proceed.
 
-![Log into Google button](https://i.imgur.com/dyKnsZA.jpeg)
-![Log into Google button](https://i.imgur.com/zFAdWcO.jpeg)
+![Advanced button](https://i.imgur.com/dyKnsZA.jpeg)
+![Proceed past warning button](https://i.imgur.com/zFAdWcO.jpeg)
 
-4. If you want to include reminders for all of your classes in your Google Calendar, you can toggle the switch in step 2 to enable reminders. By default, the reminder is set to 10 minutes before the class starts. You can change this later in Google Calendar.
+4. Make sure to check the "see, edit, share" permission for Google Calendar.
 
-![Log into Google button](https://i.imgur.com/EZRnRdz.png)
+![Google Calendar edit permission](https://i.imgur.com/JWIkjgx.jpeg)
 
-5. In step 3, click the "mosaic export to Outlook page" to go to the Mosaic page for exporting your timetable to Outlook. You will need to copy your calendar information from this page to the mac2cal tool.
+5. If you want to include reminders for all of your classes in your Google Calendar, you can toggle the switch in step 2 to enable reminders. By default, the reminder is set to 10 minutes before the class starts. You can change this later in Google Calendar.
 
-![Log into Google button](https://i.imgur.com/yMR8gIS.jpeg)
+![Include reminder button](https://i.imgur.com/EZRnRdz.png)
 
-6. On the My Timetable to Outlook page, click the "Sign in" button to log in with your student account.
+6. In step 3, click the "mosaic export to Outlook page" to go to the Mosaic page for exporting your timetable to Outlook. You will need to copy your calendar information from this page to the mac2cal tool.
 
-![Log into Google button](https://i.imgur.com/jkLsdxP.jpeg)
+![Mosaic export to Outlook page button](https://i.imgur.com/yMR8gIS.jpeg)
 
-7. After logging in, you will see your timetable in the table at the bottom of the page. Highlight all of the text in the table (except for the headers) and copy it to your clipboard.
+7. On the My Timetable to Outlook page, click the "Sign in" button to log in with your student account.
 
-![Log into Google button](https://i.imgur.com/LyA4CnW.png)
+![McMaster sign in button](https://i.imgur.com/jkLsdxP.jpeg)
 
-8. Paste the copied text into the text field at the bottom of step 3. Also, make sure that the date format selected matches the format of the dates in the pasted text (YYYY-MM-DD or YYYY-DD-MM). If you copied your timetable correctly, then you should see a "Yay!" message appear above.
+8. After logging in, you will see your timetable in the table at the bottom of the page. Highlight all of the text in the table (except for the headers) and copy it to your clipboard.
 
-![Log into Google button](https://i.imgur.com/YmURGO4.png)
+![Timetable schedule](https://i.imgur.com/LyA4CnW.png)
 
-9. In step 4, verify the courses you want to export to Google Calendar. If everything looks good, click the "Copy your schedule to Google Calendar" button.
+9. Paste the copied text into the text field at the bottom of step 3. Also, make sure that the date format selected matches the format of the dates in the pasted text (YYYY-MM-DD or YYYY-DD-MM). If you copied your timetable correctly, then you should see a "Yay!" message appear above.
 
-![Log into Google button](https://i.imgur.com/6dnTKX6.jpeg)
+![Pasted schedule in text field](https://i.imgur.com/YmURGO4.png)
 
-10. Done! Your timetable should now be copied to your Google Calendar. Make sure to log out of the mac2cal tool with the "Log out of Google" button in step 5.
+10. In step 4, verify the courses you want to export to Google Calendar. If everything looks good, click the "Copy your schedule to Google Calendar" button.
 
-![Log into Google button](https://i.imgur.com/UF22jAd.jpeg)
+![Preview of pasted schedule](https://i.imgur.com/6dnTKX6.jpeg)
 
-<!-- 1. Log into [Mosaic](https://mosaic.mcmaster.ca/) with your student account
-2. Go to the Timetable to Google Calendar tool via [this hidden link](https://csprd.mcmaster.ca/psp/prcsprd/EMPLOYEE/EPM/c/MCM_CUSTOM_MENU.MCM_TIMETBL_CMP.GBL)
-3. Click on the "Allow" button under step 1 to give the tool permission to access your Google Calendar
+11. Done! Your timetable should now be copied to your Google Calendar. Make sure to log out of the mac2cal tool with the "Log out of Google" button in step 5.
 
-![Allow button](https://i.imgur.com/rSemI5T.png)
-
-4. In step 2, you have the option of having the tool automatically include a reminder for all of your classes in your Google Calendar. By default, the reminder is set to 10 minutes before the class starts. You can change this later.
-
-![Toggle switch for reminders](https://i.imgur.com/7aTjewH.png)
-
-5. At the bottom of the page, there is a table with all of your current classes. You can choose to include or exclude each class from your Google Calendar by toggling the switch under the "Export?" column. Note that you can only export classes that are currently in your timetable. You won't be able to export classes from your upcoming term until the term has started.
-
-![Table of classes to export](https://i.imgur.com/0WMHTim.png)
-
-6. Finally, click the "Click here to copy your schedule to your calendar" button to copy your timetable to Google Calendar!
-
-![Button to copy schedule to calendar](https://i.imgur.com/j1tAgdL.png)
-
-7. Be sure to sign out of the tool once you're done to protect your privacy.
-
-![Sign out button](https://i.imgur.com/mEKnfnb.png)
-
-Done! Your timetable should now be copied to your Google Calendar. You can check your Google Calendar to see all of your classes, and you can also make changes to the reminders or delete classes as needed. -->
+![Log out of Google button](https://i.imgur.com/UF22jAd.jpeg)
