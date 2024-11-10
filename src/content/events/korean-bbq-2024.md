@@ -1,7 +1,7 @@
 ---
 title: "Korean BBQ Night"
 startDateTime: "2024-11-20 17:00"
-endDateTime: "2024-09-25 29:00"
+endDateTime: "2024-09-25 19:00"
 location: "27 John St. S, Hamilton"
 googleMapsLink: "https://www.google.ca/maps/place/27+John+St+S,+Hamilton,+ON+L8N+2B8/@43.2548636,-79.869278,17z"
 image:
