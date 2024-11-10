@@ -51,8 +51,6 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 The McMaster Software Engineering Society (SES) website is a platform for students to learn about the society, its events, and its members. It holds useful resources for all student of Software Engineering to easily access.
 
 ### Built With

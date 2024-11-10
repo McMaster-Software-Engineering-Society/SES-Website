@@ -1,8 +1,9 @@
 ---
 draft: false
-title: "How to the Download SES App"
+title: "How to Download the SES App"
 snippet: "The SES app is an amazing tool that allows you to access all of the society's resources in one place. Learn how to download the app and get started today!"
-image: { src: "https://i.imgur.com/cTe6MFS.jpeg", alt: "frontend master" }
+image:
+  { src: "https://i.imgur.com/cTe6MFS.jpeg", alt: "SES app on device mockup" }
 publishDate: "2024-09-21 13:17"
 category: "Tutorials"
 author: "Willie Pai"
