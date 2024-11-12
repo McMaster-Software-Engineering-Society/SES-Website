@@ -43,6 +43,21 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
     <meta name="theme-color" content="#0f0e17" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Google tag (gtag.js) -->
+    <script
+    is:inline
+    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}`}
+    ></script>
+    <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", process.env.GA_ID);
+    </script>
+
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
