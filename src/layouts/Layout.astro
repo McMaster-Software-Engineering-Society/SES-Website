@@ -45,17 +45,17 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
 
     <!-- Google tag (gtag.js) -->
     <script
-    is:inline
-    src="https://www.googletagmanager.com/gtag/js?id=G-976222T4KG"
-    ></script>
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=G-976222T4KG"></script>
     <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // eslint-disable-next-line prefer-rest-params
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag("config", "G-976222T4KG");
+      gtag("config", "G-976222T4KG");
     </script>
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
