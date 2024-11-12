@@ -1,7 +1,15 @@
 ---
-const embedPosts = (
-  await Astro.glob("../../content/instagramPosts/*.astro")
-).reverse();
+const embedPosts = (await Astro.glob("../../content/instagramPosts/*.astro"))
+  .sort((a, b) => {
+    const aNum = a.default.moduleId
+      ? parseInt(a.default.moduleId.slice(0, -6).split("-").pop() ?? "")
+      : 0;
+    const bNum = b.default.moduleId
+      ? parseInt(b.default.moduleId.slice(0, -6).split("-").pop() ?? "")
+      : 0;
+    return aNum - bNum;
+  })
+  .reverse();
 
 // Change the number of posts to display
 const numDisplayPosts = 3;

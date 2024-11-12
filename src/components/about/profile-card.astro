@@ -62,6 +62,7 @@ const levelToRoman = (level?: number) => {
       {
         socials?.instagram && (
           <a
+            target="_blank"
             href={socials.instagram}
             class="p-2 rounded-full hover:bg-black/15">
             <div class="text-white">
@@ -72,7 +73,10 @@ const levelToRoman = (level?: number) => {
       }
       {
         socials?.twitter && (
-          <a href={socials.twitter} class="p-2 rounded-full hover:bg-black/15">
+          <a
+            target="_blank"
+            href={socials.twitter}
+            class="p-2 rounded-full hover:bg-black/15">
             <div class="text-white">
               <FaXTwitter />
             </div>
@@ -81,7 +85,10 @@ const levelToRoman = (level?: number) => {
       }
       {
         socials?.github && (
-          <a href={socials.github} class="p-2 rounded-full hover:bg-black/15">
+          <a
+            target="_blank"
+            href={socials.github}
+            class="p-2 rounded-full hover:bg-black/15">
             <div class="text-white">
               <FaGithub />
             </div>
@@ -90,7 +97,10 @@ const levelToRoman = (level?: number) => {
       }
       {
         socials?.linkedin && (
-          <a href={socials.linkedin} class="p-2 rounded-full hover:bg-black/15">
+          <a
+            target="_blank"
+            href={socials.linkedin}
+            class="p-2 rounded-full hover:bg-black/15">
             <div class="text-white">
               <FaLinkedinIn />
             </div>
@@ -99,7 +109,10 @@ const levelToRoman = (level?: number) => {
       }
       {
         socials?.website && (
-          <a href={socials.website} class="p-2 rounded-full hover:bg-black/15">
+          <a
+            target="_blank"
+            href={socials.website}
+            class="p-2 rounded-full hover:bg-black/15">
             <div class="text-white">
               <IoGlobeOutline />
             </div>
@@ -109,6 +122,7 @@ const levelToRoman = (level?: number) => {
       {
         socials?.email && (
           <a
+            target="_blank"
             href={`mailto:${socials.email}`}
             class="p-2 rounded-full hover:bg-black/15">
             <div class="text-white">

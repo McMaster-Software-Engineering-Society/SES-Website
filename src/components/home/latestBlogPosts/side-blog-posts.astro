@@ -1,6 +1,6 @@
 ---
+import { Image } from "astro:assets";
 import { defaultBlogPicture } from "data/blog";
-import { Picture } from "astro:assets";
 
 export interface Props {
   index: number;
@@ -19,19 +19,18 @@ const { index, image, author, publishDate, title, category, slug } =
   Astro.props;
 ---
 
-<a href={`/blog/${slug}`}>
+<a href={`/blog/${slug}/`}>
   <div
     id={`older-posts-${index}`}
     class="grid grid-cols-3 gap-x-6 items-center">
-    <Picture
+    <Image
       id={`older-posts-${index}-img`}
       src={image?.src || defaultBlogPicture}
       alt={image?.alt || "Default image"}
       sizes="(max-width: 800px) 100vw, 800px"
-      width={800}
-      height={600}
       loading="eager"
       decoding="sync"
+      inferSize={true}
       class="w-full rounded-md object-cover object-center bg-white col-span-1 select-none pointer-events-none"
     />
     <div id={`older-posts-${index}-details`} class="col-span-2">

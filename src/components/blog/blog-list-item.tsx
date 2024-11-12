@@ -24,14 +24,12 @@ export default function BlogListItem({
 }: Readonly<BlogListItemProps>) {
   return (
     <li>
-      <a href={`/blog/${slug}`}>
+      <a href={`/blog/${slug}/`}>
         <div className="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
           <img
             src={image?.src ?? defaultBlogPicture}
             alt={image?.alt ?? "Default image"}
             sizes="(max-width: 800px) 100vw, 800px"
-            width={800}
-            height={600}
             loading={index <= 2 ? "eager" : "lazy"}
             decoding={index <= 2 ? "sync" : "async"}
             className="w-full rounded-md object-cover object-center bg-white select-none pointer-events-none"

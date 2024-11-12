@@ -9,7 +9,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/McMaster-Software-Engineering-Society/SES-Website">
-    <img src="public/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="public/opengraph.jpg" alt="McMaster SES Homepage Screenshot">
   </a>
 
 <h3 align="center">SES Website</h3>
@@ -51,8 +51,6 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 The McMaster Software Engineering Society (SES) website is a platform for students to learn about the society, its events, and its members. It holds useful resources for all student of Software Engineering to easily access.
 
 ### Built With
@@ -78,9 +76,9 @@ See the [open issues](https://github.com/McMaster-Software-Engineering-Society/S
 
 ## Contributing
 
-If you have a suggestion that would make this better, please submit them to our Google Form [here (coming soon!)](https://forms.gle/)
+If you have a suggestion that would make this better, please submit them to our Google Form [here](https://ses.eng.mcmaster.ca/contact/suggestions/).
 
-Interested in contributing to the project? Apply to join the website volunteer team! More information can be found on our Instagram page [@mcmaster_ses](https://www.instagram.com/mcmaster_ses/)
+Interested in contributing to the project? Apply to join the website volunteer team! More information can be found on our Instagram page [@mcmaster_ses](https://www.instagram.com/mcmaster_ses/).
 
 <!-- CONTACT -->
 
