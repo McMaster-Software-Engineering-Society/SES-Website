@@ -4,7 +4,7 @@ title: "The Show Must Go On"
 snippet: "What Musical Theatre Taught Me About My Professional Career"
 image:
   {
-    src: "blog/alexis-mt-musical-blog-photo.jpg",
+    src: "https://i.imgur.com/nIyR8bQ.jpeg",
     alt: "McMaster Engineering Musical cast posing in a photo",
   }
 publishDate: "2025-01-08"
