@@ -64,7 +64,7 @@ The McMaster Software Engineering Society (SES) website is a platform for studen
 
 ## Getting Started
 
-Visit our Wiki page [here](https://github.com/McMaster-Software-Engineering-Society/SES-Website/wiki/Installation-&-Deployment) for more information on how to install and deploy the website.
+Visit our Wiki page [here](https://github.com/McMaster-Software-Engineering-Society/SES-Website/wiki/Installation-&-Local-Deployment) for more information on how to install and deploy the website.
 
 <!-- ROADMAP -->
 
