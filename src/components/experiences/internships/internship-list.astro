@@ -1,14 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import InternshipItem from "../jobs-item.astro"
+import InternshipItem from "../jobs-item.astro";
 
 const internshipLists = await getCollection("internshipLists");
 ---
 
 <div class="flex flex-col gap-y-4">
-  {
-    internshipLists.map((internship) => (
-      <InternshipItem job={internship} />
-    ))
-  }
+  {internshipLists.map((internship) => <InternshipItem job={internship} />)}
 </div>
