@@ -1,0 +1,26 @@
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import McMasterHackathons from "@components/experiences/hackathons/mcmaster-hackathons.astro";
+import ExternalHackathons from "@components/experiences/hackathons/external-hackathons.astro";
+
+import NewGradList from "@components/experiences/newGrad/newGrad-list.astro";
+
+<MarkdownLayout title="New Grad Postings">
+  <section>
+    ## List of Canadian Tech <mark>new grad</mark> postings
+    You can find many lists of Canadian tech new grad postings online, both from
+    McMaster-affiliated clubs and external sources. These lists are a great way
+    to find internship opportunities in Canada, and can help you find the
+    perfect internship.
+  </section>
+  <section>
+    Here are some databases we've gathered for you:
+
+    <NewGradList />
+
+  </section>
+  <section>
+    *Have other internship resources you'd like to share?
+    Submit them to our [suggestions form](/contact/suggestions/)!*
+  </section>
+
+</MarkdownLayout>

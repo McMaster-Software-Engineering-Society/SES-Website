@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import NewGradItem from "../jobs-item.astro"
+
+const newGradLists = await getCollection("newGradLists");
+---
+
+<div class="flex flex-col gap-y-4">
+  {
+    newGradLists.map((posting) => (
+      <NewGradItem job={posting} />
+    ))
+  }
+</div>
