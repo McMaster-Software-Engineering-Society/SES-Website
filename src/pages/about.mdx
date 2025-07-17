@@ -1,5 +1,6 @@
 import MarkdownLayout from "@layouts/MarkdownLayout.astro";
 import TeamList from "@components/about/team-list.astro";
+import InteractiveBusinessCard from "@components/contact/interactive-business-card.astro";
 
 <MarkdownLayout title="About Us" description="Learn more about who we are!">
   <section>
@@ -41,5 +42,11 @@ import TeamList from "@components/about/team-list.astro";
     <div class="team-container">
       <TeamList />
     </div>
+  </section>
+  <section>
+  # SES <mark>Contact</mark>
+  <div class="interactive-business-card">
+      <InteractiveBusinessCard />
+  </div>
   </section>
 </MarkdownLayout>
