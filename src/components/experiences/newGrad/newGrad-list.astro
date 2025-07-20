@@ -2,9 +2,9 @@
 import { getCollection } from "astro:content";
 import JobListItem from "../jobs-list-item.astro";
 
-const internshipLists = await getCollection("internshipLists");
+const newGradLists = await getCollection("newGradLists");
 ---
 
 <div class="flex flex-col gap-y-4">
-  {internshipLists.map((internship) => <JobListItem job={internship} />)}
+  {newGradLists.map((posting) => <JobListItem job={posting} />)}
 </div>

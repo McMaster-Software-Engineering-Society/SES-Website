@@ -1,0 +1,23 @@
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+
+import NewGradList from "@components/experiences/newGrad/newGrad-list.astro";
+
+<MarkdownLayout title="New Grad Postings">
+  <section>
+    ## List of Tech <mark>new grad</mark> postings
+    There are plenty of curated lists online that highlight new grad roles in tech, 
+    some created by McMaster-affiliated clubs, others by the broader community. 
+    They're a great starting point to discover full-time opportunities and land a role that fits your interests and goals.
+  </section>
+  <section>
+    Here are some databases we've gathered for you:
+
+    <NewGradList />
+
+  </section>
+  <section>
+    *Have other new grad resources you'd like to share?
+    Submit them to our [suggestions form](/contact/suggestions/)!*
+  </section>
+
+</MarkdownLayout>

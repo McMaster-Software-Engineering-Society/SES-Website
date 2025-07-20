@@ -1,0 +1,30 @@
+---
+import { Button } from "@nextui-org/react";
+
+export interface Props {
+  job: {
+    data: {
+      title: string;
+      link: string;
+      author: string;
+    };
+  };
+}
+
+const { job } = Astro.props;
+---
+
+<div
+  id={job.data.title}
+  class="flex flex-row items-center justify-between w-full">
+  <div class="flex flex-col sm:flex-row gap-x-1">
+    <span class="font-bold line-clamp-1">{job.data.title}</span>
+    <div class="flex flex-row gap-x-1 text-slate-400">
+      <span class="hidden sm:block">&#8212; </span>
+      <span class="italic line-clamp-1 pr-1">{job.data.author}</span>
+    </div>
+  </div>
+  <a href={job.data.link} target="_blank">
+    <Button size="sm">View</Button>
+  </a>
+</div>

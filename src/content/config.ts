@@ -75,7 +75,7 @@ const clubTeamCollection = defineCollection({
   }),
 });
 
-const internshipListCollection = defineCollection({
+const jobListCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     author: z.string(),
@@ -126,7 +126,8 @@ export const collections = {
   mcmasterHackathons: hackathonConferenceCollection,
   externalHackathons: hackathonConferenceCollection,
   conferences: hackathonConferenceCollection,
-  internshipsLists: internshipListCollection,
+  internshipsLists: jobListCollection,
+  newGradLists: jobListCollection,
   pastSponsors: sponsorCollection,
   technicalTeams: clubTeamCollection,
   technicalClubs: clubTeamCollection,
