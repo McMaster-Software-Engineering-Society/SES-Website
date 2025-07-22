@@ -14,7 +14,7 @@ Issue #\<issue number here>
 
 ## Checklist
 
-- [ ] The branch has been rebased with the latest `staging` branch
+- [ ] The branch has been rebased with the latest `production` branch
 - [ ] The code has been tested locally by running `pnpm dev` and verifying that the changes work as expected
 - [ ] The code has been linted and formatted using `pnpm lint:fix`
 - [ ] This PR has the project manager assigned as a reviewer
