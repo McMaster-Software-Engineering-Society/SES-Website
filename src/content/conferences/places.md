@@ -4,9 +4,5 @@ description: "PLACES is a workshop at ETAPS focused on programming languages, co
 date: "2025-05-04"
 location: "Hamilton, ON"
 link: "https://places-workshop.github.io/2025/"
-image:
-  {
-    src: "/experiences/conferences/etaps.png",
-    alt: "ETAPS logo",
-  }
+image: { src: "/experiences/conferences/etaps.png", alt: "ETAPS logo" }
 ---
