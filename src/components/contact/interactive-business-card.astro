@@ -1,0 +1,19 @@
+---
+import BusinessCard from "@components/contact/sponsorship/business-card.astro";
+---
+
+<div
+  id="contact-us"
+  class="flex flex-col w-full items-center mt-16 gap-y-16 prose-a:!text-black">
+  <div
+    class="relative h-64 w-full items-center flex flex-col scale-85 sm:scale-100">
+    <BusinessCard class="absolute rotate-1 translate-y-4" />
+    <BusinessCard class="absolute rotate-0 translate-y-2" />
+    <BusinessCard class="absolute -rotate-1" />
+    <BusinessCard class="absolute -rotate-2 -translate-y-2" />
+    <div
+      class="absolute -rotate-3 -translate-y-4 lg:motion-safe:hover:-translate-y-12 lg:motion-safe:hover:rotate-0 transition pb-12">
+      <BusinessCard />
+    </div>
+  </div>
+</div>
