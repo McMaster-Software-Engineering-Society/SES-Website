@@ -6,5 +6,12 @@ image:
     src: "/experiences/clubs-and-teams/macengmusical-logo.png",
     alt: "Mac Eng Musical logo",
   }
-socials: { website: "https://www.macengmusical.com/" }
+socials:
+  {
+    website: "https://www.macengmusical.com/",
+    instagram: "https://www.instagram.com/macengmusical",
+    facebook: "https://www.facebook.com/macengmusical/",
+    linktree: "https://linktr.ee/macengmusical",
+    youtube: "https://www.youtube.com/user/macengmusical",
+  }
 ---

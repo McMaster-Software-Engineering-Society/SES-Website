@@ -10,5 +10,10 @@ image:
     src: "/experiences/clubs-and-teams/nsbe-logo.jpg",
     alt: "National Society of Black Engineers logo",
   }
-socials: { website: "https://nsbemcmaster.ca/" }
+socials:
+  {
+    website: "https://nsbemcmaster.ca/",
+    instagram: "https://www.instagram.com/nsbemac",
+    linktree: "https://linktr.ee/NSBEMac",
+  }
 ---

@@ -6,5 +6,9 @@ image:
     src: "/experiences/clubs-and-teams/macengrugby-logo.png",
     alt: "McMaster Engineering Rugby logo",
   }
-socials: { instagram: "https://www.instagram.com/macengrugby/" }
+socials:
+  {
+    instagram: "https://www.instagram.com/macengrugby/",
+    linktree: "https://linktr.ee/macengrugby",
+  }
 ---

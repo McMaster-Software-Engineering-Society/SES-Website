@@ -6,5 +6,9 @@ image:
     src: "/experiences/clubs-and-teams/robomaster-logo.png",
     alt: "MAC RoboMaster logo",
   }
-socials: { website: "https://macrobomaster.com/" }
+socials:
+  {
+    website: "https://macrobomaster.com/",
+    instagram: "https://www.instagram.com/macrobomaster",
+  }
 ---

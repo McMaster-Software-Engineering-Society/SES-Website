@@ -6,5 +6,10 @@ image:
     src: "/experiences/clubs-and-teams/mcp-logo.png",
     alt: "McMaster Competitive Programming logo",
   }
-socials: { website: "https://mcp-team.com/" }
+socials:
+  {
+    website: "https://mcp-team.com/",
+    instagram: "https://www.instagram.com/maccpteam",
+    discord: "https://discord.gg/qNyrXycNnV",
+  }
 ---

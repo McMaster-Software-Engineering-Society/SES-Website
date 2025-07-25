@@ -10,5 +10,6 @@ socials:
   {
     website: "http://outreach.mcmaster.ca/",
     instagram: "https://www.instagram.com/macstartcoding/",
+    linktree: "https://linktr.ee/MacStartCoding",
   }
 ---
