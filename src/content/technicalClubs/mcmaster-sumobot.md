@@ -6,5 +6,11 @@ image:
     src: "/experiences/clubs-and-teams/sumobot-logo.jpeg",
     alt: "McMaster Sumobot logo",
   }
-socials: { website: "https://www.sumobot.ca/" }
+socials:
+  {
+    website: "https://www.sumobot.ca/",
+    instagram: "https://www.instagram.com/mac_sumobot",
+    linktree: "https://linktr.ee/McMasterSumobot",
+    discord: "https://discord.com/invite/YnZvKqGPkw",
+  }
 ---

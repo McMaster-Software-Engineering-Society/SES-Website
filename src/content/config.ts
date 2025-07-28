@@ -64,12 +64,17 @@ const clubTeamCollection = defineCollection({
     }),
     socials: z
       .object({
-        instagram: z.string().optional(),
-        twitter: z.string().optional(),
-        github: z.string().optional(),
-        linkedin: z.string().optional(),
         website: z.string().optional(),
+        instagram: z.string().optional(),
         email: z.string().optional(),
+        linkedin: z.string().optional(),
+        github: z.string().optional(),
+        tiktok: z.string().optional(),
+        twitter: z.string().optional(),
+        facebook: z.string().optional(),
+        youtube: z.string().optional(),
+        linktree: z.string().optional(),
+        discord: z.string().optional(),
       })
       .optional(),
   }),

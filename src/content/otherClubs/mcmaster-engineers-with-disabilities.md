@@ -8,5 +8,9 @@ image:
     src: "/experiences/clubs-and-teams/ewd-logo.png",
     alt: "McMaster Engineers With Disabilities logo",
   }
-socials: { instagram: "https://www.instagram.com/mcmasterewd/" }
+socials:
+  {
+    instagram: "https://www.instagram.com/mcmasterewd/",
+    linktree: "https://linktr.ee/mcmasterewd",
+  }
 ---

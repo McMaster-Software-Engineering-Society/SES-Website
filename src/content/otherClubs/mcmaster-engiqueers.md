@@ -10,5 +10,11 @@ image:
     src: "/experiences/clubs-and-teams/engiqueers-logo.png",
     alt: "McMaster EngiQueers logo",
   }
-socials: { website: "https://mcmasterengiqueers.wixsite.com/home/" }
+socials:
+  {
+    website: "https://mcmasterengiqueers.wixsite.com/home/",
+    instagram: "https://www.instagram.com/mcmasterengiqueers",
+    linktree: "https://linktr.ee/macengiqueers",
+    twitter: "https://twitter.com/mcmastereq?s=21&t=HNvs7366Fu23YSDAcoys1Q",
+  }
 ---

@@ -5,6 +5,11 @@ import { IoGlobeOutline } from "@react-icons/all-files/io5/IoGlobeOutline";
 import { IoMailOutline } from "@react-icons/all-files/io5/IoMailOutline";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
+import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
+import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
+import { FaTiktok } from "@react-icons/all-files/fa6/FaTiktok";
+import { SiLinktree } from "@react-icons/all-files/si/SiLinktree";
+import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
 
 export interface Props {
   name: string;
@@ -20,6 +25,11 @@ export interface Props {
     linkedin?: string;
     website?: string;
     email?: string;
+    facebook?: string;
+    youtube?: string;
+    tiktok?: string;
+    linktree?: string;
+    discord?: string;
   };
 }
 
@@ -93,6 +103,52 @@ const { name, image, description, socials } = Astro.props;
           <a href={`mailto:${socials.email}`} class="rounded-full">
             <div class="text-slate-200 hover:text-primary text-lg">
               <IoMailOutline />
+            </div>
+          </a>
+        )
+      }
+
+      {
+        socials?.facebook && (
+          <a href={socials.facebook} class="rounded-full">
+            <div class="text-slate-200 hover:text-primary text-lg">
+              <FaFacebook />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.youtube && (
+          <a href={socials.youtube} class="rounded-full">
+            <div class="text-slate-200 hover:text-primary text-lg">
+              <FaYoutube />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.tiktok && (
+          <a href={socials.tiktok} class="rounded-full">
+            <div class="text-slate-200 hover:text-primary text-lg">
+              <FaTiktok />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.linktree && (
+          <a href={socials.linktree} class="rounded-full">
+            <div class="text-slate-200 hover:text-primary text-lg">
+              <SiLinktree />
+            </div>
+          </a>
+        )
+      }
+      {
+        socials?.discord && (
+          <a href={socials.discord} class="rounded-full">
+            <div class="text-slate-200 hover:text-primary text-lg">
+              <FaDiscord />
             </div>
           </a>
         )

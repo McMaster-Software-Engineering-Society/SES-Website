@@ -9,5 +9,10 @@ image:
     src: "/experiences/clubs-and-teams/wie-logo.jpg",
     alt: "McMaster Women in Engineering logo",
   }
-socials: { website: "https://www.mcmasterwie.com/" }
+socials:
+  {
+    website: "https://www.mcmasterwie.com/",
+    instagram: "https://www.instagram.com/mcmasterwie",
+    linktree: "https://linktr.ee/Mcmasterwie",
+  }
 ---

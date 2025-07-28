@@ -10,5 +10,7 @@ socials:
   {
     website: "https://www.mcmastersolarcar.com/#/",
     instagram: "https://www.instagram.com/macsolarcar",
+    linkedin: "https://www.linkedin.com/company/mcmaster-solar-car-project",
+    linktree: "https://linktr.ee/mcmastersolarcar",
   }
 ---

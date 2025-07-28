@@ -7,5 +7,12 @@ socials:
   {
     website: "https://www.macecocar.ca",
     instagram: "https://www.instagram.com/macengecocar",
+    linkedin: "https://www.linkedin.com/company/mcmaster-engineering-ecocar/",
+    tiktok: "https://www.tiktok.com/@macecocar",
+    twitter: "https://twitter.com/macengecocar?lang=en",
+    facebook: "https://www.facebook.com/MacEngEcoCARChallenge/",
+    
+
+
   }
 ---
