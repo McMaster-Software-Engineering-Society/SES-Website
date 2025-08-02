@@ -1,0 +1,52 @@
+---
+import MerchItem from "@components/merch/merch-item.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+// import { fetchMerchData } from "@utils/fetch-merch-data";
+// const merchList = await fetchMerchData();
+---
+
+<PageLayout title="Merch">
+  <div class="flex flex-col w-full pt-12 gap-y-24 mx-auto">
+    <div id="categories" class="grid grid-cols-4">
+      <div class="bg-blue-950">Category #1</div>
+      <div class="bg-red-950">Category #2</div>
+      <div class="bg-green-950">Category #3</div>
+      <div class="bg-yellow-950">Category #4</div>
+    </div>
+    <div id="t-shirts" class="grid md:grid-cols-4 gap-x-7 gap-y-10">
+      <MerchItem
+        imageSrc="/merch/clothing-example.png"
+        name="T-Shirt"
+        price={50}
+        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
+      />
+    </div>
+  </div>
+</PageLayout>
+
+<!-- <h1>Vintage Merch Store</h1>
+  <p>Check out our leftover SES merch!</p> -->
+
+<!-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {
+      merchList.map((item) => (
+        <div class="border p-4 rounded">
+          <img
+            src={`/images/merch/${item.image}`}
+            alt={item.name}
+            class="w-full h-auto"
+          />
+          <h2 class="text-lg font-bold">{item.name}</h2>
+          <p>Available Sizes: {Object.keys(item.sizes).join(", ")}</p>
+          <p>Quantities:</p>
+          <ul>
+            {Object.entries(item.sizes).map(([size, qty]) => (
+              <li>
+                {size}: {qty}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div> -->
