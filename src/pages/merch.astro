@@ -1,18 +1,66 @@
 ---
 import MerchItem from "@components/merch/merch-item.astro";
 import PageLayout from "@layouts/PageLayout.astro";
+import clsx from "clsx";
 // import { fetchMerchData } from "@utils/fetch-merch-data";
 // const merchList = await fetchMerchData();
+
+const categories: {
+  title: string;
+  href: string;
+  imageSrc: string;
+}[] = [
+  {
+    title: "T-Shirts",
+    href: "#",
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+  {
+    title: "Hoodies",
+    href: "#",
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+  {
+    title: "Sweaters",
+    href: "#",
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+  {
+    title: "Accessories",
+    href: "#",
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+];
 ---
 
 <PageLayout title="Merch">
   <div class="flex flex-col w-full pt-12 gap-y-24 mx-auto">
+    <!-- Categories -->
     <div id="categories" class="grid grid-cols-4">
-      <div class="bg-blue-950">Category #1</div>
-      <div class="bg-red-950">Category #2</div>
-      <div class="bg-green-950">Category #3</div>
-      <div class="bg-yellow-950">Category #4</div>
+      {
+        categories.map((category, index) => (
+          <a
+            class={clsx([
+              "relative",
+              index === 0 && "rounded-l-2xl overflow-clip",
+              index === categories.length - 1 && "rounded-r-2xl overflow-clip",
+            ])}
+            href={category.href}>
+            <img
+              src={category.imageSrc}
+              alt={category.title}
+              class="w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/15 to-background opacity-95" />
+            <span class="absolute left-6 bottom-6 drop-shadow uppercase text-sm flex flex-col">
+              <p>{category.title}</p>
+              <p class="uppercase text-xs text-[#ba55d3]">VIEW ALL</p>
+            </span>
+          </a>
+        ))
+      }
     </div>
+    <!-- T-Shirts -->
     <div id="t-shirts" class="grid md:grid-cols-4 gap-x-7 gap-y-10">
       <MerchItem
         imageSrc="/merch/clothing-example.png"
