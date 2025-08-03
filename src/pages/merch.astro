@@ -42,14 +42,18 @@ const categories: {
   </span>
   <main class="mt-8 w-full flex flex-col items-center">
     <!-- Categories -->
-    <div id="categories" class="grid grid-cols-4 mt-6">
+    <div
+      id="categories"
+      class="grid md:grid-cols-4 grid-cols-1 md:grid-rows-1 grid-rows-4 mt-6">
       {
         categories.map((category, index) => (
           <a
             class={clsx([
-              "relative",
-              index === 0 && "rounded-l-2xl overflow-clip",
-              index === categories.length - 1 && "rounded-r-2xl overflow-clip",
+              "relative h-48 md:h-auto overflow-clip",
+              index === 0 &&
+                "rounded-tl-2xl rounded-tr-2xl md:rounded-tr-none rounded-bl-none md:rounded-bl-2xl overflow-clip",
+              index === categories.length - 1 &&
+                "rounded-tr-2xl rounded-bl-2xl md:rounded-bl-none rounded-br-none md:rounded-br-2xl overflow-clip",
             ])}
             href={category.href}>
             <img
@@ -57,8 +61,8 @@ const categories: {
               alt={category.title}
               class="w-full h-auto"
             />
-            <div class="absolute inset-0 bg-gradient-to-b from-black/15 to-background opacity-95" />
-            <span class="absolute left-6 bottom-6 drop-shadow uppercase text-sm flex flex-col">
+            <div class="absolute inset-0 bg-gradient-to-r md:bg-gradient-to-b from-black/15 to-background opacity-95" />
+            <span class="absolute right-6 md:left-6 bottom-6 drop-shadow uppercase text-sm flex flex-col text-end md:text-start">
               <p>{category.title}</p>
               <p class="uppercase text-xs text-primary">VIEW ALL</p>
             </span>
