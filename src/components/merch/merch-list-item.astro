@@ -1,0 +1,73 @@
+---
+import MerchItemQuantityIndicator from "./merch-item-quantity-indicator.astro";
+
+export type MerchItemType = {
+  id: string;
+  imageSrc: string;
+  name: string;
+  price: number;
+  quantities: {
+    small?: number;
+    medium?: number;
+    large?: number;
+    xlarge?: number;
+  };
+};
+
+export interface Props {
+  item: MerchItemType;
+}
+
+const { item } = Astro.props;
+
+const sizeMap = {
+  small: "SM",
+  medium: "MD",
+  large: "LG",
+  xlarge: "XL",
+};
+
+const sizeMapFull = {
+  small: "SMALL",
+  medium: "MEDIUM",
+  large: "LARGE",
+  xlarge: "X-LARGE",
+};
+---
+
+<div class="flex flex-col">
+  <img src={item.imageSrc} class="rounded-2xl" />
+  <div class="flex flex-col mt-4">
+    <p class="font-bold">{item.name}</p>
+    <p class="lg:hidden block">${item.price}</p>
+  </div>
+  <div
+    class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-y-2 mt-1 lg:mt-0">
+    <!-- Price -->
+    <p class="hidden lg:block">${item.price}</p>
+    <!-- Size Availability -->
+    <div
+      class="grid grid-cols-2 w-full lg:w-auto lg:flex lg:flex-row lg:items-center gap-x-3">
+      <MerchItemQuantityIndicator
+        sizeLabel={sizeMap.small}
+        sizeLabelFull={sizeMapFull.small}
+        quantity={item.quantities.small ?? 0}
+      />
+      <MerchItemQuantityIndicator
+        sizeLabel={sizeMap.medium}
+        sizeLabelFull={sizeMapFull.medium}
+        quantity={item.quantities.medium ?? 0}
+      />
+      <MerchItemQuantityIndicator
+        sizeLabel={sizeMap.large}
+        sizeLabelFull={sizeMapFull.large}
+        quantity={item.quantities.large ?? 0}
+      />
+      <MerchItemQuantityIndicator
+        sizeLabel={sizeMap.xlarge}
+        sizeLabelFull={sizeMapFull.xlarge}
+        quantity={item.quantities.xlarge ?? 0}
+      />
+    </div>
+  </div>
+</div>

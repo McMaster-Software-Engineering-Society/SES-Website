@@ -1,5 +1,5 @@
 ---
-import MerchItem from "@components/merch/merch-item.astro";
+import MerchList from "@components/merch/merch-list.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import clsx from "clsx";
 // import { fetchMerchData } from "@utils/fetch-merch-data";
@@ -74,50 +74,62 @@ const categories: {
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">T-Shirts</span>
     </h1>
-    <div id="t-shirts" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
-      <MerchItem
-        imageSrc="/merch/clothing-example.png"
-        name="T-Shirt"
-        price={25}
-        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
-      />
-    </div>
+    <MerchList
+      merchItems={[
+        {
+          id: "1",
+          imageSrc: "/merch/clothing-example.png",
+          name: "T-Shirt",
+          price: 25,
+          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
+        },
+      ]}
+    />
     <!-- Hoodies -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Hoodies</span>
     </h1>
-    <div id="hoodies" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
-      <MerchItem
-        imageSrc="/merch/clothing-example.png"
-        name="Hoodie"
-        price={50}
-        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
-      />
-    </div>
+    <MerchList
+      merchItems={[
+        {
+          id: "1",
+          imageSrc: "/merch/clothing-example.png",
+          name: "T-Shirt",
+          price: 25,
+          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
+        },
+      ]}
+    />
     <!-- Sweaters -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Sweaters</span>
     </h1>
-    <div id="sweaters" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
-      <MerchItem
-        imageSrc="/merch/clothing-example.png"
-        name="Sweater"
-        price={40}
-        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
-      />
-    </div>
+    <MerchList
+      merchItems={[
+        {
+          id: "1",
+          imageSrc: "/merch/clothing-example.png",
+          name: "Sweater",
+          price: 40,
+          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
+        },
+      ]}
+    />
     <!-- Accessories -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Accessories</span>
     </h1>
-    <div id="accessories" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
-      <MerchItem
-        imageSrc="/merch/clothing-example.png"
-        name="Accessory"
-        price={15}
-        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
-      />
-    </div>
+    <MerchList
+      merchItems={[
+        {
+          id: "1",
+          imageSrc: "/merch/clothing-example.png",
+          name: "Accessory",
+          price: 15,
+          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
+        },
+      ]}
+    />
   </main>
 </PageLayout>
 

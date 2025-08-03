@@ -1,0 +1,13 @@
+---
+import MerchListItem, { type MerchItemType } from "./merch-list-item.astro";
+
+export interface Props {
+  merchItems: MerchItemType[];
+}
+
+const { merchItems } = Astro.props;
+---
+
+<div class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
+  {merchItems.map((item) => <MerchListItem item={item} />)}
+</div>
