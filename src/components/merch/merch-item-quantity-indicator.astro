@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 export interface Props {
   sizeLabel: string;
   sizeLabelFull: string;
@@ -8,13 +10,13 @@ export interface Props {
 const { sizeLabel, sizeLabelFull, quantity } = Astro.props;
 
 let bgColor = "bg-green-500";
-let bgColorSecondary = "bg-green-400";
+let bgSecondaryColor = "bg-green-400";
 if (quantity === 0) {
   bgColor = "bg-red-500";
-  bgColorSecondary = "bg-red-400";
+  bgSecondaryColor = "bg-red-400";
 } else if (quantity < 5) {
   bgColor = "bg-yellow-400";
-  bgColorSecondary = "bg-yellow-300";
+  bgSecondaryColor = "bg-yellow-300";
 }
 ---
 
@@ -25,8 +27,11 @@ if (quantity === 0) {
   </div>
   <span class="relative flex size-2">
     <span
-      class={"absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" +
-        bgColorSecondary}></span>
+      class={clsx([
+        "absolute inline-flex h-full w-full rounded-full opacity-75",
+        bgSecondaryColor,
+        quantity > 0 && "animate-ping",
+      ])}></span>
     <span class={"relative inline-flex size-2 rounded-full " + bgColor}></span>
   </span>
   {
