@@ -33,10 +33,16 @@ const categories: {
 ];
 ---
 
-<PageLayout title="Merch">
-  <div class="flex flex-col w-full pt-12 gap-y-24 mx-auto">
+<PageLayout title="Merch" class="flex flex-col items-center">
+  <h1 class="text-[2.75rem] font-bold pt-10">
+    Vintage <span class="text-primary">Merch</span>
+  </h1>
+  <span class="mt-3 text-center">
+    Check out our leftover SES merch from the past years!
+  </span>
+  <main class="mt-8 w-full flex flex-col items-center">
     <!-- Categories -->
-    <div id="categories" class="grid grid-cols-4">
+    <div id="categories" class="grid grid-cols-4 mt-6">
       {
         categories.map((category, index) => (
           <a
@@ -54,22 +60,61 @@ const categories: {
             <div class="absolute inset-0 bg-gradient-to-b from-black/15 to-background opacity-95" />
             <span class="absolute left-6 bottom-6 drop-shadow uppercase text-sm flex flex-col">
               <p>{category.title}</p>
-              <p class="uppercase text-xs text-[#ba55d3]">VIEW ALL</p>
+              <p class="uppercase text-xs text-primary">VIEW ALL</p>
             </span>
           </a>
         ))
       }
     </div>
     <!-- T-Shirts -->
-    <div id="t-shirts" class="grid md:grid-cols-4 gap-x-7 gap-y-10">
+    <h1 class="text-3xl font-bold pt-10">
+      Our <span class="text-primary">T-Shirts</span>
+    </h1>
+    <div id="t-shirts" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
       <MerchItem
         imageSrc="/merch/clothing-example.png"
         name="T-Shirt"
+        price={25}
+        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
+      />
+    </div>
+    <!-- Hoodies -->
+    <h1 class="text-3xl font-bold pt-10">
+      Our <span class="text-primary">Hoodies</span>
+    </h1>
+    <div id="hoodies" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
+      <MerchItem
+        imageSrc="/merch/clothing-example.png"
+        name="Hoodie"
         price={50}
         quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
       />
     </div>
-  </div>
+    <!-- Sweaters -->
+    <h1 class="text-3xl font-bold pt-10">
+      Our <span class="text-primary">Sweaters</span>
+    </h1>
+    <div id="sweaters" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
+      <MerchItem
+        imageSrc="/merch/clothing-example.png"
+        name="Sweater"
+        price={40}
+        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
+      />
+    </div>
+    <!-- Accessories -->
+    <h1 class="text-3xl font-bold pt-10">
+      Our <span class="text-primary">Accessories</span>
+    </h1>
+    <div id="accessories" class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
+      <MerchItem
+        imageSrc="/merch/clothing-example.png"
+        name="Accessory"
+        price={15}
+        quantities={{ small: 5, medium: 0, large: 10, xlarge: 2 }}
+      />
+    </div>
+  </main>
 </PageLayout>
 
 <!-- <h1>Vintage Merch Store</h1>
