@@ -44,12 +44,12 @@ const categories: {
     <!-- Categories -->
     <div
       id="categories"
-      class="grid md:grid-cols-4 grid-cols-1 md:grid-rows-1 grid-rows-4 mt-6">
+      class="grid md:grid-cols-4 grid-cols-1 md:grid-rows-1 grid-rows-4 mt-6 group">
       {
         categories.map((category, index) => (
           <a
             class={clsx([
-              "relative h-48 md:h-auto overflow-clip",
+              "relative h-48 md:h-auto overflow-clip group-hover:opacity-50 hover:!opacity-100 transition-opacity",
               index === 0 &&
                 "rounded-tl-2xl rounded-tr-2xl md:rounded-tr-none rounded-bl-none md:rounded-bl-2xl overflow-clip",
               index === categories.length - 1 &&
