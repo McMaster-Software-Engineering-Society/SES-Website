@@ -8,6 +8,6 @@ export interface Props {
 const { merchItems } = Astro.props;
 ---
 
-<div class="grid md:grid-cols-4 gap-x-7 gap-y-10 mt-6">
+<div class="grid md:grid-cols-2 gap-x-7 gap-y-10 mt-6">
   {merchItems.map((item) => <MerchListItem item={item} />)}
 </div>
