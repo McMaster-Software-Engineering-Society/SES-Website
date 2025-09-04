@@ -1,5 +1,0 @@
----
-name: "Aaron Loh"
-title: "3rd Year Rep & Events Team"
-level: "3"
----

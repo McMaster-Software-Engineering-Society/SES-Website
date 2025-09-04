@@ -109,6 +109,7 @@ const profileCardCollection = defineCollection({
       .transform((str) => Number(str))
       .optional(),
     description: z.string().optional(),
+    program: z.string().optional(),
     image: z.string().optional(),
     socials: z
       .object({
