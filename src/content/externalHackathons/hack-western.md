@@ -7,4 +7,3 @@ link: "https://www.hackwestern.com/"
 image:
   { src: "/experiences/hackathons/hack-western.svg", alt: "Hack Western logo" }
 ---
-

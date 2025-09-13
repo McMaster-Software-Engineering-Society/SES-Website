@@ -7,4 +7,3 @@ link: "https://hackathon.utra.ca/"
 image:
   { src: "/experiences/hackathons/utra-hacks.webp", alt: "UTRA Hacks logo" }
 ---
-

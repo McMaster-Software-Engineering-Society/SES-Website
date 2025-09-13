@@ -8,7 +8,7 @@ const mcmasterHackathons = (await getCollection("externalHackathons")).sort(
     const ad = a.data.date ? new Date(a.data.date).getTime() : Infinity;
     const bd = b.data.date ? new Date(b.data.date).getTime() : Infinity;
     return ad - bd;
-  }
+  },
 );
 ---
 

@@ -6,4 +6,3 @@ location: "Kingston, Ontario"
 link: "https://qhacks.io/"
 image: { src: "/experiences/hackathons/q-hacks.png", alt: "QHacks logo" }
 ---
-

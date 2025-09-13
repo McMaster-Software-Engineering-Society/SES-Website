@@ -6,4 +6,3 @@ location: "Toronto, Ontario"
 link: "https://newhacks.ca/"
 image: { src: "/experiences/hackathons/new-hacks.svg", alt: "NewHacks logo" }
 ---
-

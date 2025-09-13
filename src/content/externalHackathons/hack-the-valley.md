@@ -10,4 +10,3 @@ image:
     alt: "Hack the Valley logo",
   }
 ---
-
