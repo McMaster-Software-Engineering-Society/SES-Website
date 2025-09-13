@@ -2,8 +2,58 @@
 import MerchList from "@components/merch/merch-list.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import clsx from "clsx";
-// import { fetchMerchData } from "@utils/fetch-merch-data";
-// const merchList = await fetchMerchData();
+import { fetchMerchData } from "@utils/fetch-merch-data";
+
+const normalizeCategory = (c: string | undefined) =>
+  (c || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+
+const csvItems = await fetchMerchData();
+
+type MerchListItemType =
+  import("@components/merch/merch-list-item.astro").MerchItemType;
+
+const toMerchListItem = (
+  item: Awaited<ReturnType<typeof fetchMerchData>>[number],
+  idx: number,
+): MerchListItemType & { category?: string } => ({
+  id: item.id || `${item.name}-${idx}`,
+  imageSrc: item.image || "/merch/clothing-example-expanded.png",
+  name: item.name,
+  price: typeof item.price === "number" ? item.price : 0,
+  quantities: {
+    small: item.sizes.small ?? 0,
+    medium: item.sizes.medium ?? 0,
+    large: item.sizes.large ?? 0,
+    xlarge: item.sizes.xlarge ?? 0,
+  },
+  category: item.category,
+});
+
+const allMerch = csvItems.map(toMerchListItem);
+
+const tshirts = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "tshirts" ||
+    normalizeCategory(m.category) === "tshirt",
+);
+const hoodies = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "hoodies" ||
+    normalizeCategory(m.category) === "hoodie",
+);
+const sweaters = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "sweaters" ||
+    normalizeCategory(m.category) === "sweater",
+);
+const accessories = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "accessories" ||
+    normalizeCategory(m.category) === "accessory",
+);
 
 const categories: {
   title: string;
@@ -70,66 +120,26 @@ const categories: {
         ))
       }
     </div>
-    <!-- T-Shirts -->
     <h1 class="text-3xl font-bold pt-10">
+      <!-- T-Shirts -->
       Our <span class="text-primary">T-Shirts</span>
     </h1>
-    <MerchList
-      merchItems={[
-        {
-          id: "1",
-          imageSrc: "/merch/clothing-example.png",
-          name: "T-Shirt",
-          price: 25,
-          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
-        },
-      ]}
-    />
+    <MerchList merchItems={tshirts} />
     <!-- Hoodies -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Hoodies</span>
     </h1>
-    <MerchList
-      merchItems={[
-        {
-          id: "1",
-          imageSrc: "/merch/clothing-example.png",
-          name: "T-Shirt",
-          price: 25,
-          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
-        },
-      ]}
-    />
+    <MerchList merchItems={hoodies} />
     <!-- Sweaters -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Sweaters</span>
     </h1>
-    <MerchList
-      merchItems={[
-        {
-          id: "1",
-          imageSrc: "/merch/clothing-example.png",
-          name: "Sweater",
-          price: 40,
-          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
-        },
-      ]}
-    />
+    <MerchList merchItems={sweaters} />
     <!-- Accessories -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Accessories</span>
     </h1>
-    <MerchList
-      merchItems={[
-        {
-          id: "1",
-          imageSrc: "/merch/clothing-example.png",
-          name: "Accessory",
-          price: 15,
-          quantities: { small: 5, medium: 0, large: 10, xlarge: 2 },
-        },
-      ]}
-    />
+    <MerchList merchItems={accessories} />
   </main>
 </PageLayout>
 
