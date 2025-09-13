@@ -3,7 +3,13 @@ import { getCollection } from "astro:content";
 
 import HackathonConferenceItem from "../hackathon-conference-item.astro";
 
-const mcmasterHackathons = await getCollection("mcmasterHackathons");
+const mcmasterHackathons = (await getCollection("mcmasterHackathons")).sort(
+  (a, b) => {
+    const ad = a.data.date ? new Date(a.data.date).getTime() : Infinity;
+    const bd = b.data.date ? new Date(b.data.date).getTime() : Infinity;
+    return ad - bd;
+  },
+);
 ---
 
 <div class="flex flex-col gap-y-4">

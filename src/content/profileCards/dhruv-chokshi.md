@@ -1,9 +1,10 @@
 ---
 name: "Dhruv Chokshi"
-title: "Web Developer"
-image: "/about/profile-photos/dhruv-chokshi.jpg"
-level: "2"
-description: "Software Engineering student at McMaster University. "
+title: "VP Events & 3rd Year Rep"
+image: "/about/profile-photos/dhruv-chokshi.png"
+level: "3"
+description: "Software Engineering student at McMaster University."
+program: "SE COOP"
 socials:
   {
     website: "https://www.dhruvchokshi.co",
