@@ -36,6 +36,15 @@ const eventCollection = defineCollection({
         alt: z.string(),
       })
       .optional(),
+    // Optional gallery of images for the event detail page
+    gallery: z
+      .array(
+        z.object({
+          src: z.string(),
+          alt: z.string(),
+        }),
+      )
+      .optional(),
     link: z.string().optional(),
   }),
 });

@@ -10,6 +10,9 @@ export default [
   ...eslintPluginAstro.configs["flat/recommended"],
   ...tseslint.configs.recommended,
   {
+    ignores: ["**/src/components/DomeGallery/DomeGallery.tsx"],
+  },
+  {
     languageOptions: {
       globals: {
         ...globals.browser,

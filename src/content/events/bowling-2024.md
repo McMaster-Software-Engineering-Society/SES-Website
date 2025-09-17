@@ -1,14 +1,10 @@
 ---
-title: "Bowling Night"
-startDateTime: "2024-09-25 18:45"
-endDateTime: "2024-09-25 21:00"
-location: "101 Osler Dr, Dundas"
-googleMapsLink: "https://maps.app.goo.gl/XaaNWFbnNUjoYjBL6"
+title: "Bowling Night 2024"
+startDateTime: "2024-01-01T18:00:00.000Z"
+location: "TBD"
 image:
-  {
-    src: "https://images.unsplash.com/photo-1573509078860-0196070b81dd",
-    alt: "Bowling ball knocking down all 10 bowling pins",
-  }
+  src: "/opengraph.jpg"
+  alt: "Event image placeholder"
 ---
 
-Swap your mouse for a bowling ball 🎳 It’s time to knock down some pins! Tickets are limited so get yours before they’re gone! #bowlingtime 💥
+Coming soon.
