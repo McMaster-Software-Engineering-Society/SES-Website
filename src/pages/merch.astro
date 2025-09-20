@@ -20,7 +20,7 @@ const toMerchListItem = (
   idx: number,
 ): MerchListItemType & { category?: string } => ({
   id: item.id || `${item.name}-${idx}`,
-  imageSrc: item.image || "/merch/clothing-example-expanded.png",
+  imageSrc: item.image || "/merch/clothing-example.png",
   name: item.name,
   price: typeof item.price === "number" ? item.price : 0,
   quantities: {
@@ -39,21 +39,32 @@ const tshirts = allMerch.filter(
     normalizeCategory(m.category) === "tshirts" ||
     normalizeCategory(m.category) === "tshirt",
 );
+
+const tShirtsExist = tshirts.length > 0;
+
 const hoodies = allMerch.filter(
   (m) =>
     normalizeCategory(m.category) === "hoodies" ||
     normalizeCategory(m.category) === "hoodie",
 );
+
+const hoodiesExist = hoodies.length > 0;
+
 const sweaters = allMerch.filter(
   (m) =>
     normalizeCategory(m.category) === "sweaters" ||
     normalizeCategory(m.category) === "sweater",
 );
+
+const sweatersExist = sweaters.length > 0;
+
 const accessories = allMerch.filter(
   (m) =>
     normalizeCategory(m.category) === "accessories" ||
     normalizeCategory(m.category) === "accessory",
 );
+
+const accessoriesExist = accessories.length > 0;
 
 const categories: {
   title: string;
@@ -124,22 +135,25 @@ const categories: {
       <!-- T-Shirts -->
       Our <span class="text-primary">T-Shirts</span>
     </h1>
-    <MerchList merchItems={tshirts} />
+    {tShirtsExist ? (<MerchList merchItems={tshirts} />)
+      : 
+      (<p class="mt-4 text-gray-500">Coming Soon</p>)
+    }
     <!-- Hoodies -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Hoodies</span>
     </h1>
-    <MerchList merchItems={hoodies} />
+    {hoodiesExist ? (<MerchList merchItems={hoodies} />) : (<p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>)}
     <!-- Sweaters -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Sweaters</span>
     </h1>
-    <MerchList merchItems={sweaters} />
+    {sweatersExist ? (<MerchList merchItems={sweaters} />) : (<p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>)}
     <!-- Accessories -->
     <h1 class="text-3xl font-bold pt-10">
       Our <span class="text-primary">Accessories</span>
     </h1>
-    <MerchList merchItems={accessories} />
+    {accessoriesExist ? (<MerchList merchItems={accessories} />) : (<p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>)}
   </main>
 </PageLayout>
 
