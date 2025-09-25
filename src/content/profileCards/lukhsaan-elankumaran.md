@@ -9,5 +9,6 @@ socials:
     linkedin: "https://www.linkedin.com/in/lukhsaan/",
     github: "https://github.com/lukhsaankumar",
     email: "elankuml@mcmaster.ca",
+    website: "https://lukhsaankumar.com",
   }
 ---
