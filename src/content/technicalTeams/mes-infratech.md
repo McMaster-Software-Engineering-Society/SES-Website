@@ -6,8 +6,5 @@ image:
     src: "/experiences/clubs-and-teams/mes-infratech-logo.png",
     alt: "MES Infratech logo",
   }
-socials:
-  {
-    email: "infratech@macengsociety.ca",
-  }
+socials: { email: "infratech@macengsociety.ca" }
 ---
