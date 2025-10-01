@@ -36,7 +36,19 @@ const sizeMapFull = {
 ---
 
 <div class="flex flex-col">
-  <img src={item.imageSrc} class="rounded-2xl" />
+  <div
+    class="relative w-full overflow-hidden rounded-2xl"
+    style="aspect-ratio: 1 / 1;">
+    <img
+      src={item.imageSrc}
+      alt={item.name}
+      width="800"
+      height="800"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  </div>
   <div class="flex flex-col mt-4">
     <p class="font-bold">{item.name}</p>
     <p class="md:hidden block">${item.price}</p>

@@ -20,7 +20,7 @@ const toMerchListItem = (
   idx: number,
 ): MerchListItemType & { category?: string } => ({
   id: item.id || `${item.name}-${idx}`,
-  imageSrc: item.image || "/merch/clothing-example.png",
+  imageSrc: item.image || "/merch/clothing-exampl.png",
   name: item.name,
   price: typeof item.price === "number" ? item.price : 0,
   quantities: {
@@ -33,6 +33,8 @@ const toMerchListItem = (
 });
 
 const allMerch = csvItems.map(toMerchListItem);
+
+const pageBase = Astro.url.pathname;
 
 const tshirts = allMerch.filter(
   (m) =>
@@ -73,22 +75,22 @@ const categories: {
 }[] = [
   {
     title: "T-Shirts",
-    href: "#",
+    href: `${pageBase}#t-shirts`,
     imageSrc: "/merch/clothing-example-expanded.png",
   },
   {
     title: "Hoodies",
-    href: "#",
+    href: `${pageBase}#hoodies`,
     imageSrc: "/merch/clothing-example-expanded.png",
   },
   {
     title: "Sweaters",
-    href: "#",
+    href: `${pageBase}#sweaters`,
     imageSrc: "/merch/clothing-example-expanded.png",
   },
   {
     title: "Accessories",
-    href: "#",
+    href: `${pageBase}#accessories`,
     imageSrc: "/merch/clothing-example-expanded.png",
   },
 ];
@@ -131,55 +133,63 @@ const categories: {
         ))
       }
     </div>
-    <h1 class="text-3xl font-bold pt-10">
-      <!-- T-Shirts -->
-      Our <span class="text-primary">T-Shirts</span>
-    </h1>
-    {tShirtsExist ? (<MerchList merchItems={tshirts} />)
-      : 
-      (<p class="mt-4 text-gray-500">Coming Soon</p>)
-    }
-    <!-- Hoodies -->
-    <h1 class="text-3xl font-bold pt-10">
-      Our <span class="text-primary">Hoodies</span>
-    </h1>
-    {hoodiesExist ? (<MerchList merchItems={hoodies} />) : (<p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>)}
-    <!-- Sweaters -->
-    <h1 class="text-3xl font-bold pt-10">
-      Our <span class="text-primary">Sweaters</span>
-    </h1>
-    {sweatersExist ? (<MerchList merchItems={sweaters} />) : (<p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>)}
-    <!-- Accessories -->
-    <h1 class="text-3xl font-bold pt-10">
-      Our <span class="text-primary">Accessories</span>
-    </h1>
-    {accessoriesExist ? (<MerchList merchItems={accessories} />) : (<p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>)}
+    <section id="t-shirts" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">T-Shirts</span>
+      </h1>
+      {
+        tShirtsExist ? (
+          <MerchList merchItems={tshirts} />
+        ) : (
+          <p class="mt-4 text-gray-500">Coming Soon</p>
+        )
+      }
+    </section>
+
+    <section id="hoodies" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">Hoodies</span>
+      </h1>
+      {
+        hoodiesExist ? (
+          <MerchList merchItems={hoodies} />
+        ) : (
+          <p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>
+        )
+      }
+    </section>
+
+    <section id="sweaters" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">Sweaters</span>
+      </h1>
+      {
+        sweatersExist ? (
+          <MerchList merchItems={sweaters} />
+        ) : (
+          <p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>
+        )
+      }
+    </section>
+
+    <section id="accessories" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">Accessories</span>
+      </h1>
+      {
+        accessoriesExist ? (
+          <MerchList merchItems={accessories} />
+        ) : (
+          <p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>
+        )
+      }
+    </section>
   </main>
 </PageLayout>
 
-<!-- <h1>Vintage Merch Store</h1>
-  <p>Check out our leftover SES merch!</p> -->
-
-<!-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    {
-      merchList.map((item) => (
-        <div class="border p-4 rounded">
-          <img
-            src={`/images/merch/${item.image}`}
-            alt={item.name}
-            class="w-full h-auto"
-          />
-          <h2 class="text-lg font-bold">{item.name}</h2>
-          <p>Available Sizes: {Object.keys(item.sizes).join(", ")}</p>
-          <p>Quantities:</p>
-          <ul>
-            {Object.entries(item.sizes).map(([size, qty]) => (
-              <li>
-                {size}: {qty}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
-  </div> -->
+<style>
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+</style>

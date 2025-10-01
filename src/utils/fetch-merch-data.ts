@@ -101,7 +101,7 @@ export async function fetchMerchData(): Promise<MerchCsvItem[]> {
     });
     // Fallbacks
     if (!item.id) item.id = item.name || JSON.stringify(row);
-    if (!item.image) item.image = "/merch/clothing-example-expanded.png";
+    if (!item.image) item.image = "/merch/clothing-example.png";
     return item;
   });
 }
