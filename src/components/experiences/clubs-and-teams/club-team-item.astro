@@ -10,6 +10,7 @@ import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
 import { FaTiktok } from "@react-icons/all-files/fa6/FaTiktok";
 import { SiLinktree } from "@react-icons/all-files/si/SiLinktree";
 import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
+import ClubTeamModal from "./club-team-modal";
 
 export interface Props {
   name: string;
@@ -47,7 +48,16 @@ const { name, image, description, socials } = Astro.props;
   </div>
   <div class="hackathon-details col-span-4 flex flex-col gap-y-3 py-3 pr-2">
     <div class="flex flex-col gap-y-1">
-      <span class="md:text-xl font-bold line-clamp-1">{name}</span>
+      <div class="flex flex-row items-center justify-between">
+        <span class="md:text-xl font-bold line-clamp-1">{name}</span>
+        <ClubTeamModal
+          client:load
+          name={name}
+          image={image}
+          description={description}
+          socials={socials}
+        />
+      </div>
       <span class="text-sm line-clamp-3">
         {description}
       </span>
@@ -55,7 +65,11 @@ const { name, image, description, socials } = Astro.props;
     <div class="flex flex-row gap-x-2">
       {
         socials?.instagram && (
-          <a href={socials.instagram} class="rounded-full">
+          <a
+            href={socials.instagram}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaInstagram />
             </div>
@@ -64,7 +78,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.twitter && (
-          <a href={socials.twitter} class="rounded-full">
+          <a
+            href={socials.twitter}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaXTwitter />
             </div>
@@ -73,7 +91,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.github && (
-          <a href={socials.github} class="rounded-full">
+          <a
+            href={socials.github}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaGithub />
             </div>
@@ -82,7 +104,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.linkedin && (
-          <a href={socials.linkedin} class="rounded-full">
+          <a
+            href={socials.linkedin}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaLinkedinIn />
             </div>
@@ -91,7 +117,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.website && (
-          <a href={socials.website} class="rounded-full">
+          <a
+            href={socials.website}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <IoGlobeOutline />
             </div>
@@ -110,7 +140,11 @@ const { name, image, description, socials } = Astro.props;
 
       {
         socials?.facebook && (
-          <a href={socials.facebook} class="rounded-full">
+          <a
+            href={socials.facebook}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaFacebook />
             </div>
@@ -119,7 +153,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.youtube && (
-          <a href={socials.youtube} class="rounded-full">
+          <a
+            href={socials.youtube}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaYoutube />
             </div>
@@ -128,7 +166,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.tiktok && (
-          <a href={socials.tiktok} class="rounded-full">
+          <a
+            href={socials.tiktok}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaTiktok />
             </div>
@@ -137,7 +179,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.linktree && (
-          <a href={socials.linktree} class="rounded-full">
+          <a
+            href={socials.linktree}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <SiLinktree />
             </div>
@@ -146,7 +192,11 @@ const { name, image, description, socials } = Astro.props;
       }
       {
         socials?.discord && (
-          <a href={socials.discord} class="rounded-full">
+          <a
+            href={socials.discord}
+            class="rounded-full"
+            target="_blank"
+            rel="noopener">
             <div class="text-slate-200 hover:text-primary text-lg">
               <FaDiscord />
             </div>
