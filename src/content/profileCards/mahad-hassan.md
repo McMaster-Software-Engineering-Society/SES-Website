@@ -10,6 +10,6 @@ socials:
     email: "hassam87@mcmaster.ca",
     github: "https://github.com/mahadhsn",
     website: "https://www.mahadhssn.com/",
-    instagram: "https://www.mahadhssn.com/",
+    instagram: "https://www.instagram.com/mahadhssn",
   }
 ---

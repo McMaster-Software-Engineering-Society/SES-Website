@@ -6,7 +6,7 @@ image: "/about/profile-photos/suzanne-abdullah.jpg"
 program: "SE COOP"
 socials:
   {
-    linkedin: "https://www.linkedin.com/in/akash-thind-861019319/",
+    linkedin: "https://www.linkedin.com/in/suzanne-abdullah",
     email: "abduls61@mcmaster.ca",
   }
 ---
