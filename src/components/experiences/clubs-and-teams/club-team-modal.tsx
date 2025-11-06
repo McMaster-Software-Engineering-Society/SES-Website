@@ -179,7 +179,7 @@ export default function ClubTeamModal({
         onClick={onOpen}
         aria-label="Expand details"
         className="text-slate-200 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 p-0 m-0 leading-none">
-        <FaExpandAlt className="w-5 h-5" />
+        <FaExpandAlt className="w-4 h-4" />
       </button>
 
       <Modal
