@@ -16,7 +16,6 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  Button,
   useDisclosure,
 } from "@nextui-org/react";
 
@@ -174,14 +173,14 @@ export default function ClubTeamModal({
 
   return (
     <>
-      <Button
-        isIconOnly
-        variant="ghost"
-        onPress={onOpen}
-        className="text-slate-200 hover:text-primary min-w-0 w-8 h-8"
-        aria-label="Expand details">
-        <FaExpandAlt />
-      </Button>
+      {/* Flat icon-only trigger with no outline/border */}
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label="Expand details"
+        className="text-slate-200 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 p-0 m-0 leading-none">
+        <FaExpandAlt className="w-5 h-5" />
+      </button>
 
       <Modal
         isOpen={isOpen}
@@ -204,11 +203,12 @@ export default function ClubTeamModal({
               </ModalHeader>
               <ModalBody className="pb-6 bg-slate-950">
                 <div className="flex flex-col gap-6">
-                  <div className="flex flex-row gap-4">
+                  {/* Stack on mobile for more content width; row on sm+ */}
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="rounded-lg w-32 h-32 object-cover flex-shrink-0"
+                      className="rounded-lg object-cover aspect-square flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32"
                     />
                     <div className="flex flex-col gap-3 flex-1">
                       <h3 className="text-lg font-semibold text-white">
