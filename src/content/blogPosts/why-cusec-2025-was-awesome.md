@@ -5,7 +5,7 @@ snippet: "And why you should go to a future one"
 image:
   {
     src: "https://tse1.mm.bing.net/th/id/OIP.XNWZQV071f76Yxs6d8mCJwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
-    alt: "A lecture hall"
+    alt: "A lecture hall",
   }
 publishDate: "2025-11-27"
 category: "Academic Tips"
