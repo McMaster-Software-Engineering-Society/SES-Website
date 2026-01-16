@@ -20,7 +20,7 @@ const toMerchListItem = (
   idx: number,
 ): MerchListItemType & { category?: string } => ({
   id: item.id || `${item.name}-${idx}`,
-  imageSrc: item.image || "/merch/clothing-example.png",
+  imageSrc: item.image!,
   backImageSrc: item.backImage,
   name: item.name,
   price: typeof item.price === "number" ? item.price : 0,

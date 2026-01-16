@@ -21,18 +21,7 @@ export interface Props {
 
 const { item } = Astro.props;
 
-// Determine back image based on front image
-const getBackImage = (frontImage: string): string | null => {
-  if (frontImage.includes("clothing-example.png")) {
-    return "/merch/clothing-back-example.png";
-  }
-  if (frontImage.includes("clothing-example-expanded.png")) {
-    return "/merch/clothing-back-example-expanded.png";
-  }
-  return item.backImageSrc || null;
-};
-
-const backImageSrc = getBackImage(item.imageSrc);
+const backImageSrc = item.backImageSrc;
 const hasBackImage = !!backImageSrc;
 const sanitizedId = item.id.replace(/[^a-zA-Z0-9_-]/g, "-") || "item";
 const flipId = `merch-flip-${sanitizedId}`;
@@ -54,7 +43,7 @@ const sizeMapFull = {
 
 <div class="flex flex-col">
   <div
-    class="merch-image-container relative w-full overflow-hidden rounded-2xl group"
+    class="merch-image-container relative w-full overflow-hidden rounded-2xl group md:cursor-pointer"
     style="aspect-ratio: 1 / 1;">
     {hasBackImage && (
       <input
