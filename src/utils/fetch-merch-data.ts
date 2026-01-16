@@ -4,6 +4,7 @@ export type MerchCsvItem = {
   category?: string;
   price?: number;
   image?: string;
+  backImage?: string;
   sizes: Record<string, number>;
   // Include any other arbitrary columns for flexibility
   [key: string]: unknown;
@@ -45,6 +46,7 @@ export async function fetchMerchData(): Promise<MerchCsvItem[]> {
       category: undefined,
       price: undefined,
       image: undefined,
+      backImage: undefined,
       sizes: {},
     };
     headers.forEach((h) => {
@@ -88,6 +90,15 @@ export async function fetchMerchData(): Promise<MerchCsvItem[]> {
         item.image = raw;
         return;
       }
+      if (
+        !item.backImage &&
+        (normalized === "backimage" ||
+          normalized === "backimageurl" ||
+          normalized === "back")
+      ) {
+        item.backImage = raw;
+        return;
+      }
       // Map size-like columns
       const sizeKey = normalizeSizeKey(h);
       if (sizeKey) {
@@ -102,6 +113,14 @@ export async function fetchMerchData(): Promise<MerchCsvItem[]> {
     // Fallbacks
     if (!item.id) item.id = item.name || JSON.stringify(row);
     if (!item.image) item.image = "/merch/clothing-example.png";
+    // Set back image based on front image if not already set
+    if (!item.backImage) {
+      if (item.image.includes("clothing-example-expanded.png")) {
+        item.backImage = "/merch/clothing-back-example-expanded.png";
+      } else if (item.image.includes("clothing-example.png")) {
+        item.backImage = "/merch/clothing-back-example.png";
+      }
+    }
     return item;
   });
 }
