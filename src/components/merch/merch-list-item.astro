@@ -43,7 +43,7 @@ const sizeMapFull = {
 
 <div class="flex flex-col">
   <div
-    class="merch-image-container relative w-full overflow-hidden rounded-2xl group md:cursor-pointer"
+    class="merch-image-container relative w-full overflow-hidden rounded-2xl group 2xl:cursor-pointer"
     style="aspect-ratio: 1 / 1;">
     {
       hasBackImage && (
@@ -63,7 +63,7 @@ const sizeMapFull = {
       height="800"
       loading="lazy"
       decoding="async"
-      class="merch-front-image absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-300 md:group-hover:opacity-0 peer-checked:opacity-0"
+      class="merch-front-image absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-300 2xl:group-hover:opacity-0 peer-checked:opacity-0"
     />
 
     <!-- Back Image -->
@@ -76,7 +76,7 @@ const sizeMapFull = {
           height="800"
           loading="lazy"
           decoding="async"
-          class="merch-back-image absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 peer-checked:opacity-100"
+          class="merch-back-image absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 2xl:group-hover:opacity-100 peer-checked:opacity-100"
         />
       )
     }
@@ -86,7 +86,7 @@ const sizeMapFull = {
       hasBackImage && (
         <label
           for={flipId}
-          class="flip-button absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 backdrop-blur-sm z-10 cursor-pointer md:hidden"
+          class="flip-button absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 backdrop-blur-sm z-10 cursor-pointer 2xl:hidden"
           role="button"
           aria-label="Toggle alternate merch image">
           <svg
