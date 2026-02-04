@@ -20,11 +20,13 @@ const resolvedImageWithDomain = new URL(
 const { title, variant = "default" } = Astro.props;
 
 const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
+
+const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
 <html lang="en" class="bg-background">
-  <head>
+  <>
     <base href="/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -43,20 +45,24 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
     <meta name="theme-color" content="#0f0e17" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      src="https://www.googletagmanager.com/gtag/js?id=G-976222T4KG"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        // eslint-disable-next-line prefer-rest-params
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+    {isProd && (
+    <>
+      <!-- Google tag (gtag.js) -->
+      <script
+        is:inline
+        src="https://www.googletagmanager.com/gtag/js?id=G-976222T4KG"></script>
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          // eslint-disable-next-line prefer-rest-params
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-      gtag("config", "G-976222T4KG");
-    </script>
+        gtag("config", "G-976222T4KG");
+      </script>
+    </>
+    )}
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
@@ -75,7 +81,7 @@ const makeTitle = title ? title + " | " + "SES" : "McMaster SES";
         },
       }}
     />
-  </head>
+  </>
   <body class="dark">
     <div class="min-h-screen flex flex-col justify-between">
       <div
