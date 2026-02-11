@@ -1,0 +1,195 @@
+---
+import MerchList from "@components/merch/merch-list.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import clsx from "clsx";
+import { fetchMerchData } from "@utils/fetch-merch-data";
+
+const normalizeCategory = (c: string | undefined) =>
+  (c || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+
+const csvItems = await fetchMerchData();
+
+type MerchListItemType =
+  import("@components/merch/merch-list-item.astro").MerchItemType;
+
+const toMerchListItem = (
+  item: Awaited<ReturnType<typeof fetchMerchData>>[number],
+  idx: number,
+): MerchListItemType & { category?: string } => ({
+  id: item.id || `${item.name}-${idx}`,
+  imageSrc: item.image || "/merch/clothing-exampl.png",
+  name: item.name,
+  price: typeof item.price === "number" ? item.price : 0,
+  quantities: {
+    small: item.sizes.small ?? 0,
+    medium: item.sizes.medium ?? 0,
+    large: item.sizes.large ?? 0,
+    xlarge: item.sizes.xlarge ?? 0,
+  },
+  category: item.category,
+});
+
+const allMerch = csvItems.map(toMerchListItem);
+
+const pageBase = Astro.url.pathname;
+
+const tshirts = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "tshirts" ||
+    normalizeCategory(m.category) === "tshirt",
+);
+
+const tShirtsExist = tshirts.length > 0;
+
+const hoodies = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "hoodies" ||
+    normalizeCategory(m.category) === "hoodie",
+);
+
+const hoodiesExist = hoodies.length > 0;
+
+const sweaters = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "sweaters" ||
+    normalizeCategory(m.category) === "sweater",
+);
+
+const sweatersExist = sweaters.length > 0;
+
+const accessories = allMerch.filter(
+  (m) =>
+    normalizeCategory(m.category) === "accessories" ||
+    normalizeCategory(m.category) === "accessory",
+);
+
+const accessoriesExist = accessories.length > 0;
+
+const categories: {
+  title: string;
+  href: string;
+  imageSrc: string;
+}[] = [
+  {
+    title: "T-Shirts",
+    href: `${pageBase}#t-shirts`,
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+  {
+    title: "Hoodies",
+    href: `${pageBase}#hoodies`,
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+  {
+    title: "Sweaters",
+    href: `${pageBase}#sweaters`,
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+  {
+    title: "Accessories",
+    href: `${pageBase}#accessories`,
+    imageSrc: "/merch/clothing-example-expanded.png",
+  },
+];
+---
+
+<PageLayout title="Merch" class="flex flex-col items-center">
+  <h1 class="text-[2.75rem] font-bold pt-10">
+    Vintage <span class="text-primary">Merch</span>
+  </h1>
+  <span class="mt-3 text-center">
+    Check out and buy our leftover SES merch from the past years!
+  </span>
+  <main class="mt-8 w-full flex flex-col items-center">
+    <!-- Categories -->
+    <div
+      id="categories"
+      class="grid md:grid-cols-4 grid-cols-1 md:grid-rows-1 grid-rows-4 mt-6 group">
+      {
+        categories.map((category, index) => (
+          <a
+            class={clsx([
+              "relative h-48 md:h-auto overflow-clip group-hover:opacity-50 hover:!opacity-100 transition-opacity",
+              index === 0 &&
+                "rounded-tl-2xl rounded-tr-2xl md:rounded-tr-none rounded-bl-none md:rounded-bl-2xl overflow-clip",
+              index === categories.length - 1 &&
+                "rounded-br-2xl rounded-bl-2xl md:rounded-bl-none rounded-tr-none md:rounded-tr-2xl overflow-clip",
+            ])}
+            href={category.href}>
+            <img
+              src={category.imageSrc}
+              alt={category.title}
+              class="w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-r md:bg-gradient-to-b from-black/15 to-background opacity-95" />
+            <span class="absolute right-6 md:left-6 bottom-6 drop-shadow uppercase text-sm flex flex-col text-end md:text-start">
+              <p>{category.title}</p>
+              <p class="uppercase text-xs text-primary">VIEW ALL</p>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+    <section id="t-shirts" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">T-Shirts</span>
+      </h1>
+      {
+        tShirtsExist ? (
+          <MerchList merchItems={tshirts} />
+        ) : (
+          <p class="mt-4 text-gray-500">Coming Soon</p>
+        )
+      }
+    </section>
+
+    <section id="hoodies" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">Hoodies</span>
+      </h1>
+      {
+        hoodiesExist ? (
+          <MerchList merchItems={hoodies} />
+        ) : (
+          <p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>
+        )
+      }
+    </section>
+
+    <section id="sweaters" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">Sweaters</span>
+      </h1>
+      {
+        sweatersExist ? (
+          <MerchList merchItems={sweaters} />
+        ) : (
+          <p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>
+        )
+      }
+    </section>
+
+    <section id="accessories" class="scroll-mt-32">
+      <h1 class="text-3xl font-bold pt-10">
+        Our <span class="text-primary">Accessories</span>
+      </h1>
+      {
+        accessoriesExist ? (
+          <MerchList merchItems={accessories} />
+        ) : (
+          <p class="mt-4 text-3xl text-gray-500 underline">Coming Soon</p>
+        )
+      }
+    </section>
+  </main>
+</PageLayout>
+
+<style>
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+</style>

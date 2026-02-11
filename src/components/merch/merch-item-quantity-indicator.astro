@@ -1,0 +1,44 @@
+---
+import clsx from "clsx";
+
+export interface Props {
+  sizeLabel: string;
+  sizeLabelFull: string;
+  quantity: number;
+}
+
+const { sizeLabel, sizeLabelFull, quantity } = Astro.props;
+
+let bgColor = "bg-green-500";
+let bgSecondaryColor = "bg-green-400";
+if (quantity === 0) {
+  bgColor = "bg-red-500";
+  bgSecondaryColor = "bg-red-400";
+} else if (quantity < 5) {
+  bgColor = "bg-yellow-400";
+  bgSecondaryColor = "bg-yellow-300";
+}
+---
+
+<div class="flex flex-row items-center gap-x-2 group relative" tabindex="0">
+  <div>
+    <p class="text-sm block md:hidden capitalize">{sizeLabelFull}</p>
+    <p class="text-sm md:block hidden capitalize">{sizeLabel}</p>
+  </div>
+  <span class="relative flex size-2">
+    <span
+      class={clsx([
+        "absolute inline-flex h-full w-full rounded-full opacity-75",
+        bgSecondaryColor,
+        quantity > 0 && "animate-ping",
+      ])}></span>
+    <span class={"relative inline-flex size-2 rounded-full " + bgColor}></span>
+  </span>
+  {
+    quantity > 0 && (
+      <div class="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-200">
+        {quantity} remaining
+      </div>
+    )
+  }
+</div>
