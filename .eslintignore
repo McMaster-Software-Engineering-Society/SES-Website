@@ -1,0 +1,3 @@
+# Ignore third-party components
+
+src/components/DomeGallery/DomeGallery.tsx

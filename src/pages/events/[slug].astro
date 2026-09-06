@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import { FaRegClock } from "@react-icons/all-files/fa/FaRegClock";
 import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
@@ -7,8 +8,12 @@ import { FaCopy } from "@react-icons/all-files/fa/FaCopy";
 import { FaCalendarAlt } from "@react-icons/all-files/fa/FaCalendarAlt";
 import { FaMapMarkedAlt } from "@react-icons/all-files/fa/FaMapMarkedAlt";
 import { Button } from "@nextui-org/react";
+import DomeGallery from "@components/DomeGallery";
 import AddToCalendarButton from "@components/events/add-to-calendar-button";
 import type { CalendarEvent } from "types/event";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 export async function getStaticPaths() {
   const eventEntries = await getCollection("events");
@@ -18,7 +23,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { event } = Astro.props;
+const { event } = Astro.props as { event: CollectionEntry<"events"> };
 const { Content } = await event.render();
 
 const getEventDuration = (startDateTime: Date, endDateTime: Date) => {
@@ -52,6 +57,57 @@ const calendarEventData: CalendarEvent = {
 
 const customButtonStyle =
   "flex text-sm text-white items-center rounded-xl bg-[#3F3F4666] px-3 py-2 gap-x-2";
+
+// Build gallery input priority:
+// 1) explicit gallery in frontmatter
+// 2) files in public/events/<slug>/ (jpg,jpeg,png,webp,gif)
+// 3) fallback to main image
+let galleryFs: { src: string; alt: string }[] = [];
+try {
+  const slug = event.slug;
+  const eventsPublicDir = fileURLToPath(
+    new URL("../../../public/events", import.meta.url),
+  );
+
+  // Derive candidate directories: exact slug and a version without trailing year segment
+  const baseSlug = (() => {
+    // remove trailing -YYYY or -YYYY-MM or -YYYY-YYYY (date-like)
+    const m = slug.match(/^(.*?)-(\d{4}(?:-\d{1,2})?(?:-\d{1,2})?)$/);
+    return m ? m[1] : slug;
+  })();
+
+  const candidates = Array.from(new Set([slug, baseSlug]));
+  const allowed = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
+
+  for (const c of candidates) {
+    const dir = path.join(eventsPublicDir, c);
+    if (!fs.existsSync(dir)) continue;
+    const files = fs
+      .readdirSync(dir, { withFileTypes: true })
+      .filter((d) => d.isFile())
+      .map((d) => d.name)
+      .filter((n) => allowed.has(path.extname(n).toLowerCase()))
+      .sort();
+    if (files.length) {
+      galleryFs = files.map((fname) => ({
+        src: `/events/${c}/${fname}`,
+        alt: fname.replace(/[-_]/g, " ").replace(/\.[^.]+$/, ""),
+      }));
+      break;
+    }
+  }
+} catch (error) {
+  // Silently handle missing gallery images
+  console.debug("No gallery images found:", error);
+}
+
+const galleryImages = event.data.gallery?.length
+  ? event.data.gallery
+  : galleryFs.length
+    ? galleryFs
+    : event.data.image
+      ? [event.data.image]
+      : [];
 ---
 
 <PageLayout title={event.data.title} class="flex justify-center">
@@ -120,10 +176,14 @@ const customButtonStyle =
 
       <div
         class="shadow-gray-800 h-full sm:w-2/3 lg:w-full flex lg:justify-end">
-        <img
-          src={event.data.image?.src}
-          class="rounded-lg lg:max-h-64 max-h-96"
-        />
+        {
+          event.data.image?.src ? (
+            <img
+              src={event.data.image.src}
+              class="rounded-lg lg:max-h-64 max-h-96"
+            />
+          ) : null
+        }
       </div>
     </section>
 
@@ -133,24 +193,32 @@ const customButtonStyle =
       <p><Content /></p>
     </section>
 
+    {
+      galleryImages.length > 0 ? (
+        <section id="event-gallery" class="w-full">
+          <div class="w-full h-[28rem] md:h-[36rem]">
+            <DomeGallery
+              client:load
+              images={galleryImages}
+              segments={22}
+              fit={0.62}
+              grayscale={false}
+            />
+          </div>
+          <noscript>
+            {event.data.image?.src ? (
+              <img
+                src={event.data.image.src}
+                class="rounded-lg lg:max-h-64 max-h-96"
+              />
+            ) : null}
+          </noscript>
+        </section>
+      ) : null
+    }
+
     <section id="event-footer">
       <a href="/events/"><Button variant="bordered">← Back</Button></a>
     </section>
   </div>
-
-  <script>
-    document
-      .getElementById("share-button")
-      ?.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          const shareDisplay = document.getElementById("share-display");
-          if (shareDisplay) {
-            shareDisplay.textContent = "Link copied!";
-          }
-        } catch (err) {
-          console.error("Failed to copy to clipboard: ", err);
-        }
-      });
-  </script>
 </PageLayout>
