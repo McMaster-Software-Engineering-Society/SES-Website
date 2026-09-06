@@ -19,7 +19,7 @@ However, if you're like me and prefer to use Google Calendar, you might be wonde
 
 ## How to copy your timetable to Google Calendar
 
-1. Go to the [mac2cal](https://mac2cal.com/) website
+1. Go to the [mac2cal](https://mc-master-calendar-exporter.vercel.app/) website
 
 2. In step 1, click the "Log into Google" button to give the tool permission to access your Google Calendar
 
